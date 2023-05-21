@@ -89,7 +89,7 @@ My choice of status bar is Polybar, which allows for extensive, and easy customi
 
 I used the default Polybar theme as a base, and changed its color scheme, icons and overall aesthetics of it to better align with my desktop.
 
-![Polybar Screenshot](https://i.imgur.com/Ssgth0y.png)
+![Polybar Screenshot](https://i.imgur.com/D9P9RIs.png)
 
 ## Wezterm
 Ever since I discovered WezTerm I couldn't turn back. It offers an amazing experience and has never let me down.
