@@ -1,0 +1,9 @@
+configuration {
+	modi: "drun,window,ssh,emoji";
+	show-icons: true;
+	me-select-entry: "MousePrimary";
+	me-accept-entry: "!MousePrimary";
+	terminal: "/usr/bin/wezterm start --cwd %F";
+}
+
+@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
