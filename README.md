@@ -122,9 +122,9 @@ Plugins:
 ## Dunst
 As for my notification daemon, I use dunst because of it's simplicity and ease of customizability. 
 
-My current configuration is based on [a-schaefers](https://github.com/a-schaefers/i3-wm-gruvbox-theme/blob/master/dunst/dunstrc) config, but I changed the font to `JetBrains Mono Nerd`. I also do have plans to customize it further.
+My Dunst configuration uses; `JetBrains Mono Nerd` font and `Win11-dark` icons. I have also adjusted the color scheme of Dunst to better match my desktop aesthetics.
 
-![Dunst Screenshot](https://i.imgur.com/AuHO9zQ.png)
+![Dunst Screenshot](https://i.imgur.com/SH5TUHu.png)
 
 ## Themes
 
@@ -137,5 +137,5 @@ My current configuration is based on [a-schaefers](https://github.com/a-schaefer
 
 ## Screenshots
 
-![Desktop Screenshot](https://i.imgur.com/1HnOa4B.png)
-![Desktop Screenshot-2](https://i.imgur.com/NKJcrCB.png)
+![Desktop Screenshot](https://i.imgur.com/PCS8N8G.png)
+![Desktop Screenshot-2](https://i.imgur.com/UeuC1ou.png)
