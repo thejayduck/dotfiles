@@ -7,6 +7,7 @@ Each section includes details on the packages, plugins, and customizations.
 
 ## Table of Contents
 * [Packages](#base-packages)
+  * [Installation (paru, yay, pacman)](#installation-paru-yay-pacman)
 * [LeftWM](#leftwm)
 * [Polybar](#polybar)
 * [WezTerm](#wezterm)
@@ -38,6 +39,17 @@ Each section includes details on the packages, plugins, and customizations.
 |[Font Awesome 6 (aur)](https://archlinux.org/packages/extra/any/ttf-font-awesome/)|Tag Icons, Volume Ramp, Brightness Ramp, Clock, Filesystem, Battery Ramp|[Polybar](#polybar)|
 |[JetBrains Mono Nerd (aur)](https://archlinux.org/packages/extra/any/ttf-jetbrains-mono-nerd/)|Used in [Dunst](#dunst) and [WezTerm](#wezterm)|[Dunst](#dunst), [WezTerm](#wezterm)|
 |[JetBrains Mono (aur)](https://archlinux.org/packages/extra/any/ttf-jetbrains-mono/)|Backup Font|None|
+
+### Installation (paru, yay, pacman)
+```
+paru -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-git ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono
+```
+```
+yay -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-git ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono
+```
+```
+sudo pacman -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-git ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono
+```
 
 ## LeftWM
 I use LeftWM as my window manager, because not only is it fast and light-weight, it is also highly configurable.
