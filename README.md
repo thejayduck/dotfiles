@@ -28,7 +28,7 @@ Each section includes details on the packages, plugins, and customizations.
 |[Polybar (github)](https://github.com/polybar/polybar/)|Status Bar|
 |[Wezterm (github)](https://github.com/wez/wezterm)|Terminal|
 |[Zsh (github)](https://www.zsh.org/)|Shell|
-|[Picom (github)](https://github.com/yshui/picom)|Compositor for Window Manager|
+|[Picom (github)](https://github.com/yshui/picom)|Compositor|
 |[Rofi (github)](https://github.com/davatorium/rofi)|Application Launcher|
 |[Dunst (github)](https://github.com/dunst-project/dunst/)|Notification Daemon|
 
@@ -42,13 +42,13 @@ Each section includes details on the packages, plugins, and customizations.
 
 ### Installation (paru, yay, pacman)
 ```
-paru -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-git ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono
+paru -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-git ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono exa bat ripgrep rofi-greenclip rofi-emoji zsh-theme-powerlevel10k
 ```
 ```
-yay -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-git ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono
+yay -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-git ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono exa bat ripgrep rofi-greenclip rofi-emoji zsh-theme-powerlevel10k
 ```
 ```
-sudo pacman -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-git ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono
+sudo pacman -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-git ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono exa bat ripgrep rofi-greenclip rofi-emoji zsh-theme-powerlevel10k
 ```
 
 ## LeftWM
