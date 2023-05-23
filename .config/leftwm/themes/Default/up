@@ -1,6 +1,5 @@
 #!/bin/bash
 export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
-export QT_QPA_PLATFORMTHEME="qt6ct"
 
 #down the last running theme
 if [ -f "/tmp/leftwm-theme-down" ]; then
@@ -16,9 +15,13 @@ fi
 #set the theme.toml config
 leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
 
-~/.fehbg &
+if [ -x "$(command -v dunst)" ]; then
+  dunst &
+fi
+
+$HOME/.fehbg &
+greenclip daemon &
 xscreensaver --no-splash &
-dunst &
 flameshot &
 
 index=0
