@@ -68,10 +68,11 @@ I have configured my LeftWM shortcuts to be easily operated with a single hand, 
 | Mod + E | File Explorer (PcManFM-Qt) |
 | Mod + Space | Rofi (drun, window, ssh, emoji) |
 | Mod + V | Rofi (Greenclip) |
+| Mod + X | Rofi (Powermenu) |
 | Mod + Shift + T | Terminal (WezTerm) |
 | Mod + Control + L | Screensaver (XScreenSaver) |
-| Mod + Left | Layout (Wide Left) |
-| Mod + Right | Layout (Wide Right) |
+| Mod + A | Increase Window Width |
+| Mod + D | Decrease Window Width |
 
 #### Tag Shortcuts
 | Shortcut | Tag |
@@ -91,9 +92,10 @@ I have configured my LeftWM shortcuts to be easily operated with a single hand, 
 |Lutris (title)|Spawn on Tag 5, Floating|
 |Godot (title)|Floating|
 |Zoom (class)|Floating|
+|Brave Browser (class)|Floating|
 
 ### Window Layouts
-I have disabled the majority of the window layouts, and only use `Fibonacci`, `EvenHorizontal`, `RightWiderLeftStack` (shortcut), `LeftWiderRightStack` (shortcut).
+I have disabled the majority of the window layouts, and only use `Fibonacci`, `EvenHorizontal`.
 
 ## Polybar
 
@@ -106,7 +108,7 @@ I used the default Polybar theme as a base, and changed its color scheme, icons 
 ## Wezterm
 Ever since I discovered WezTerm I couldn't turn back. It offers an amazing experience and has never let me down.
 
-My WezTerm configuration is pretty much same with the exception of `Gruvbox dark, medium (base16)` theme and `JetBrains Mono Nerd Font` font.
+My WezTerm configuration is pretty much default with the exception of `Gruvbox dark, medium (base16)` theme and `JetBrains Mono Nerd Font` font.
 
 ## Zsh
 Zsh is my preferred shell, it is powerful, has a enourmous list of extensions, and overall offers a better experience than Bash. I use the following plugins in my Zsh.
@@ -130,6 +132,7 @@ Rofi is an essential part for my setup, I use it as my application launcher and 
 Plugins:
 - [Greenclip (github)](https://github.com/erebe/greenclip): Clipboard
 - [Rofi-Emoji (github)](https://github.com/Mange/rofi-emoji): Emoji Picker
+- [Rofi Power Menu Mode (github)](https://github.com/jluttine/rofi-power-menu): Power Menu
 
 ## Dunst
 As for my notification daemon, I use dunst because of it's simplicity and ease of customizability. 
