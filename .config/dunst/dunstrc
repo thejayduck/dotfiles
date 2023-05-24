@@ -161,7 +161,7 @@
     icon_position = left
 
     min_icon_size = 22
-    max_icon_size = 128
+    max_icon_size = 48
 
     icon_path = $HOME/.icons/Win11-dark/status/16:$HOME/.icons/Win11-dark/devices/16:$HOME/.icons/Win11-dark/actions/16
 
