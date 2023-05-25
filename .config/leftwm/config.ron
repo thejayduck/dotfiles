@@ -112,7 +112,7 @@
         (command: Execute, value: "pcmanfm-qt", modifier: ["modkey"], key: "e"),
         (command: Execute, value: "rofi -show drun", modifier: ["modkey"], key: "space"),
         (command: Execute, value: "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'", modifier: ["modkey"], key: "v"),
-        (command: Execute, value: "rofi -show power-menu -modi power-menu:~/.config/leftwm/themes/current/rofi/rofi-power-menu", modifier: ["modkey"], key: "x"),
+        (command: Execute, value: "rofi -show power-menu -modi power-menu:~/.config/leftwm/themes/current/scripts/rofi-power-menu", modifier: ["modkey"], key: "x"),
         (command: Execute, value: "wezterm", modifier: ["modkey", "Shift"], key: "t"),
         (command: Execute, value: "xscreensaver-command -lock", modifier: ["modkey", "Control"], key: "l"),
         

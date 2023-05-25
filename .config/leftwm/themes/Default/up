@@ -20,6 +20,7 @@ if [ -x "$(command -v dunst)" ]; then
 fi
 
 $HOME/.fehbg &
+$SCRIPTPATH/scripts/bismuth &
 greenclip daemon &
 xscreensaver --no-splash &
 flameshot &
