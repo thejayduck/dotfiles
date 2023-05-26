@@ -60,39 +60,39 @@ I have configured my LeftWM shortcuts to be easily operated with a single hand, 
 **Mod Key = Super/Windows Key**
 
 #### General Shortcuts
-| Shortcut | Description |
-| -------- | ----------- |
-| Mod + Shift + S | Flameshot (gui) |
-| Mod + Shift + F | Disable Floating |
-| Mod + F | Toggle Fullscreen |
-| Mod + E | File Explorer (PcManFM-Qt) |
-| Mod + Space | Rofi (drun, window, ssh, emoji) |
-| Mod + V | Rofi (Greenclip) |
-| Mod + X | Rofi (Powermenu) |
-| Mod + Shift + T | Terminal (WezTerm) |
-| Mod + Control + L | Screensaver (XScreenSaver) |
-| Mod + A | Increase Window Width |
-| Mod + D | Decrease Window Width |
+| Shortcut          | Description                         |
+|-------------------|-------------------------------------|
+| Mod + Shift + S   | Flameshot (gui)                     |
+| Mod + Shift + F   | Disable Floating                    |
+| Mod + F           | Toggle Fullscreen                   |
+| Mod + E           | File Explorer (PcManFM-Qt)          |
+| Mod + Space       | Rofi (drun, window, ssh, emoji)     |
+| Mod + V           | Rofi (Greenclip)                    |
+| Mod + X           | Rofi (Powermenu)                    |
+| Mod + Shift + T   | Terminal (WezTerm)                  |
+| Mod + Control + L | Screensaver (XScreenSaver)          |
+| Mod + A           | Increase Window Width               |
+| Mod + D           | Decrease Window Width               |
 
 #### Tag Shortcuts
-| Shortcut | Tag |
-| -------- | --- |
+|Shortcut |Tag           |
+|---------|--------------|
 | Mod + Z | [1] Terminal |
-| Mod + 1 | [2] VSCode |
-| Mod + 2 | [3] Misc. |
-| Mod + 3 | [4] Browser |
-| Mod + 4 | [5] Games |
-| Mod + 5 | [6] Discord |
+| Mod + 1 | [2] VSCode   |
+| Mod + 2 | [3] Misc.    |
+| Mod + 3 | [4] Browser  |
+| Mod + 4 | [5] Games    |
+| Mod + 5 | [6] Discord  |
 
 ### Window Rules
-|Window|Rule|
-|------|----|
-|Discord (class)| Spawn on Tag 6|
-|Steam (class)|Spawn on Tag 5, Floating|
-|Lutris (title)|Spawn on Tag 5, Floating|
-|Godot (title)|Floating|
-|Zoom (class)|Floating|
-|Brave Browser (class)|Floating|
+|Window               |Rule                    |
+|---------------------|------------------------|
+|Discord (class)      | Spawn on Tag 6         |
+|Steam (class)        |Spawn on Tag 5, Floating|
+|Lutris (title)       |Spawn on Tag 5, Floating|
+|Godot (title)        |Floating                |
+|Zoom (class)         |Floating                |
+|Brave Browser (class)|Floating                |
 
 ### Window Layouts
 I have disabled the majority of the window layouts, and only use `Fibonacci`, `EvenHorizontal`.
@@ -132,7 +132,8 @@ Rofi is an essential part for my setup, I use it as my application launcher and 
 Plugins:
 - [Greenclip (github)](https://github.com/erebe/greenclip): Clipboard
 - [Rofi-Emoji (github)](https://github.com/Mange/rofi-emoji): Emoji Picker
-- [Rofi Power Menu Mode (github)](https://github.com/jluttine/rofi-power-menu): Power Menu
+
+I also use [rust-power-menu](https://github.com/thejayduck/rust-power-menu), a script that I created.
 
 ## Dunst
 As for my notification daemon, I use dunst because of it's simplicity and ease of customizability. 
@@ -143,12 +144,12 @@ My Dunst configuration uses; `JetBrains Mono Nerd` font and `Win11-dark` icons. 
 
 ## Themes
 
-|Type|Theme|
-|----|-----|
-|Qt|[Gruvbox Dark Blue (github)](https://github.com/sachnr/gruvbox-kvantum-themes) (Kvantum)|
-|GTK|[Gruvbox Material Dark (github)](https://github.com/TheGreatMcPain/gruvbox-material-gtk)|
-|Cursor|[Capitaine Cursors (github)](https://github.com/sainnhe/capitaine-cursors) (Gruvbox)|
-|Icons|[Win11-dark (github)](https://github.com/yeyushengfan258/Win11-icon-theme)|
+|Type  |Theme                                                                                   |
+|------|----------------------------------------------------------------------------------------|
+|Qt    |[Gruvbox Dark Blue (github)](https://github.com/sachnr/gruvbox-kvantum-themes) (Kvantum)|
+|GTK   |[Gruvbox Material Dark (github)](https://github.com/TheGreatMcPain/gruvbox-material-gtk)|
+|Cursor|[Capitaine Cursors (github)](https://github.com/sainnhe/capitaine-cursors) (Gruvbox)    |
+|Icons |[Win11-dark (github)](https://github.com/yeyushengfan258/Win11-icon-theme)              |
 
 ## Screenshots
 
