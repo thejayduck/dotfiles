@@ -1,5 +1,5 @@
 configuration {
-	modi: "drun,window,ssh,emoji";
+	modi: "drun,ssh,emoji";
 	show-icons: true;
 	me-select-entry: "MousePrimary";
 	me-accept-entry: "!MousePrimary";

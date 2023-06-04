@@ -1,0 +1,158 @@
+{
+    "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 40, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "wlr/workspaces"
+        // "sway/mode",
+        // "sway/scratchpad",
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "idle_inhibitor",
+        "custom/separator",
+        "pulseaudio",
+        "custom/separator",
+        "backlight",
+        "custom/separator",
+        "battery",
+        "custom/separator",
+        "clock",
+        "custom/separator",
+        "disk",
+        "tray"
+    ],
+    // Modules configuration
+    "wlr/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "format": "{name}: {icon}",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "on-click": "activate",
+        "format-icons": {
+            "1": "󱃷", // Terminal
+            "2": "", // VSCode
+            "3": "", // Random
+            "4": "", // Browser
+            "5": "", // Games
+            "6": "", // Discord
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": []
+        }
+    },
+    "disk": {
+        "interval": 60,
+        "format": "{percentage_used}% ",
+        "path": "/home"
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": [
+            "",
+            ""
+        ],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M} ",
+        "format-alt": "{:%d/%m/%Y} "
+    },
+    "backlight": {
+        "on-scroll-up": "xbacklight -inc 5",
+        "on-scroll-down": "xbacklight -dec 5",
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        "format-full": "",
+        "format-icons": [
+            "󰁻",
+            "󰁽",
+            "󰁿",
+            "󰂁",
+            "󰁹"
+        ]
+    },
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " ",
+        "format-source-muted": " ",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "amixer sset 'Master' toggle",
+        "on-click-right": "amixer set Capture toggle",
+        "on-click-middle": "pavucontrol"
+    },
+    "custom/separator": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    }
+}

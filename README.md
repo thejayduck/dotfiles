@@ -7,12 +7,14 @@ Each section includes details on the packages, plugins, and customizations.
 
 ## Table of Contents
 * [Packages](#base-packages)
-  * [Installation (paru, yay, pacman)](#installation-paru-yay-pacman)
+  * [Installation (paru)](#installation-paru)
 * [LeftWM](#leftwm)
-* [Polybar](#polybar)
+  * [Polybar](#polybar)
+  * [Picom](#picom)
+* [Hyprland](#hyprland)
+  * [Waybar](#waybar)
 * [WezTerm](#wezterm)
 * [Zsh](#zsh)
-* [Picom](#picom)
 * [Rofi](#rofi)
 * [Dunst](#dunst)
 * [Themes](#themes)
@@ -40,15 +42,14 @@ Each section includes details on the packages, plugins, and customizations.
 |[JetBrains Mono Nerd (aur)](https://archlinux.org/packages/extra/any/ttf-jetbrains-mono-nerd/)|Used in [Dunst](#dunst) and [WezTerm](#wezterm)|[Dunst](#dunst), [WezTerm](#wezterm)|
 |[JetBrains Mono (aur)](https://archlinux.org/packages/extra/any/ttf-jetbrains-mono/)|Backup Font|None|
 
-### Installation (paru, yay, pacman)
+### Installation (paru)
+#### LeftWM Requirements
 ```
 paru -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-git ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono exa bat ripgrep rofi-greenclip rofi-emoji zsh-theme-powerlevel10k
 ```
+#### Hyprland Requirements
 ```
-yay -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-git ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono exa bat ripgrep rofi-greenclip rofi-emoji zsh-theme-powerlevel10k
-```
-```
-sudo pacman -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-git ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono exa bat ripgrep rofi-greenclip rofi-emoji zsh-theme-powerlevel10k
+paru -S hyprland waybar-hyprland wezterm zsh rofi dunst otf-font-awesome ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono exa bat ripgrep cliphist  rofi-emoji zsh-theme-powerlevel10k grim slurp
 ```
 
 ## LeftWM
@@ -66,7 +67,7 @@ I have configured my LeftWM shortcuts to be easily operated with a single hand, 
 | Mod + Shift + F   | Disable Floating                    |
 | Mod + F           | Toggle Fullscreen                   |
 | Mod + E           | File Explorer (PcManFM-Qt)          |
-| Mod + Space       | Rofi (drun, window, ssh, emoji)     |
+| Mod + Space       | Rofi (drun, ssh, emoji)             |
 | Mod + V           | Rofi (Greenclip)                    |
 | Mod + X           | Rofi (Powermenu)                    |
 | Mod + Shift + T   | Terminal (WezTerm)                  |
@@ -105,6 +106,42 @@ I used the default Polybar theme as a base, and changed its color scheme, icons 
 
 ![Polybar Screenshot](https://i.imgur.com/D9P9RIs.png)
 
+### Picom
+In my Picom configuration, I have made several adjustments to achieve a specific visual style. I have disabled blurs, shadows, and translucent windows. By removing these effects, I aim to create a clean and minimalistic and non-distracting appearance for my desktop.
+
+## Hyprland
+I tried my best to keep the appearance and shortcuts of Hyprland with my LeftWM setup.
+
+### Shortcuts
+I have configured my LeftWM shortcuts to be easily operated with a single hand, providing a convenient and efficient workflow.
+
+**Mod Key = Super/Windows Key**
+
+#### General Shortcuts
+| Shortcut          | Description                         |
+|-------------------|-------------------------------------|
+| Mod + Shift + S   | grim (with slurp)                   |
+| Mod + Shift + F   | Disable Floating                    |
+| Mod + F           | Toggle Fullscreen                   |
+| Mod + E           | File Explorer (PcManFM-Qt)          |
+| Mod + Space       | Rofi (drun, ssh, emoji)             |
+| Mod + V           | Rofi (cliphist)                     |
+| Mod + Shift + T   | Terminal (WezTerm)                  |
+| Mod + Control + L | Screensaver (Swaylock)              |
+
+#### Workspace Shortcuts
+|Shortcut |Tag           |
+|---------|--------------|
+| Mod + Z | [1] Terminal |
+| Mod + 1 | [2] VSCode   |
+| Mod + 2 | [3] Misc.    |
+| Mod + 3 | [4] Browser  |
+| Mod + 4 | [5] Games    |
+| Mod + 5 | [6] Discord  |
+
+### Waybar
+Similar to how I configured my Hyprland, I tried my best to replicate my Polybar setup on Waybar as well. The configuration is still work in progress.
+
 ## Wezterm
 Ever since I discovered WezTerm I couldn't turn back. It offers an amazing experience and has never let me down.
 
@@ -121,10 +158,6 @@ Aliases:
 - ls -> exa [(aur)](https://archlinux.org/packages/extra/x86_64/exa/)
 - cat -> bat [(aur)](https://archlinux.org/packages/extra/x86_64/bat/)
 - grep -> ripgrep [(aur)](https://archlinux.org/packages/extra/x86_64/ripgrep/)
-
-
-## Picom
-In my Picom configuration, I have made several adjustments to achieve a specific visual style. I have disabled blurs, shadows, and translucent windows. By removing these effects, I aim to create a clean and minimalistic and non-distracting appearance for my desktop.
 
 ## Rofi
 Rofi is an essential part for my setup, I use it as my application launcher and clipboard. Rofi provides a versatile and enhanced functionality to my workflow. I utilize the following plugins with Rofi:
@@ -153,5 +186,5 @@ My Dunst configuration uses; `JetBrains Mono Nerd` font and `Win11-dark` icons. 
 
 ## Screenshots
 
-![Desktop Screenshot](https://i.imgur.com/PCS8N8G.png)
-![Desktop Screenshot-2](https://i.imgur.com/UeuC1ou.png)
+![LeftWM Screenshot](https://i.imgur.com/PCS8N8G.png)
+![LeftWM Screenshot-2](https://i.imgur.com/UeuC1ou.png)
