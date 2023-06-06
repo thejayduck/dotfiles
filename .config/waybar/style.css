@@ -7,7 +7,7 @@
         sans-serif,
         "Font Awesome 6 Free";
     font-size: 16px;
-    color: #ebdbb2;
+    /* color: #ebdbb2; */
     border-radius: 0;
     /* --color-primary: #b8b892;
     --color-seconday: #8abeb7;
@@ -22,6 +22,10 @@ window#waybar {
     background-color: #282828;
     transition-property: background-color;
     transition-duration: .5s;
+}
+
+window#waybar > box {
+    box-shadow: 4px 4px 2px 1px #101010;
 }
 
 tooltip {
@@ -41,12 +45,12 @@ button:hover {
 }
 
 #workspaces button label {
-    font-size: 18px;
-    min-width: 30px;
+    /* font-size: 18px; */
+    /* min-width: 30px; */
+    margin: 0 4px;
 }
 
 #workspaces button {
-    margin: 0 2px;
     background-color: transparent;
     color: #707880;
 }
@@ -78,12 +82,16 @@ button:hover {
 #backlight,
 #network,
 #pulseaudio,
-#tray,
 #mode,
 #idle_inhibitor,
 #scratchpad {
     padding: 0 5px;
     margin: 0 5px;
+}
+
+#tray {
+    margin: 0; 
+    padding: 0 10px;
 }
 
 #custom-separator {

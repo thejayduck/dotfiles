@@ -113,7 +113,6 @@ In my Picom configuration, I have made several adjustments to achieve a specific
 I tried my best to keep the appearance and shortcuts of Hyprland with my LeftWM setup.
 
 ### Shortcuts
-I have configured my LeftWM shortcuts to be easily operated with a single hand, providing a convenient and efficient workflow.
 
 **Mod Key = Super/Windows Key**
 
@@ -140,7 +139,7 @@ I have configured my LeftWM shortcuts to be easily operated with a single hand, 
 | Mod + 5 | [6] Discord  |
 
 ### Waybar
-Similar to how I configured my Hyprland, I tried my best to replicate my Polybar setup on Waybar as well. The configuration is still work in progress.
+I tried my best to replicate my Polybar setup on Waybar as well. But the configuration is still `work in progress`.
 
 ## Wezterm
 Ever since I discovered WezTerm I couldn't turn back. It offers an amazing experience and has never let me down.

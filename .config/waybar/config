@@ -14,8 +14,6 @@
         "hyprland/window"
     ],
     "modules-right": [
-        "idle_inhibitor",
-        "custom/separator",
         "pulseaudio",
         "custom/separator",
         "backlight",
@@ -30,29 +28,21 @@
     // Modules configuration
     "wlr/workspaces": {
         "disable-scroll": false,
-        "all-outputs": true,
-        "format": "{name}: {icon}",
+        "all-outputs": false,
+        "format": "[{name}] {icon}",
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",
         "on-click": "activate",
         "format-icons": {
-            "1": "󱃷", // Terminal
+            "1": "", // Terminal
             "2": "", // VSCode
             "3": "", // Random
-            "4": "", // Browser
+            "4": "", // Browser
             "5": "", // Games
             "6": "", // Discord
             "urgent": "",
             "focused": "",
             "default": ""
-        },
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": []
         }
     },
     "disk": {
