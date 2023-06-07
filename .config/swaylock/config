@@ -15,5 +15,5 @@ text-color=#ebdbb2
 effect-pixelate=5
 timestr=%H:%M:%S
 datestr=%d/%m/%Y
-grace=2
+grace=10
 fade-in=0.2
