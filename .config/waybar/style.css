@@ -23,11 +23,6 @@ window#waybar {
     transition-property: background-color;
     transition-duration: .5s;
 }
-
-window#waybar > box {
-    box-shadow: 4px 4px 2px 1px #101010;
-}
-
 tooltip {
     background: #504945;
     border: 1px solid #ebdbb2;
@@ -83,7 +78,6 @@ button:hover {
 #network,
 #pulseaudio,
 #mode,
-#idle_inhibitor,
 #scratchpad {
     padding: 0 5px;
     margin: 0 5px;

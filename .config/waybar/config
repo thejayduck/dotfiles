@@ -27,48 +27,35 @@
     ],
     // Modules configuration
     "wlr/workspaces": {
-        "disable-scroll": false,
         "all-outputs": false,
         "format": "{icon}",
-        "on-scroll-up": "hyprctl dispatch workspace e-1",
-        "on-scroll-down": "hyprctl dispatch workspace e+1",
-        "on-click": "activate",
+        // "on-scroll-up": "hyprctl dispatch workspace e-1",
+        // "on-scroll-down": "hyprctl dispatch workspace e+1",
+        // "on-click": "activate",
         "format-icons": {
-            "1": "[Z] ", // Terminal
-            "2": "[1] ", // VSCode
-            "3": "[2] ", // Random
-            "4": "[3] ", // Browser
-            "5": "[4] ", // Games
-            "6": "[5] ", // Discord
+            "1": "", // Terminal
+            "2": "", // VSCode
+            "3": "", // Random
+            "4": "", // Browser
+            "5": "", // Discord
+            "6": "", // Games
             "urgent": "",
             "focused": "",
             "default": ""
+        },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": []
         }
     },
     "disk": {
         "interval": 60,
         "format": "{percentage_used}% ",
         "path": "/home"
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": [
-            "",
-            ""
-        ],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
     },
     "tray": {
         "icon-size": 21,
@@ -77,7 +64,7 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%H:%M} ",
-        "format-alt": "{:%d/%m/%Y} "
+        "format-alt": "{:%d/%m/%Y} "
     },
     "backlight": {
         "on-scroll-up": "xbacklight -inc 5",
