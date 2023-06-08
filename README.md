@@ -49,7 +49,7 @@ paru -S leftwm polybar wezterm zsh picom rofi dunst ttf-material-design-icons-gi
 ```
 #### Hyprland Requirements
 ```
-paru -S hyprland waybar-hyprland wezterm zsh rofi dunst otf-font-awesome ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono exa bat ripgrep cliphist  rofi-emoji zsh-theme-powerlevel10k grim slurp
+paru -S hyprland waybar-hyprland wezterm zsh rofi dunst otf-font-awesome ttf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono exa bat ripgrep cliphist rofi-emoji zsh-theme-powerlevel10k grim slurp hyprpicker swaylock-effects
 ```
 
 ## LeftWM
@@ -119,14 +119,15 @@ I tried my best to keep the appearance and shortcuts of Hyprland with my LeftWM 
 #### General Shortcuts
 | Shortcut          | Description                         |
 |-------------------|-------------------------------------|
-| Mod + Shift + S   | grim (with slurp)                   |
+| Mod + Shift + S   | Screenshot (grim with slurp)        |
+| Mod + Shift + C   | Hyprpicker                          |
 | Mod + Shift + F   | Disable Floating                    |
 | Mod + F           | Toggle Fullscreen                   |
 | Mod + E           | File Explorer (PcManFM-Qt)          |
 | Mod + Space       | Rofi (drun, ssh, emoji)             |
 | Mod + V           | Rofi (cliphist)                     |
 | Mod + Shift + T   | Terminal (WezTerm)                  |
-| Mod + Control + L | Screensaver (Swaylock)              |
+| Mod + Control + L | Screensaver (Swaylock Effects)      |
 
 #### Workspace Shortcuts
 |Shortcut |Tag           |
