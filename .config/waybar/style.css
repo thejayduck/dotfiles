@@ -31,6 +31,9 @@ tooltip {
 button {
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
+
+    transition: 0.2s;
+    transition-timing-function: ease-in;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
