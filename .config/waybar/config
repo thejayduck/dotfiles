@@ -6,7 +6,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "wlr/workspaces"
+        "hyprland/workspaces"
         // "sway/mode",
         // "sway/scratchpad",
     ],
@@ -15,19 +15,16 @@
     ],
     "modules-right": [
         "pulseaudio",
-        "custom/separator",
         "backlight",
-        "custom/separator",
         "battery",
-        "custom/separator",
         "clock",
-        "custom/separator",
         "disk",
+    	"idle_inhibitor",
         "tray"
     ],
     // Modules configuration
-    "wlr/workspaces": {
-        "all-outputs": false,
+    "hyprland/workspaces": {
+        "all-outputs": true,
         "format": "{icon}",
         // "on-scroll-up": "hyprctl dispatch workspace e-1",
         // "on-scroll-down": "hyprctl dispatch workspace e+1",
@@ -52,6 +49,10 @@
             "6": []
         }
     },
+    "hyprland/window": {
+        "max-length": 200,
+        "separate-outputs": true
+    },
     "disk": {
         "interval": 60,
         "format": "{percentage_used}% ",
@@ -59,16 +60,18 @@
     },
     "tray": {
         "icon-size": 21,
-        "spacing": 10
+        "spacing": 7
     },
     "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+        "tooltip-format": "<tt>{calendar}</tt>",
         "format": "{:%H:%M} ",
-        "format-alt": "{:%d/%m/%Y} "
+        // "format-alt": "{:%d/%m/%Y} ",
+        "format-alt": "{:%A, %B %d, %Y (%R)} "
     },
     "backlight": {
-        "on-scroll-up": "xbacklight -inc 5",
-        "on-scroll-down": "xbacklight -dec 5",
+    	"tooltip": false,
+        "on-scroll-up": "blight set +5%",
+        "on-scroll-down": "blight set -5%",
         "format": "{percent}% {icon}",
         "format-icons": [
             "",
@@ -90,7 +93,7 @@
         },
         "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
-        "format-plugged": "",
+        "format-plugged": "", // old icon: 
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         "format-full": "",
@@ -126,6 +129,13 @@
         "on-click": "amixer sset 'Master' toggle",
         "on-click-right": "amixer set Capture toggle",
         "on-click-middle": "pavucontrol"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
     "custom/separator": {
         "format": "",

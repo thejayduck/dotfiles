@@ -6,8 +6,7 @@
         Arial,
         sans-serif,
         "Font Awesome 6 Free";
-    font-size: 16px;
-    /* color: #ebdbb2; */
+    font-size: medium;
     border-radius: 0;
     /* --color-primary: #b8b892;
     --color-seconday: #8abeb7;
@@ -22,6 +21,7 @@ window#waybar {
     background-color: #282828;
     transition-property: background-color;
     transition-duration: .5s;
+    color: #ebdbb2;
 }
 tooltip {
     background: #504945;
@@ -82,8 +82,10 @@ button:hover {
 #pulseaudio,
 #mode,
 #scratchpad {
-    padding: 0 5px;
-    margin: 0 5px;
+    padding: 0 3px;
+    margin: 0 3px;
+    color: #ebdbb2;
+    
 }
 
 #tray {
