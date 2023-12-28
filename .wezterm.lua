@@ -15,6 +15,7 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = 'Gruvbox dark, medium (base16)'
 config.font = wezterm.font 'JetBrainsMono NF'
+config.enable_wayland = false
 
 -- and finally, return the configuration to wezterm
 return config

@@ -16,8 +16,8 @@ key[Ctrl-Right]="${terminfo[kRIT5]}"
 # bindkey "^[[B" history-beginning-search-forward
 
 # lf change working dir
-source "$HOME/.config/lf/lfcd.sh"
-bindkey -s '^o' 'lfcd\n'
+# source "$HOME/.config/lf/lfcd.sh"
+# bindkey -s '^o' 'lfcd\n'
 
 [[ -n "${key[Home]}"       ]] && bindkey -- "${key[Home]}"       beginning-of-line
 [[ -n "${key[End]}"        ]] && bindkey -- "${key[End]}"        end-of-line
