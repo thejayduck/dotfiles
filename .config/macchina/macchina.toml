@@ -3,7 +3,7 @@
 #  if theme path is /home/foo/.config/macchina/themes/Sodium.toml
 #  theme should be uncommented and set to "Sodium"
 #
-theme = "Lithium"
+theme = "bismuth"
 
 # Displays only the specified readouts.
 # Accepted values (case-sensitive):
