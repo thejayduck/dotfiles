@@ -28,4 +28,4 @@ theme = "bismuth"
 #   - GPU
 #   - DiskSpace
 # Example:
-show = ["Machine", "Kernel", "Distribution", "Packages", "Battery", "ProcessorLoad", "Memory"]
+show = ["Machine", "Kernel", "Distribution", "DesktopEnvironment", "Packages", "Uptime", "Battery", "ProcessorLoad", "Memory"]

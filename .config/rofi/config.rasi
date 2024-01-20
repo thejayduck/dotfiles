@@ -1,9 +1,18 @@
 configuration {
+	font: "JetBrains Mono 14";
 	modi: "drun,ssh";
 	show-icons: true;
 	me-select-entry: "MousePrimary";
 	me-accept-entry: "!MousePrimary";
-	terminal: "/usr/bin/wezterm start --cwd %F";
+	terminal: "/usr/bin/kitty";
+
+	display-ssh: "󰣀 ssh";
+	display-run: "󱓞 run";
+	display-drun: "󰣖 drun";
+	display-window: "󱂬 window";
+	display-combi: "󰕘 combi";
+	display-filebrowser: "󰉋 filebrowser";
 }
 
+//@theme "gruvbox-dark.rasi"
 @theme "/usr/share/rofi/themes/gruvbox-dark.rasi"

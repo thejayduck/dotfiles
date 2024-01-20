@@ -1,7 +1,7 @@
 {
     "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 40, // Waybar height (to be removed for auto height)
+    "height": 20, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -10,16 +10,16 @@
         // "sway/mode",
         // "sway/scratchpad",
     ],
-    "modules-center": [
-        "hyprland/window"
-    ],
+    // "modules-center": [
+    //     "hyprland/window"
+    // ],
     "modules-right": [
         "pulseaudio",
         "backlight",
         "battery",
         "clock",
-        "disk",
-    	"idle_inhibitor",
+        // "disk",
+        "idle_inhibitor",
         "tray"
     ],
     // Modules configuration
@@ -30,7 +30,7 @@
         // "on-scroll-down": "hyprctl dispatch workspace e+1",
         // "on-click": "activate",
         "format-icons": {
-            "1": "", // Terminal
+            "1": " Term", // Terminal
             "2": "", // VSCode
             "3": "", // Random
             "4": "", // Browser
@@ -63,13 +63,14 @@
         "spacing": 7
     },
     "clock": {
-        "tooltip-format": "<tt>{calendar}</tt>",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%H:%M} ",
         // "format-alt": "{:%d/%m/%Y} ",
-        "format-alt": "{:%A, %B %d, %Y (%R)} "
+        "format-alt": "{:%A, %B %d, %Y (%T)} ",
+        "interval": 1
     },
     "backlight": {
-    	"tooltip": false,
+        "tooltip": false,
         "on-scroll-up": "blight set +5%",
         "on-scroll-down": "blight set -5%",
         "format": "{percent}% {icon}",

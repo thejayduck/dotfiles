@@ -1,0 +1,46 @@
+separator="=>"
+separator_color="yellow"
+key_color="blue"
+hide_ascii = true
+padding = 0
+
+[palette]
+type="Light"
+visible=true
+glyph="󰝤󰝤󰝤󰝤󰝤 "
+
+[box]
+title=" hydrogen "
+border="double"
+visible=true
+
+[box.inner_margin]
+x=2
+y=1
+
+[bar]
+glyph="󰝤"
+hide_delimiters=true
+visible=true
+
+[randomize]
+key_color=false
+separator_color=false
+
+[keys]
+host = " host"
+machine = " machine" 
+kernel = " kernel"
+distro = "󰌽 distro"
+packages = " packages"
+terminal = " terminal"
+shell =  " shell"
+cpu =  " cpu"
+cpu_load = "󰺑 cpu_load"
+memory = "󰍛 memory"
+battery = "󰁹battery"
+uptime = " uptime"
+resolution = " resolution"
+backlight = "󰃠 brightness"
+de = " de"
+wm = " wm"

@@ -1,37 +1,45 @@
-screenshots
+#Elements
 clock
 indicator
-indicator-radius=100
-indicator-thickness=7
-effect-blur=7x5
-effect-vignette=0.7:0.7
-font="JetBrainsMonoNerd Font"
 
-effect-pixelate=5
-timestr=%H:%M:%S
-datestr=%d/%m/%Y
+indicator-radius=100
+indicator-thickness=4
+effect-blur=5x5
+effect-pixelate=2
+effect-vignette=0.9:0.9
+font="JetbrainsMono, Helvetica, Arial, sans-serif,"
+image=/home/thejayduck/.local/share/bismuth/.wallpaper.jpg
+
 grace=5
 fade-in=0.2
+
+# Time Format
+timestr=%H:%M:%S
+datestr=%d/%m/%Y
 
 separator-color=#00000000
 text-caps-lock-color=#ebdbb2
 
+# Default Settings
 line-color=#00000000
 ring-color=#504945
 inside-color=#282828
 text-color=#ebdbb2
 key-hl-color=#8abeb7
 
+# Verify Settings
 line-ver-color=#00000000
 ring-ver-color=#8abeb7
 inside-ver-color=#282828
 text-ver-color=#ebdbb2
 
+# Clear Settings
 line-clear-color=#00000000
 ring-clear-color=#707880
 inside-clear-color=#282828
 text-clear-color=#ebdbb2
 
+# Wrong Settings
 line-wrong-color=#00000000
 ring-wrong-color=#a54242
 inside-wrong-color=#282828
