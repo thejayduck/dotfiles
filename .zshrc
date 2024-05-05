@@ -13,3 +13,4 @@ source ~/.zsh/setup.zsh
 
 # Created by `pipx` on 2023-07-09 21:24:04
 export PATH="$PATH:$HOME/.local/bin"
+export EDITOR=micro
