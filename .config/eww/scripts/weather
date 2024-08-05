@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+CITY="Würselen"
+UNITS="metric"
+LANGUAGE="en"
+
+response=$(curl -s "http://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=${UNITS}&appid=${OPENWEATHERMAP_API_KEY}")
+
+weather=$(echo "$response" | jq -r '.weather[0].main')
+temperature=$(echo "$response" | jq -r '.main.temp' | awk '{printf "%.0f", $1 + 0.5}')
+
+declare -A icons
+icons=(
+  ["Clear"]=""
+  ["Clouds"]=""
+  ["Rain"]=""
+  ["Drizzle"]=""
+  ["Thunderstorm"]=""
+  ["Snow"]=""
+  ["Mist"]=""
+  ["Fog"]=""
+  ["Haze"]=""
+  ["Smoke"]=""
+  ["Dust"]=""
+  ["Sand"]=""
+  ["Ash"]=""
+  ["Squall"]=""
+  ["Tornado"]=""
+)
+
+icon=${icons[$weather]}
+echo "${CITY}: ${temperature}°C | ${weather} ${icon}"

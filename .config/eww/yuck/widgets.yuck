@@ -1,0 +1,138 @@
+;;
+; Status Bar
+;;
+
+(defwidget workspaces []
+  (eventbox 
+    :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" 
+    :class "workspaces-widget"
+    (box 
+      :class "workspaces" 
+      :halign "start"
+      (label :text "${workspaces}${current_workspace}" :visible false)
+      (for workspace in workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+            (label :text "${workspace.id}")
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwidget window_w []
+  (box
+    (label :class "window_title" :text "${window}" :limit-width 50)
+  )
+)
+
+(defwidget clock []
+  (button 
+    :onclick "bash ~/.config/eww/scripts/toggle-manager toggle_control_center control-center"
+    (label :class "time" :text time)
+  )
+)
+
+;;
+; Control Panel
+;;
+
+;! Optional ?active removes the entire class from the widget
+(defwidget quickSetting [icon value ?onScroll ?onClick active]
+  (eventbox 
+    :onscroll onScroll 
+    :onclick onClick 
+    :cursor "pointer" 
+    :class "quickSettingWrap ${active ? "" : "disabled"}"
+    (box :orientation "v" :space-evenly false :class "quickSetting"
+      (label :text icon :class "icon")
+      (label :text "${value}" :class "value")
+    )
+  )
+)
+
+(defwidget network [strength]
+  (label :text {strength == "" ? "󰣼 Offline" :
+    strength <= 25 ? "󰣴 Slow" :
+    strength <= 50 ? "󰣶 Okay" :
+    strength <= 75 ? "󰣸 Good" : "󰣺 Excellent"}
+  )
+)
+
+(defwidget media []
+  (box
+    :orientation "v"
+    :space-evenly false
+    :class "mediaLayout"
+    (label :text "${media}" :class "title" :truncate true)
+    (box
+      :class "mediaButtons"
+      (button :onclick "playerctl play" (label :text "󰐊 Play"))
+      (button :onclick "playerctl pause" (label :text "󰏤 Pause"))
+    )
+  )
+)
+
+;; Quick Setting Derivatives
+
+(defwidget battery [bat]
+  (quickSetting 
+    :icon "${
+      bat.status == 'Discharging'
+        ? bat.capacity <= 5 ? '󰂃'
+        : bat.capacity <= 15 ? '󰁺'
+        : bat.capacity <= 25 ? '󰁻'
+        : bat.capacity <= 35 ? '󰁼'
+        : bat.capacity <= 45 ? '󰁽'
+        : bat.capacity <= 55 ? '󰁾'
+        : bat.capacity <= 65 ? '󰁿'
+        : bat.capacity <= 75 ? '󰂀'
+        : bat.capacity <= 85 ? '󰂁'
+        : bat.capacity <= 95 ? '󰂂'
+        : '󰁹'
+      : bat.status == 'Charging'
+        ? '󰂄'
+      : '󰁹'}"
+    :value "${bat.capacity}%" 
+    :active true
+  )
+)
+
+(defwidget microphone []
+  (quickSetting 
+    :icon "${mic ? '󰍬' : '󰍭'}"
+    :value "${mic ? "On" : "Off"}" 
+    :onClick "bash ~/.config/eww/scripts/microphone true" 
+    :active mic
+  )
+)
+
+(defwidget speaker []
+  (quickSetting 
+    :icon "${
+      speaker ? (volume <= 0 ? '󰝟'
+      : volume <= 25 ? '󰕿'
+      : volume <= 75 ? '󰖀'
+      : volume <= 100 ? '󰕾'
+      : '󰕾') : '󰖁'}"
+    :value "${speaker ? volume + '%' : "Off"}" 
+    :onScroll "if [ '{}' = 'up' ]; then amixer -D pipewire sset Master 5%+; else amixer -D pipewire sset Master 5%-; fi" 
+    :onClick "amixer sset 'Master' toggle" 
+    :active speaker
+  )
+)
+
+(defwidget brightness []
+  (quickSetting
+    :icon "${
+      brightness <= 25 ? '󰃞'
+      : brightness <= 50 ? '󰃟'
+      : brightness <= 100 ? '󰃠'
+      : '󰃠'}"
+    :value "${brightness}%" 
+    :onScroll "if [ '{}' = 'up' ]; then brightnessctl set +5%; else brightnessctl set 5%-; fi" 
+    :onClick "hyprshade toggle" 
+    :active true
+  )
+)

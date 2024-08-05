@@ -10,15 +10,16 @@
         // "sway/mode",
         // "sway/scratchpad",
     ],
-    // "modules-center": [
-    //     "hyprland/window"
-    // ],
+    "modules-center": [
+        "hyprland/window"
+    ],
     "modules-right": [
         "pulseaudio",
         "backlight",
         "battery",
         "clock",
         // "disk",
+        // "custom/batteryStatus",
         "idle_inhibitor",
         "tray"
     ],
@@ -31,11 +32,12 @@
         // "on-click": "activate",
         "format-icons": {
             "1": " Term", // Terminal
-            "2": "", // VSCode
-            "3": "", // Random
-            "4": "", // Browser
-            "5": "", // Discord
-            "6": "", // Games
+            "2": "", // E-Mail
+            "3": "", // VSCode
+            "4": "", // Random
+            "5": "", // Browser
+            "6": "", // Discord
+            "7": "", // Games
             "urgent": "",
             "focused": "",
             "default": ""
@@ -46,7 +48,9 @@
             "3": [],
             "4": [],
             "5": [],
-            "6": []
+            "6": [],
+            "7": []
+
         }
     },
     "hyprland/window": {
@@ -71,8 +75,8 @@
     },
     "backlight": {
         "tooltip": false,
-        "on-scroll-up": "blight set +5%",
-        "on-scroll-down": "blight set -5%",
+        "on-scroll-up": "brightnessctl -s set +5%",
+        "on-scroll-down": "brightnessctl -s set 5%-",
         "format": "{percent}% {icon}",
         "format-icons": [
             "",
@@ -129,7 +133,7 @@
         },
         "on-click": "amixer sset 'Master' toggle",
         "on-click-right": "amixer set Capture toggle",
-        "on-click-middle": "pavucontrol"
+        "on-click-middle": "pavucontrol-qt"
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -142,5 +146,9 @@
         "format": "",
         "interval": "once",
         "tooltip": false
+    },
+    "custom/batteryStatus": {
+    	"exec": "~/.config/waybar/scripts/batteryStatus.sh",
+    	"interval": 1800
     }
 }

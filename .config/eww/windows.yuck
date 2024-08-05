@@ -1,0 +1,28 @@
+(defwindow bar
+  :monitor 0
+  :exclusive true
+  :stacking "fg"
+  :windowtype "dock"
+  :geometry (geometry 
+    :x "0%"
+    :y "5px"
+    :width "99%"
+    :height "25px"
+    :anchor "top center")
+  :reserve (struts :side "top" :distance "4%")
+  (bar)
+)
+
+(defwindow control-center
+  :monitor 0
+  :exclusive true
+  :stacking "fg"
+  :windowtype "dock"
+  :geometry (geometry 
+    :y "5px"
+    :x "10px"
+    :height "15%"
+    :anchor "top right")
+  :reserve (struts :side "top" :distance "4%")
+  (control-center)
+)

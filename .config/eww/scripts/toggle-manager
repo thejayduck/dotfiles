@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# First argument is the variable, second is the widget
+
+if [ "$(eww get "$1")" = "true" ]; then
+  eww update "$1=false"
+  eww close "$2"
+else
+  eww update "$1=true"
+  eww open "$2"
+fi

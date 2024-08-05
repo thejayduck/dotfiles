@@ -1,0 +1,71 @@
+.bar {
+  background-color: #282828;
+  color: #ebdbb2;
+  border-radius: 0.4em;
+}
+
+.leftpanel {
+  .systemTray {
+    padding: 7px;
+
+    margin-left: 5px;
+    background-color: #504945;
+    border-radius: 0.4em 0.4em;
+
+    menu {
+      border-radius: 0.4em;
+      padding: 5px 0;
+      color: #ebdbb2;
+
+      background-color: #282828;
+
+      menuitem {
+        padding: 0px 5px;
+
+        &:disabled label {
+          color: gray;
+        }
+
+        &:hover {
+          background-color: #8abeb7;
+          color: black;
+        }
+      }
+
+      separator {
+        background-color: #222222;
+        padding-top: 1px;
+
+        &:last-child {
+          padding: unset;
+        }
+      }
+    }
+  }
+}
+
+.workspaces {
+  :hover {
+    background-color: #8abeb7;
+    color: black;
+
+    &:first-child {
+      border-radius: 0.4em 0 0 0.4em;
+    }
+  }
+
+  .workspace-entry {
+    margin: 0 2px;
+
+    &.current {
+      color: #8abeb7;
+      font-weight: bold;
+    }
+
+    &.empty {
+      opacity: 0.5;
+    }
+  }
+
+  transition: background-color 0.3s;
+}

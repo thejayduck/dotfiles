@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+amixer get Master | grep -o '\[on\]' > /dev/null && echo true || echo false

@@ -1,0 +1,82 @@
+calendar {
+  background-color: #282828;
+  border-radius: 0.4em;
+  color: #ebdbb2;
+
+  :selected {
+    background-color: #8abeb7;
+    color: #504945;
+  }
+}
+
+.module {
+  background-color: #282828;
+  color: #ebdbb2;
+  border-radius: 0.4em;
+  padding: 7px;
+}
+
+.mediaLayout {
+  .mediaButtons {
+    button {
+      background-color: #504945;
+      border-radius: 0.4em;
+      margin: 2px;
+      padding: 5px;
+
+      &:hover {
+        background-color: #8abeb7;
+        color: #282828;
+      }
+
+      transition: background-color, color 0.3s;
+    }
+  }
+}
+
+.controlCenter {
+  background-color: #282828;
+  color: #ebdbb2;
+  border-radius: 0.4em;
+  padding: 0 7px 7px 7px;
+  box-shadow: 0 4px 10px #a6a0a726;
+
+  .calendarButton {
+    margin: 5px;
+    border-radius: 0.4em;
+
+    &:hover {
+      background-color: #8abeb7;
+      color: #282828;
+    }
+
+    transition: background-color, color 0.3s;
+  }
+
+  .quickSettingWrap {
+    background-color: #504945;
+    border-radius: 0.4em 0.4em;
+
+    &:hover {
+      background-color: #8abeb7;
+      color: #282828;
+    }
+
+    &.disabled {
+      opacity: 0.5;
+    }
+
+    transition: background-color, color 0.3s;
+  }
+
+  .quickSetting {
+    min-width: 70px;
+
+    :hover {
+      background-color: #504945;
+    }
+    .icon {
+      font-size: 1.4em;
+    }
+  }
+}

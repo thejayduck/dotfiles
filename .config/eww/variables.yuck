@@ -1,0 +1,56 @@
+; Variables
+(defvar ANIM_DURATION "500ms")
+(defvar toggle_control_center true)
+(defvar toggle_calendar false)
+
+; Polls
+
+(defpoll volume 
+  :interval "0s"
+  "amixer -D pipewire sget Master | awk -F '[^0-9]+' '/Left:/{print $3}'"
+)
+
+(defpoll speaker 
+  :interval "1s"
+  "bash ~/.config/eww/scripts/speaker"
+)
+
+(defpoll mic 
+  :interval "1s"
+  "bash ~/.config/eww/scripts/microphone false"
+)
+
+(defpoll brightness 
+  :interval "1s"
+  "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}'"
+)
+
+(defpoll time 
+  :interval "10s"
+  "date '+%H:%M (%a %d %b %Y)'"
+)
+
+(defpoll wifi_strength 
+  :interval "120s"
+  :initial "N/A"
+  `nmcli -t -f SIGNAL,ACTIVE device wifi \
+    | awk -F':' '{if($2=="yes")print$1}'`
+)
+
+(defpoll weather 
+  :interval "120s"
+  :initial "N/A"
+  "sh ~/.config/eww/scripts/weather"
+)
+
+(defpoll media 
+  :interval "10s"
+  :initial "N/A"
+  "sh ~/.config/eww/scripts/media"
+)
+
+; Listeners
+
+(deflisten window :initial "..." "sh ~/.config/eww/scripts/get-window-title")
+(deflisten workspaces :initial "[]" "sh ~/.config/eww/scripts/get-workspaces")
+(deflisten current_workspace :initial "1" "sh ~/.config/eww/scripts/get-active-workspace")

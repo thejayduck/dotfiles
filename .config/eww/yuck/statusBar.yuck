@@ -1,0 +1,19 @@
+(defwidget bar []
+  (centerbox
+    (workspaces)
+    (window_w)
+    (leftpanel)))
+
+(defwidget leftpanel []
+  (box :class "leftpanel" :space-evenly false :halign "end"
+    (clock)
+    (systray 
+      :class "systemTray"
+      :spacing 10
+      :orientation "horizontal"
+      :space-evenly "true"
+      :icon-size 20
+      :prepend-new "true"
+    ) 
+  )
+)

@@ -1,5 +1,5 @@
 # Aliases
-alias ls='exa --color=auto'
+alias ls='eza'
 alias cat='bat'
 alias grep='rg'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'

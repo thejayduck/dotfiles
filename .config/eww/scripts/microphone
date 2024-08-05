@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+mic_state=$(amixer get Capture | grep -o '\[on\]' | head -n 1)
+
+if [ "$mic_state" == "[on]" ]; then
+  if [ "$1" == "true" ]; then
+    amixer set Capture nocap
+  fi
+  echo true
+else
+  if [ "$1" == "true" ]; then
+    amixer set Capture cap
+  fi
+  echo false
+fi
