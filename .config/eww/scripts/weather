@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CITY="Würselen"
+CITY="Bremen"
 UNITS="metric"
 LANGUAGE="en"
 

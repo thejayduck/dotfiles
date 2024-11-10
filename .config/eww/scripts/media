@@ -1,2 +1,11 @@
 #!/usr/bin/env bash
-playerctl metadata --format "{{ title }} - {{ artist }}"
+
+output=$(playerctl metadata --format "{{ title }} - {{ artist }}")
+status=$(playerctl status)
+
+if [[ "$status" == "Playing" || "$status" == "Paused" ]]; then
+  eww update visibility_media=true
+  echo $(playerctl metadata --format "{{ title }} - {{ artist }}")
+else
+  eww update visibility_media=false
+fi

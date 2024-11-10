@@ -56,11 +56,11 @@
   (label :text {strength == "" ? "󰣼 Offline" :
     strength <= 25 ? "󰣴 Slow" :
     strength <= 50 ? "󰣶 Okay" :
-    strength <= 75 ? "󰣸 Good" : "󰣺 Excellent"}
+    strength <= 75 ? "󰣸 Good" : "󰣺 Fast"}
   )
 )
 
-(defwidget media []
+(defwidget mediaController []
   (box
     :orientation "v"
     :space-evenly false

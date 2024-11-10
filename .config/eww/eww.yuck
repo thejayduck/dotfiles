@@ -2,5 +2,7 @@
 (include "windows.yuck")
 
 (include "yuck/controlCenter.yuck")
+(include "yuck/shortcuts.yuck")
+(include "yuck/search.yuck")
 (include "yuck/statusBar.yuck")
 (include "yuck/widgets.yuck")

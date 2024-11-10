@@ -16,7 +16,7 @@
               :onclick "bash ~/.config/eww/scripts/toggle-manager toggle_calendar" 
               (label :text " Calendar")
           )
-          (box
+          (box ;; Quick Settings
             :class "quickSettings"
             :spacing 5
             (brightness)
@@ -25,13 +25,13 @@
             (battery :bat "${EWW_BATTERY["BAT0"]}")
           )
         )
-        (box :class "module" (media))
+        (box :class "module" :visible visibility_media (mediaController))
         (box :class "module" weather)
         (box :class "module" :spacing 10 
           (network :strength wifi_strength)
           (label :text "󰍛 ${round(EWW_RAM.used_mem_perc, 0)}%")
-          (label :text " ${round(EWW_CPU.avg, 0)}%")
-          (label :text "󰟜 ${round(EWW_DISK["/home"].used_perc, 0)}%")
+          (label :text " ${round(EWW_CPU.avg, 0)}%")
+          (label :text " ${round(EWW_DISK["/home"].used_perc, 0)}%")
         )
         (revealer
           :transition "crossfade"

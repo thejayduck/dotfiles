@@ -1,7 +1,10 @@
 ; Variables
 (defvar ANIM_DURATION "500ms")
-(defvar toggle_control_center true)
+(defvar toggle_control_center false)
+(defvar toggle_shortcuts true)
 (defvar toggle_calendar false)
+(defvar visibility_media false)
+(defvar apps "")
 
 ; Polls
 
