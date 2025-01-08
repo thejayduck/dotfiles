@@ -70,3 +70,24 @@
 
   transition: background-color 0.3s;
 }
+
+.metric {
+  margin-top: 10px;
+  margin-left: 5px;
+  font-size: 1.4em;
+}
+.metric scale trough highlight {
+  all: unset;
+  background-color: #8abeb7;
+  color: #000000;
+  border-radius: 4em;
+}
+
+.metric scale trough {
+  all: unset;
+  background-color: #504945;
+  border-radius: 50px;
+  min-height: 15px;
+  min-width: 250px;
+  margin-left: 15px;
+}

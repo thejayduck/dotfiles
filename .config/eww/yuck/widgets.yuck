@@ -56,7 +56,7 @@
   (label :text {strength == "" ? "󰣼 Offline" :
     strength <= 25 ? "󰣴 Slow" :
     strength <= 50 ? "󰣶 Okay" :
-    strength <= 75 ? "󰣸 Good" : "󰣺 Fast"}
+    strength <= 75 ? "󰣸 Good" : "󰣺 Great"}
   )
 )
 
@@ -134,5 +134,47 @@
     :onScroll "if [ '{}' = 'up' ]; then brightnessctl set +5%; else brightnessctl set 5%-; fi" 
     :onClick "hyprshade toggle" 
     :active true
+  )
+)
+
+(defwidget bluetooth []
+  (quickSetting
+    :icon "󰂯"
+    :value "On" 
+    :onClick "rfkill toggle bluetooth" 
+    :active true
+  )
+)
+
+(defwidget idleInhibitor []
+  (quickSetting
+    :icon ""
+    :value "On" 
+    :active true
+  )
+)
+
+
+(defwidget speakerMetric []
+  (metric 
+    :label "${volume <= 0 ? '󰝟'
+      : volume <= 25 ? '󰕿'
+      : volume <= 75 ? '󰖀'
+      : volume <= 100 ? '󰕾'
+      : '󰕾'}"
+    :value volume
+    :onchange "amixer -D pulse sset Master {}%"
+  )
+)
+
+(defwidget brightnessMetric []
+  (metric 
+    :label "${
+      brightness <= 25 ? '󰃞'
+      : brightness <= 50 ? '󰃟'
+      : brightness <= 100 ? '󰃠'
+      : '󰃠'}"
+    :value brightness
+    :onchange "brightnessctl set {}%"
   )
 )

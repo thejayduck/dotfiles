@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+eww daemon
+
+hyprctl dispatch focusmonitor 0
+eww open bar-main --screen 0
+
+# Show bar on external screen if connected
+NB_MONITORS=$(hyprctl monitors -j | jq length)
+if [ "$NB_MONITORS" -eq "2" ]; then
+    hyprctl dispatch focusmonitor 1
+    eww open bar-external --screen 1
+fi
