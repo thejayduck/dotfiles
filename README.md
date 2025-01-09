@@ -28,9 +28,24 @@ cp -R .local/share/ ~/.local/share/
 ### Install Packages
 
 Paru:
+
 `# paru -S --needed - < dependencies.txt`
 
-Pacman: `# pacman -S --needed - < dependencies.txt`
+Pacman:
+
+`# pacman -S --needed - < dependencies.txt`
+
+### OpenWeather API Key
+
+The weather widget in Eww requires an OpenWeather API key to function. To enable it, place your API key in the file located at: `$HOME/.config/eww/.weather_api.env`
+
+If you prefer not to use this feature, you can disable the widget by editing the `$HOME/.config/eww/yuck/controlCenter.yuck` file. Simply comment out the following line:
+
+```
+(box :class "module" weather) ; Uncommented
+
+;(box :class "module" weather) ; Commented
+```
 
 ## Hyprland
 
@@ -80,5 +95,5 @@ Pacman: `# pacman -S --needed - < dependencies.txt`
 
 ![Hyprland Screenshot](https://i.imgur.com/qDuuqhs.png)
 ![EWW Status Bar](https://i.imgur.com/IRC3JdY.png)
-![EWW Control Panel](https://i.imgur.com/EO11Td6.png)
+![EWW Control Panel](https://i.imgur.com/G2gQ2Dw.png)
 ![Dunst Screenshot](https://i.imgur.com/SH5TUHu.png)
