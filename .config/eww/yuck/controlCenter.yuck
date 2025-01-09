@@ -30,7 +30,7 @@
           (brightnessMetric)
         )
         (box :class "module" :visible visibility_media (mediaController))
-        ;(box :class "module" weather)
+        (box :class "module" weather)
         (box :class "module" :spacing 10 
           (network :strength wifi_strength)
           (label :text "󰍛 ${round(EWW_RAM.used_mem_perc, 0)}%")

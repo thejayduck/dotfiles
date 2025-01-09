@@ -3,6 +3,7 @@
 CITY="Bremen"
 UNITS="metric"
 LANGUAGE="en"
+OPENWEATHERMAP_API_KEY=`cat ~/.config/eww/.weather_api.env`
 
 response=$(curl -s "http://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=${UNITS}&appid=${OPENWEATHERMAP_API_KEY}")
 
