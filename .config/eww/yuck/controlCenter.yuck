@@ -6,7 +6,7 @@
     (box 
       :space-evenly false
       :spacing 5
-      (box :orientation "v" :space-evenly false :spacing 5
+      (box :orientation "v" :space-evenly false :spacing 5 
         (box
           :orientation "v"
           :space-evenly false
@@ -19,8 +19,6 @@
           (box ;; Quick Settings
             :class "quickSettings"
             :spacing 5
-            ; (brightness)
-            ; (speaker)
             (wifi)
             (bluetooth)
             (microphone)

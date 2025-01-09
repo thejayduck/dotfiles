@@ -29,6 +29,7 @@
 
 (defwidget clock []
   (button 
+    :class "clock"
     :onclick "bash ~/.config/eww/scripts/toggle-manager toggle_control_center control-center"
     (label :class "time" :text time)
   )
@@ -108,35 +109,6 @@
   )
 )
 
-(defwidget speaker []
-  (quickSetting 
-    :icon "${
-      speaker ? (volume <= 0 ? '󰝟'
-      : volume <= 25 ? '󰕿'
-      : volume <= 75 ? '󰖀'
-      : volume <= 100 ? '󰕾'
-      : '󰕾') : '󰖁'}"
-    :value "${speaker ? volume + '%' : "Off"}" 
-    :onScroll "if [ '{}' = 'up' ]; then amixer -D pipewire sset Master 5%+; else amixer -D pipewire sset Master 5%-; fi" 
-    :onClick "amixer sset 'Master' toggle" 
-    :active speaker
-  )
-)
-
-(defwidget brightness []
-  (quickSetting
-    :icon "${
-      brightness <= 25 ? '󰃞'
-      : brightness <= 50 ? '󰃟'
-      : brightness <= 100 ? '󰃠'
-      : '󰃠'}"
-    :value "${brightness}%" 
-    :onScroll "if [ '{}' = 'up' ]; then brightnessctl set +5%; else brightnessctl set 5%-; fi" 
-    :onClick "hyprshade toggle" 
-    :active true
-  )
-)
-
 (defwidget bluetooth []
   (quickSetting
     :icon "${interface_status.rfkilldevices[0].soft == 'unblocked' ? '󰂯' : '󰂲'}"
@@ -154,6 +126,8 @@
     :active true
   )
 )
+
+;; Sliders
 
 (defwidget speakerMetric []
   (metric 

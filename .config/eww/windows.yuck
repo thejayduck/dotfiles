@@ -42,35 +42,6 @@
   (control-center)
 )
 
-(defwindow shortcuts
-  :monitor 0
-  :exclusive true
-  :stacking "fg"
-  :windowtype "dock"
-  :geometry (geometry 
-    :y "5px"
-    :x "10px"
-    :height "15%"
-    :anchor "top right")
-  :reserve (struts :side "top" :distance "4%")
-  (shortcuts)
-)
-
-(defwindow search
-  :monitor 0
-  :stacking "fg"
-  :windowtype "normal"
-  :focusable true
-  :geometry (geometry 
-    :y "5px"
-    :x "10px"
-    :width "20%"
-    :height "25px"
-    :anchor "top center")
-  :reserve (struts :side "top" :distance "4%")
-  (search)
-)
-
 (defwidget metric [label value onchange]
   (box :orientation "h"
        :class "metric"

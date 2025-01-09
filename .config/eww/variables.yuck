@@ -4,7 +4,6 @@
 (defvar toggle_shortcuts true)
 (defvar toggle_calendar false)
 (defvar visibility_media false)
-(defvar apps "")
 
 ; Polls
 

@@ -20,7 +20,7 @@
 
       background-color: #282828;
 
-      menuitem {
+      > menuitem {
         padding: 0px 5px;
 
         &:disabled label {
@@ -30,6 +30,30 @@
         &:hover {
           background-color: #8abeb7;
           color: black;
+        }
+      }
+
+      menuitem arrow {
+        min-width: 16px;
+        min-height: 16px;
+
+        &:dir(ltr) {
+          -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+          margin-left: 10px;
+          margin-right: 0;
+        }
+      }
+
+      menuitem check {
+        border: 2px solid;
+        border-radius: 0.2em;
+        color: #ebdbb2;
+        min-width: 14px;
+        min-height: 14px;
+        margin-right: 4px;
+
+        &:checked {
+          -gtk-icon-source: -gtk-icontheme("checkmark");
         }
       }
 
@@ -75,19 +99,17 @@
   margin-top: 10px;
   margin-left: 5px;
   font-size: 1.4em;
-}
-.metric scale trough highlight {
-  all: unset;
-  background-color: #8abeb7;
-  color: #000000;
-  border-radius: 4em;
-}
 
-.metric scale trough {
-  all: unset;
-  background-color: #504945;
-  border-radius: 50px;
-  min-height: 15px;
-  min-width: 250px;
-  margin-left: 15px;
+  scale trough highlight {
+    background-color: #8abeb7;
+    border-radius: 4em;
+  }
+
+  scale trough {
+    background-color: #504945;
+    border-radius: 50px;
+    min-height: 15px;
+    min-width: 255px;
+    margin-left: 15px;
+  }
 }
