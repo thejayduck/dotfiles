@@ -139,21 +139,21 @@
 
 (defwidget bluetooth []
   (quickSetting
-    :icon "󰂯"
-    :value "On" 
+    :icon "${interface_status.rfkilldevices[0].soft == 'unblocked' ? '󰂯' : '󰂲'}"
+    :value "${interface_status.rfkilldevices[0].soft == 'unblocked' ? 'Active' : 'InActive'}" 
     :onClick "rfkill toggle bluetooth" 
     :active true
   )
 )
 
-(defwidget idleInhibitor []
+(defwidget wifi []
   (quickSetting
-    :icon ""
-    :value "On" 
+    :icon "${interface_status.rfkilldevices[1].soft == 'unblocked' ? '󰖩' : '󰖪'}"
+    :value "${interface_status.rfkilldevices[1].soft == 'unblocked' ? 'Active' : 'InActive'}" 
+    :onClick "rfkill toggle wifi" 
     :active true
   )
 )
-
 
 (defwidget speakerMetric []
   (metric 

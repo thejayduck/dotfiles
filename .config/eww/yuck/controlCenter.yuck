@@ -21,8 +21,8 @@
             :spacing 5
             ; (brightness)
             ; (speaker)
+            (wifi)
             (bluetooth)
-            (idleInhibitor)
             (microphone)
             (battery :bat "${EWW_BATTERY["BAT0"]}")
           )

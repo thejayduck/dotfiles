@@ -10,12 +10,20 @@
 
 (defpoll volume 
   :interval "0s"
+  :run-while toggle_control_center
   "amixer -D pipewire sget Master | awk -F '[^0-9]+' '/Left:/{print $3}'"
 )
 
 (defpoll speaker 
   :interval "1s"
+  :run-while toggle_control_center
   "bash ~/.config/eww/scripts/speaker"
+)
+
+(defpoll interface_status
+  :interval "1s"
+  :run-while toggle_control_center
+  "rfkill -J"
 )
 
 (defpoll mic 
@@ -25,17 +33,19 @@
 
 (defpoll brightness 
   :interval "1s"
+  :run-while toggle_control_center
   "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}'"
 )
 
 (defpoll time 
-  :interval "10s"
+  :interval "1s"
   "date '+%H:%M (%a %d %b %Y)'"
 )
 
 (defpoll wifi_strength 
-  :interval "120s"
+  :interval "1s"
   :initial "N/A"
+  :run-while toggle_control_center
   `nmcli -t -f SIGNAL,ACTIVE device wifi \
     | awk -F':' '{if($2=="yes")print$1}'`
 )
@@ -43,12 +53,14 @@
 (defpoll weather 
   :interval "120s"
   :initial "N/A"
+  :run-while toggle_control_center
   "sh ~/.config/eww/scripts/weather"
 )
 
 (defpoll media 
-  :interval "10s"
+  :interval "1s"
   :initial "N/A"
+  :run-while toggle_control_center
   "sh ~/.config/eww/scripts/media"
 )
 
