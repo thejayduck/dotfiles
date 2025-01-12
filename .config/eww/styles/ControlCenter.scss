@@ -23,6 +23,11 @@ calendar {
       border-radius: 0.4em;
       margin: 2px;
       padding: 5px;
+      min-width: 195px;
+
+      &.media {
+        min-width: 30px;
+      }
 
       &:hover {
         background-color: #8abeb7;

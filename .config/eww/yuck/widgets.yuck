@@ -28,8 +28,9 @@
 )
 
 (defwidget clock []
-  (button 
+  (eventbox 
     :class "clock"
+    :cursor "pointer" 
     :onclick "bash ~/.config/eww/scripts/toggle-manager toggle_control_center control-center"
     (label :class "time" :text time)
   )
@@ -68,10 +69,15 @@
     :class "mediaLayout"
     (label :text "${media}" :class "title" :truncate true)
     (box
+      :space-evenly false
       :class "mediaButtons"
-      (button :onclick "playerctl play" (label :text "󰐊 Play"))
-      (button :onclick "playerctl pause" (label :text "󰏤 Pause"))
+      (button :onclick {player_status == 'Paused' ? 'playerctl play' : 'playerctl pause'} (label :text {player_status == 'Paused' ? '󰐊 Play' : '󰏤 Pause'}))
+      (button :class "media previous" :onclick "playerctl previous" (label :text "󰒮"))
+      (button :class "media next" :onclick "playerctl next" (label :text "󰒭"))
     )
+    (progress 
+      :orientation "h"
+      :value {round((player_position / (player_duration / 1000000)) * 100, 0)})
   )
 )
 

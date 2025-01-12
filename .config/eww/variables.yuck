@@ -1,7 +1,6 @@
 ; Variables
 (defvar ANIM_DURATION "500ms")
 (defvar toggle_control_center false)
-(defvar toggle_shortcuts true)
 (defvar toggle_calendar false)
 (defvar visibility_media false)
 
@@ -13,10 +12,22 @@
   "amixer -D pipewire sget Master | awk -F '[^0-9]+' '/Left:/{print $3}'"
 )
 
-(defpoll speaker 
-  :interval "1s"
+(defpoll player_status
+  :interval "0s"
   :run-while toggle_control_center
-  "bash ~/.config/eww/scripts/speaker"
+  "playerctl status"
+)
+
+(defpoll player_position
+  :interval "0s"
+  :run-while toggle_control_center
+  "playerctl position"
+)
+
+(defpoll player_duration
+  :interval "0s"
+  :run-while toggle_control_center
+  "playerctl metadata mpris:length"
 )
 
 (defpoll interface_status
