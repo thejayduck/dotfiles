@@ -74,6 +74,12 @@
     background-color: #8abeb7;
     color: black;
 
+    .workspace-entry {
+      &.current {
+        color: black;
+      }
+    }
+
     &:first-child {
       border-radius: 0.4em 0 0 0.4em;
     }
@@ -87,6 +93,10 @@
       font-weight: bold;
     }
 
+    &.occupied {
+      font-weight: bold;
+    }
+
     &.empty {
       opacity: 0.5;
     }
@@ -95,8 +105,23 @@
   transition: background-color 0.3s;
 }
 
+progressbar {
+  margin: 5px 2px 0 2px;
+
+  trough {
+    background-color: #504945;
+    border-radius: 50px;
+    min-height: 5px;
+
+    progress {
+      background-color: #8abeb7;
+      border-radius: 4em;
+    }
+  }
+}
+
 .metric {
-  margin-top: 10px;
+  margin-top: 5px;
   margin-left: 5px;
   font-size: 1.4em;
 
