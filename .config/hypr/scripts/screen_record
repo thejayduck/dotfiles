@@ -4,24 +4,12 @@ OUT="$(xdg-user-dir VIDEOS)/recordings/$(date +%Y-%m-%d_%H-%M%S).mp4"
 
 trap 'notify-send "Recording" "Recording interrupted\nSaved to: $OUT" -i camera-video; exit' SIGINT SIGTERM
 
-# notify-send "Recording" "Screen recording started" -i camera-video
-
-# wl-screenrec --low-power=off --audio --audio-device alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Speaker__sink.monitor -f "$OUT" &
-# PID=$!
-
-# wait $PID
-# notify-send "Recording Finished" "Saved to: $OUT" -i camera-video
-
 if pgrep -x "wl-screenrec" > /dev/null; then
-  # killall -USR1 wl-screenrec
   killall wl-screenrec
-  # notify-send "Recording Finished" "Saved to: $OUT" -i camera-video
-  # notify-send "Recording" "Screen recording stopped" -i camera-video
 else
   # Start new recording
   OUT="$(xdg-user-dir VIDEOS)/recordings/$(date +%Y-%m-%d_%H-%M%S).mp4"
   dunstify "Recording" "Screen recording started" -i camera-video
-  # notify-send "Recording" "Screen recording started" -i camera-video
 
   wl-screenrec --low-power=off --audio --audio-device alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Speaker__sink.monitor -f "$OUT" &
   PID=$!
@@ -36,8 +24,4 @@ else
   "2")
       ;;
   esac
-  # dunstify "Recording Finished" "Saved to: $OUT" -i camera-video --action="open,xdg-open $OUT"
-  # notify-send "Recording Finished" "Saved to: $OUT" -i camera-video
 fi
-
-# set OUT "$(xdg-user-dir VIDEOS)/recordings"/"$(date +%Y-%m-%d_%H-%M%S).mp4" && wl-screenrec --low-power=off --audio --audio-device alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Speaker__sink.monitor -f $OUT
