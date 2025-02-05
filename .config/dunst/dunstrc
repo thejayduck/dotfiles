@@ -18,7 +18,6 @@
     origin = top-right
 
     # Offset from the origin
-    # offset = 18x64 # LeftWM
     offset = 18x16 # Hyprland
 
     # Scale factor. It is auto-detected if value is 0.
@@ -41,10 +40,10 @@
     progress_bar_frame_width = 1
 
     # Set the minimum width for the progress bar
-    progress_bar_min_width = 150
+    progress_bar_min_width = 200 # 150
 
     # Set the maximum width for the progress bar
-    progress_bar_max_width = 300
+    progress_bar_max_width = 200 # 300
 
     # Corner radius for the progress bar. 0 disables rounded corners.
     progress_bar_corner_radius = 0
@@ -194,7 +193,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 0
+    corner_radius = 4
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -223,9 +222,13 @@
     # * context_all: Open context menu for all notifications.
     # These values can be strung together for each mouse event, and
     # will be executed in sequence.
-    mouse_left_click = close_current
+    mouse_left_click = do_action
     mouse_middle_click = do_action, close_current
-    mouse_right_click = close_all
+    mouse_right_click = close_current
+
+[play_sound] # Plays a psvita notification sfx
+    summary = "*"
+    script = "$HOME/.config/dunst/notification_alert.sh"
 
 # Experimental features that may or may not work correctly. Do not expect them
 # to have a consistent behaviour across releases.

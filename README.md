@@ -51,7 +51,7 @@ If you prefer not to use this feature, you can disable the widget by editing the
 
 ### Plugins
 
-- [Hyprexpo](https://github.com/hyprwm/hyprland-plugins/tree/main/hyprexpo)
+- None
 
 ### Keybinds
 
@@ -59,16 +59,17 @@ If you prefer not to use this feature, you can disable the widget by editing the
 
 #### General Shortcuts
 
-| Shortcut          | Description                  |
-| ----------------- | ---------------------------- |
-| Mod + Shift + S   | Screenshot (grim with slurp) |
-| Print-Screen      | Fullscreen Screenshot        |
-| Mod + F           | Toggle Floating Window       |
-| Mod + E           | File Explorer (PCManFM-QT)   |
-| Mod + Space       | Rofi (drun, ssh)             |
-| Mod + V           | Rofi (cliphist)              |
-| Mod + Shift + T   | Terminal (Kitty)             |
-| Mod + Control + L | Screensaver (Hyprlock)       |
+| Shortcut          | Description                                |
+| ----------------- | ------------------------------------------ |
+| Mod + Shift + S   | Screenshot (grim with slurp)               |
+| Mod + Shift + R   | Start/Stop Screen Recording (wl-screenrec) |
+| Print-Screen      | Capture Full Screen                        |
+| Mod + F           | Toggle Floating Window                     |
+| Mod + E           | Open File Manager (PcManFM-Qt)             |
+| Mod + Space       | Rofi (drun, ssh)                           |
+| Mod + V           | Rofi (cliphist)                            |
+| Mod + Shift + T   | Terminal (Kitty)                           |
+| Mod + Control + L | Screensaver (Hyprlock)                     |
 
 #### Workspace Shortcuts
 
@@ -82,14 +83,15 @@ If you prefer not to use this feature, you can disable the widget by editing the
 | Mod + 4  | [6] |
 | Mod + 5  | [7] |
 
-## Themes Used
+## Additional Assets
 
-| Type   | Theme                                                                                    |
-| ------ | ---------------------------------------------------------------------------------------- |
-| Qt     | [Gruvbox Dark Blue (github)](https://github.com/sachnr/gruvbox-kvantum-themes) (Kvantum) |
-| GTK    | [Gruvbox Material Dark (github)](https://github.com/TheGreatMcPain/gruvbox-material-gtk) |
-| Cursor | [Capitaine Cursors (github)](https://github.com/sainnhe/capitaine-cursors) (Gruvbox)     |
-| Icons  | [Win11-dark (github)](https://github.com/yeyushengfan258/Win11-icon-theme)               |
+| Type          | Theme                                                                                    |
+| ------------- | ---------------------------------------------------------------------------------------- |
+| Qt            | [Gruvbox Dark Blue (github)](https://github.com/sachnr/gruvbox-kvantum-themes) (Kvantum) |
+| GTK           | [Gruvbox Material Dark (github)](https://github.com/TheGreatMcPain/gruvbox-material-gtk) |
+| Cursor        | [Capitaine Cursors (github)](https://github.com/sainnhe/capitaine-cursors) (Gruvbox)     |
+| Icons         | [Win11-dark (github)](https://github.com/yeyushengfan258/Win11-icon-theme)               |
+| Notifications | [Notifications (github)](https://github.com/akx/Notifications)                           |
 
 ## Screenshots
 

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+BAT="/sys/class/power_supply/BAT0"
+CRITICAL_THRESHOLD=15
+LOW_THRESHOLD=30
+
+while true; do
+  bat_level=$(< "${BAT}/capacity")
+  bat_status=$(< "${BAT}/status")
+
+  if [ "$bat_level" -le $CRITICAL_THRESHOLD ] && [ "$bat_status" != "Charging" ]; then
+    notify-send "Battery Critical: ${bat_level}%" "Connect charger immediately!" -u critical -i battery-000
+    sleep 300
+  elif [ "$bat_level" -le $LOW_THRESHOLD ] && [ "$bat_status" != "Charging" ]; then
+    notify-send "Battery Low: ${bat_level}%" "Consider charging soon" -u normal -i battery-020
+    sleep 600
+  else
+    sleep 120
+  fi
+done

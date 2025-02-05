@@ -42,7 +42,7 @@
 )
 
 (defpoll brightness 
-  :interval "1s"
+  :interval "0s"
   :run-while toggle_control_center
   "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}'"
 )

@@ -63,7 +63,14 @@
 )
 
 (defwidget mediaController []
-  (box
+; (image
+    ;   :class "art"
+    ;   :path "/home/thejayduck/.mozilla/firefox/firefox-mpris/335223_175.png"
+    ;   :image-height 64
+    ;   :image-width 128
+    ;   :preserve-aspect-ratio false
+    ; )
+    (box
     :orientation "v"
     :space-evenly false
     :class "mediaLayout"
@@ -79,6 +86,7 @@
       :orientation "h"
       :value {round((player_position / (player_duration / 1000000)) * 100, 0)})
   )
+ 
 )
 
 ;; Quick Setting Derivatives
