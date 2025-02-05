@@ -2,7 +2,7 @@
 
 ## About
 
-Welcome to my dotfiles repository! This repository contains the configuration files and settings that I use to personalize and customize my desktop environment. From window manager configurations to shell settings, these dotfiles reflect my preferences and workflow optimizations.
+Welcome to my dotfiles repository! This repository contains the configuration files and settings that I use to personalize and customize my desktop environment. From window manager configurations to shell settings, and everything else.
 
 ## Table of Contents
 
