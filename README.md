@@ -11,7 +11,7 @@ Welcome to my dotfiles repository! This repository contains the configuration fi
 - [Hyprland](#hyprland)
   - [Plugins](#plugins)
   - [Keybinds](#keybinds)
-- [Themes Used](#themes-used)
+- [Additional Assets](#additional-assets)
 - [Screenshots](#screenshots)
 
 ---
