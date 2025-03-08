@@ -51,7 +51,7 @@ If you prefer not to use this feature, you can disable the widget by editing the
 
 ### Plugins
 
-- None
+- [Hyprspace](https://github.com/KZDKM/Hyprspace/)
 
 ### Keybinds
 
@@ -70,18 +70,22 @@ If you prefer not to use this feature, you can disable the widget by editing the
 | Mod + V           | Rofi (cliphist)                            |
 | Mod + Shift + T   | Terminal (Kitty)                           |
 | Mod + Control + L | Screensaver (Hyprlock)                     |
+| Mod + C           | Toggle Control Center (EWW)                |
 
 #### Workspace Shortcuts
 
-| Shortcut | Tag |
-| -------- | --- |
-| Mod + Z  | [1] |
-| Mod + X  | [2] |
-| Mod + 1  | [3] |
-| Mod + 2  | [4] |
-| Mod + 3  | [5] |
-| Mod + 4  | [6] |
-| Mod + 5  | [7] |
+| Shortcut | Tag  |
+| -------- | ---- |
+| Mod + Z  | [1]  |
+| Mod + X  | [2]  |
+| Mod + 1  | [3]  |
+| Mod + 2  | [4]  |
+| Mod + 3  | [5]  |
+| Mod + 4  | [6]  |
+| Mod + 5  | [7]  |
+| Mod + 5  | [8]  |
+| Mod + 5  | [9]  |
+| Mod + 5  | [10] |
 
 ## Additional Assets
 
@@ -95,7 +99,6 @@ If you prefer not to use this feature, you can disable the widget by editing the
 
 ## Screenshots
 
-![Hyprland Screenshot](https://i.imgur.com/qDuuqhs.png)
-![EWW Status Bar](https://i.imgur.com/IRC3JdY.png)
-![EWW Control Panel](https://i.imgur.com/G2gQ2Dw.png)
-![Dunst Screenshot](https://i.imgur.com/SH5TUHu.png)
+![Hyprland Screenshot](https://i.imgur.com/3Dq3doI.png)
+![EWW Control Panel](https://i.imgur.com/WSUncj3.png)
+![Dunst Screenshot](https://i.imgur.com/NS4cWwX.png)
