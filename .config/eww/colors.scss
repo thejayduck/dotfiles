@@ -1,0 +1,55 @@
+$fg1: #ebdbb2;
+$bg: #282828;
+$bg2: #504945;
+$bg-h: #1d2021;
+$gray: #a89984;
+$red: #fb4934;
+$blue: #83a598;
+// $purple: #8064b4;
+$purple: #826aaf;
+
+$accent: $purple;
+$font-color: $fg1;
+$workspace-active: lighten($accent, 15%);
+$font-disabled: $gray;
+$font-normal: 1.4em;
+$font-small: 0.8em;
+
+$border: 0.4em;
+$spacing-small: 2px;
+$spacing: 5px;
+$spacing-large: 15px;
+
+.button {
+  min-width: 32px;
+  label {
+    font-size: $font-normal;
+    margin-right: 4px;
+  }
+}
+
+// Keyframes
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes button-hover {
+  0% {
+    background-color: transparent;
+    color: $font-color;
+  }
+  100% {
+    // background-color: rgba($accent, 0.5);
+    background-color: $accent;
+    color: $bg-h;
+  }
+}

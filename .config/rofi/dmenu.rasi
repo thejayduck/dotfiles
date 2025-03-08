@@ -1,0 +1,62 @@
+/**
+ * ROFI Color theme
+ * User: Qball
+ * Copyright: Dave Davenport
+ */
+
+* {
+    background-color: #282828;
+    border-color: White;
+    text-color: #ebdbb2;
+    font: "JetBrainsMono Nerd Font 12";
+    highlight: bold italic;
+    accent: #826aaf;
+}
+
+window {
+    anchor: south;
+    location: south;
+    width: 100%;
+    padding: 4px;
+    children: [ horibox ];
+}
+
+horibox {
+    orientation: horizontal;
+    children: [ prompt, textbox-prompt-separator, entry, listview ];
+}
+
+listview {
+    layout: horizontal;
+    spacing: 10px;
+    lines: 100;
+}
+
+entry {
+    expand: false;
+    width: 10em;
+}
+
+element {
+    padding: 0px 2px;
+    children: [ element-icon, element-text ];
+    spacing: 5px;
+}
+
+element selected {
+    background-color: var(accent);
+    text-color: #282828;
+    border-radius: 2px;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+textbox-prompt-separator {
+    expand:     false;
+    str:        " / ";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @normal-foreground;
+}

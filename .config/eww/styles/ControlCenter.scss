@@ -1,17 +1,28 @@
-calendar {
-  background-color: #282828;
-  border-radius: 0.4em;
-  color: #ebdbb2;
+.control-center {
+  min-width: 200px;
+}
 
-  :selected {
-    background-color: #8abeb7;
-    color: #504945;
+calendar {
+  background-color: $bg;
+  border-radius: $border;
+  color: $font-color;
+
+  &.button {
+    margin: 1em;
   }
+  :selected {
+    background-color: $accent;
+    color: $bg-h;
+  }
+
+  // &:indeterminate {
+  //   color: rgba($font-default, 0.9);
+  // }
 }
 
 .module {
-  background-color: #282828;
-  color: #ebdbb2;
+  background-color: $bg;
+  color: $font-color;
   border-radius: 0.4em;
   padding: 7px;
 }
@@ -19,69 +30,85 @@ calendar {
 .mediaLayout {
   .mediaButtons {
     button {
-      background-color: #504945;
-      border-radius: 0.4em;
-      margin: 2px;
-      padding: 5px;
-      min-width: 195px;
+      background-color: $bg2;
+      border-radius: $border;
+      margin: $spacing-small;
+      padding: $spacing;
+      // min-width: 195px;
 
       &.media {
         min-width: 30px;
       }
-
-      &:hover {
-        background-color: #8abeb7;
-        color: #282828;
-      }
-
-      transition: background-color, color 0.3s;
     }
   }
 }
 
 .controlCenter {
-  background-color: #282828;
-  color: #ebdbb2;
-  border-radius: 0.4em;
+  background-color: $bg;
+  color: $font-color;
+  border-radius: $border;
   padding: 0 7px 7px 7px;
   box-shadow: 0 4px 10px #a6a0a726;
-
   .calendarButton {
     margin: 5px;
-    border-radius: 0.4em;
+    border-radius: $border;
 
     &:hover {
-      background-color: #8abeb7;
-      color: #282828;
+      background-color: $accent;
+      color: $bg;
     }
 
     transition: background-color, color 0.3s;
   }
 
   .quickSettingWrap {
-    background-color: #504945;
-    border-radius: 0.4em 0.4em;
+    background-color: $bg2;
+    border-radius: $border;
 
     &:hover {
-      background-color: #8abeb7;
-      color: #282828;
+      background-color: $accent;
+      color: $bg;
     }
 
     &.disabled {
       opacity: 0.5;
     }
 
+    .quickSetting {
+      margin-top: 4px;
+
+      min-width: 50px;
+
+      .icon {
+        font-size: $font-normal;
+      }
+    }
+
     transition: background-color, color 0.3s;
   }
+}
 
-  .quickSetting {
-    min-width: 70px;
+.metric {
+  margin-top: $spacing;
+  margin-left: $spacing;
+  font-size: $font-normal;
 
-    :hover {
-      background-color: #504945;
-    }
-    .icon {
-      font-size: 1.4em;
-    }
+  .label {
+    min-width: 40px;
+    font-size: $font-small;
+    margin-left: $spacing-small;
+  }
+
+  scale trough highlight {
+    background-color: $accent;
+    border-radius: 4em;
+  }
+
+  scale trough {
+    background-color: $bg2;
+    border-radius: 50px;
+    min-height: 15px;
+    // min-width: 255px;
+    margin-left: $spacing-large;
   }
 }

@@ -1,40 +1,89 @@
+@import "../colors.scss";
+
 .bar-main,
 .bar-external {
-  background-color: #282828;
-  color: #ebdbb2;
-  border-radius: 0.4em;
-  // margin: 5px 5px 20px 5px;
-  // box-shadow: 10px 5px 5px red;
+  background-color: $bg;
+  color: $font-color;
+
+  border-radius: $border;
+}
+
+tooltip {
+  background-color: $bg;
+  border-radius: $border;
+  color: $font-color;
+}
+
+.window_title {
+  opacity: 0.5;
+}
+
+.hover {
+  // border-radius: $border;
+  &:hover {
+    animation: button-hover 0.3s forwards;
+  }
 }
 
 .leftpanel {
-  .systemTray {
-    padding: 7px;
+  .time {
+    margin: 0 $spacing 0 $spacing;
+  }
+  .controlCenterToggle {
+    &.active {
+      animation: button-hover 0.3s forwards;
+    }
+  }
 
-    margin-left: 5px;
-    background-color: #504945;
-    border-radius: 0.4em 0.4em;
+  .recordIndicatorWrapper {
+    // border-radius: $border;
+    background-color: $red;
+    padding-right: $spacing + 5px;
+    padding-left: $spacing;
+    // margin-right: $spacing;
+    .recordIndicator {
+      color: $bg;
+      animation: blink 2s infinite;
+    }
+  }
+
+  .systemTray {
+    padding: $spacing;
+
+    // margin-left: $spacing;
+    background-color: $bg2;
+    // background-color: $accent;
+    border-radius: 0 $border $border 0;
+
+    widget {
+      -gtk-icon-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+      // image {
+      //   margin: 0 5px 0 5px;
+      // }
+    }
 
     menu {
-      border-radius: 0.4em;
-      padding: 5px 0;
-      color: #ebdbb2;
+      border-radius: $border;
+      padding: $spacing 0;
+      color: $font-color;
 
-      background-color: #282828;
+      background-color: $bg;
 
       > menuitem {
-        padding: 0px 5px;
+        padding: 0px $spacing;
 
         &:disabled label {
-          color: gray;
+          color: $font-disabled;
         }
 
         &:hover {
-          background-color: #8abeb7;
-          color: black;
+          background-color: $accent;
+          color: $bg-h;
+          animation: button-hover 0.3s forwards;
         }
       }
 
+      // Dropdown Arrow
       menuitem arrow {
         min-width: 16px;
         min-height: 16px;
@@ -46,21 +95,23 @@
         }
       }
 
+      // Checkbox
       menuitem check {
         border: 1px solid;
         border-radius: 0.2em;
-        color: #ebdbb2;
+        color: $font-color;
         min-width: 14px;
         min-height: 14px;
         margin-right: 4px;
 
         &:checked {
+          color: $font-color;
           -gtk-icon-source: -gtk-icontheme("checkmark");
         }
       }
 
       separator {
-        background-color: #222222;
+        background-color: $bg2;
         padding-top: 1px;
 
         &:last-child {
@@ -73,34 +124,44 @@
 
 .workspaces {
   :hover {
-    background-color: #8abeb7;
-    color: black;
+    // background-color: $accent;
+    // color: $bg-h;
 
     .workspace-entry {
       &.current {
-        color: black;
+        color: $bg-h;
       }
     }
 
     &:first-child {
-      border-radius: 0.4em 0 0 0.4em;
+      border-radius: $border 0 0 $border;
     }
   }
 
   .workspace-entry {
-    margin: 0 2px;
+    min-width: 25px;
+    // margin: 0 2px;
 
     &.current {
-      color: #8abeb7;
+      // background-image: -gtk-gradient(
+      //   linear,
+      //   left bottom,
+      //   left top,
+      //   from($accent),
+      //   to(mix($accent, $bg-h, 20%))
+      // );
+      background-color: $accent;
+      // color: $bg-h;
       font-weight: bold;
     }
 
     &.occupied {
-      font-weight: bold;
+      // font-weight: bold;
     }
 
     &.empty {
-      opacity: 0.5;
+      color: $font-disabled;
+      opacity: 0.3;
     }
   }
 
@@ -108,35 +169,16 @@
 }
 
 progressbar {
-  margin: 5px 2px 0 2px;
+  margin: $spacing $spacing-small 0 $spacing-small;
 
   trough {
-    background-color: #504945;
+    background-color: $bg2;
     border-radius: 50px;
-    min-height: 5px;
+    min-height: $spacing;
 
     progress {
-      background-color: #8abeb7;
+      background-color: $accent;
       border-radius: 4em;
     }
-  }
-}
-
-.metric {
-  margin-top: 5px;
-  margin-left: 5px;
-  font-size: 1.4em;
-
-  scale trough highlight {
-    background-color: #8abeb7;
-    border-radius: 4em;
-  }
-
-  scale trough {
-    background-color: #504945;
-    border-radius: 50px;
-    min-height: 15px;
-    min-width: 255px;
-    margin-left: 15px;
   }
 }

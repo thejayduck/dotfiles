@@ -11,7 +11,7 @@
       :halign "start"
       (label :text "${workspaces}${current_workspace}" :visible false)
       (for workspace in workspaces
-        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :class "hover"
           (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
             (label :text "${workspace.id}")
           )
@@ -29,9 +29,10 @@
 
 (defwidget clock []
   (eventbox 
-    :class "clock"
+    :class "clock hover"
     :cursor "pointer" 
     :onclick "bash ~/.config/eww/scripts/toggle-manager toggle_control_center control-center"
+    :tooltip "Click to open Control Center"
     (label :class "time" :text time)
   )
 )
@@ -41,12 +42,17 @@
 ;;
 
 ;! Optional ?active removes the entire class from the widget
-(defwidget quickSetting [icon value ?onScroll ?onClick active]
+(defwidget quickSetting [icon ?tooltip ?value ?onScroll ?onClick active]
   (eventbox 
     :onscroll onScroll 
     :onclick onClick 
     :cursor "pointer" 
-    :class "quickSettingWrap ${active ? "" : "disabled"}"
+    :height 50
+    :width 50
+    :vexpand false
+    :hexpand false
+    :tooltip tooltip
+    :class "quickSettingWrap ${active ? "" : "disabled"} hover"
     (box :orientation "v" :space-evenly false :class "quickSetting"
       (label :text icon :class "icon")
       (label :text "${value}" :class "value")
@@ -59,6 +65,7 @@
     strength <= 25 ? "󰣴 Slow" :
     strength <= 50 ? "󰣶 Okay" :
     strength <= 75 ? "󰣸 Good" : "󰣺 Great"}
+    :tooltip "Network Strength"
   )
 )
 
@@ -78,12 +85,13 @@
     (box
       :space-evenly false
       :class "mediaButtons"
-      (button :onclick {player_status == 'Paused' ? 'playerctl play' : 'playerctl pause'} (label :text {player_status == 'Paused' ? '󰐊 Play' : '󰏤 Pause'}))
-      (button :class "media previous" :onclick "playerctl previous" (label :text "󰒮"))
-      (button :class "media next" :onclick "playerctl next" (label :text "󰒭"))
+      (button :hexpand true :class "hover" :onclick {player_status == 'Paused' ? 'playerctl play' : 'playerctl pause'} (label :text {player_status == 'Paused' ? '󰐊 Play' : '󰏤 Pause'}))
+      (button :tooltip "Previous Media" :class "media previous hover" :onclick "playerctl previous" (label :text "󰒮"))
+      (button :tooltip "Next Media" :class "media next hover" :onclick "playerctl next" (label :text "󰒭"))
     )
     (progress 
       :orientation "h"
+      :hexpand true
       :value {round((player_position / (player_duration / 1000000)) * 100, 0)})
   )
  
@@ -109,6 +117,7 @@
       : bat.status == 'Charging'
         ? '󰂄'
       : '󰁹'}"
+    :tooltip "Battery at ${bat.capacity}%"
     :value "${bat.capacity}%" 
     :active true
   )
@@ -119,15 +128,23 @@
     :icon "${mic ? '󰍬' : '󰍭'}"
     :value "${mic ? "On" : "Off"}" 
     :onClick "bash ~/.config/eww/scripts/microphone true" 
+    :tooltip "Toggle Microphone"
     :active mic
+  )
+)
+
+(defwidget screenRecordIndicator []
+  (box :class "recordIndicatorWrapper" :visible screen_record
+    (label :class "recordIndicator" :text "Recording ")
   )
 )
 
 (defwidget bluetooth []
   (quickSetting
     :icon "${interface_status.rfkilldevices[0].soft == 'unblocked' ? '󰂯' : '󰂲'}"
-    :value "${interface_status.rfkilldevices[0].soft == 'unblocked' ? 'Active' : 'InActive'}" 
-    :onClick "rfkill toggle bluetooth" 
+    :value "${interface_status.rfkilldevices[0].soft == 'unblocked' ? 'On' : 'Off'}" 
+    :onClick "rfkill toggle bluetooth"
+    :tooltip "Toggle Bluetooth"
     :active true
   )
 )
@@ -135,8 +152,9 @@
 (defwidget wifi []
   (quickSetting
     :icon "${interface_status.rfkilldevices[1].soft == 'unblocked' ? '󰖩' : '󰖪'}"
-    :value "${interface_status.rfkilldevices[1].soft == 'unblocked' ? 'Active' : 'InActive'}" 
+    :value "${interface_status.rfkilldevices[1].soft == 'unblocked' ? 'On' : 'Off'}" 
     :onClick "rfkill toggle wifi" 
+    :tooltip "Toggle Wi-Fi"
     :active true
   )
 )
@@ -145,7 +163,7 @@
 
 (defwidget speakerMetric []
   (metric 
-    :label "${volume <= 0 ? '󰝟'
+    :icon "${volume <= 0 ? '󰝟'
       : volume <= 25 ? '󰕿'
       : volume <= 75 ? '󰖀'
       : volume <= 100 ? '󰕾'
@@ -157,7 +175,7 @@
 
 (defwidget brightnessMetric []
   (metric 
-    :label "${
+    :icon "${
       brightness <= 25 ? '󰃞'
       : brightness <= 50 ? '󰃟'
       : brightness <= 100 ? '󰃠'

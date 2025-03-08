@@ -6,8 +6,9 @@
     (box 
       :space-evenly false
       :spacing 5
-      (box :orientation "v" :space-evenly false :spacing 5 
-        (box
+      (box :orientation "v" :space-evenly false :spacing 5 :hexpand true
+
+      (box
           :orientation "v"
           :space-evenly false
           :class "controlCenter"
@@ -31,15 +32,15 @@
         (box :class "module" weather)
         (box :class "module" :spacing 10 
           (network :strength wifi_strength)
-          (label :text "󰍛 ${round(EWW_RAM.used_mem_perc, 0)}%")
-          (label :text " ${round(EWW_CPU.avg, 0)}%")
-          (label :text " ${round(EWW_DISK["/home"].used_perc, 0)}%")
+          (label :text "󰍛 ${round(EWW_RAM.used_mem_perc, 0)}%" :tooltip "RAM Usage")
+          (label :text " ${round(EWW_CPU.avg, 0)}%" :tooltip "CPU Usage")
+          (label :text " ${round(EWW_DISK["/home"].used_perc, 0)}%" :tooltip "Disk Usage")
         )
         (revealer
           :transition "crossfade"
           :reveal {toggle_calendar}
           :duration {ANIM_DURATION}
-          (calendar)
+          (calendar :class "calendar")
         )
       )
       

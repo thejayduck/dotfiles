@@ -3,6 +3,7 @@
 (defvar toggle_control_center false)
 (defvar toggle_calendar false)
 (defvar visibility_media false)
+(defvar screen_record false)
 
 ; Polls
 
@@ -53,7 +54,7 @@
 )
 
 (defpoll wifi_strength 
-  :interval "1s"
+  :interval "60s"
   :initial "N/A"
   :run-while toggle_control_center
   `nmcli -t -f SIGNAL,ACTIVE device wifi \

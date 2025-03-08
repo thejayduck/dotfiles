@@ -1,18 +1,32 @@
 configuration {
-	font: "JetBrains Mono 14";
-	modi: "drun,ssh";
+	font: "JetBrainsMono Nerd Font 14";
+	icon-theme: "Win11-dark";
+    
+	modi: "drun";
 	show-icons: true;
 	me-select-entry: "MousePrimary";
 	me-accept-entry: "!MousePrimary";
 	terminal: "/usr/bin/kitty";
+	matching: "fuzzy";
+
+	drun {
+    	fallback-icon: "application-x-addon";
+	}
+	dmenu {
+    	fallback-icon: "application-text";
+	}
 
 	display-ssh: "󰣀 ssh";
 	display-run: "󱓞 run";
-	display-drun: "󰣖 drun";
+	display-drun: " run";
 	display-window: "󱂬 window";
 	display-combi: "󰕘 combi";
 	display-filebrowser: "󰉋 filebrowser";
+
+	drun-display-format: "{name}";
 }
 
 //@theme "gruvbox-dark.rasi"
-@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+//@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+
+@theme "dmenu.rasi"

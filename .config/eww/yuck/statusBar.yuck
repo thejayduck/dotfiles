@@ -6,7 +6,14 @@
 
 (defwidget leftpanel []
   (box :class "leftpanel" :space-evenly false :halign "end"
+    (screenRecordIndicator)
     (clock)
+    (button ;; Control Center Toggle
+      :class "controlCenterToggle hover button ${toggle_control_center ? "active" : ""}"
+      :tooltip "Click to open Control Center"
+      :onclick "bash ~/.config/eww/scripts/toggle-manager toggle_control_center control-center" 
+      (label :text "${toggle_control_center ? "󰔡" : "󰔢"}")
+    )
     (systray 
       :class "systemTray"
       :spacing 10
