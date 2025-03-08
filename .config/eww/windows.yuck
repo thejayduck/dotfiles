@@ -32,27 +32,13 @@
   :monitor 0
   :stacking "fg"
   :windowtype "dock"
+  :exclusive true
   :geometry (geometry 
     :y "5px"
     :x "10px"
     :height "15%"
-    :width "300px"
+    :width "320px" ; 20px used as box margin
     :anchor "top right")
   :reserve (struts :side "top" :distance "4%")
   (control-center)
-)
-
-(defwidget metric [icon value onchange]
-  (box :orientation "h"
-       :class "metric"
-       :space-evenly false
-    (box :class "icon" icon)
-    (scale :min 0
-      :max 101
-      :active {onchange != ""}
-      :hexpand true
-      :value value
-      :onchange onchange)
-    (label :class "label" :xalign 1 :text "${value}%")
-  )
 )

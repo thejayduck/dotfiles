@@ -1,3 +1,4 @@
+// Colors
 $fg1: #ebdbb2;
 $bg: #282828;
 $bg2: #504945;
@@ -18,7 +19,49 @@ $font-small: 0.8em;
 $border: 0.4em;
 $spacing-small: 2px;
 $spacing: 5px;
+$spacing-medium: 10px;
 $spacing-large: 15px;
+
+// Styles
+
+tooltip {
+  background-color: $bg;
+  border-radius: $border;
+  color: $font-color;
+}
+
+calendar {
+  background-color: $bg;
+  border-radius: $border;
+  color: $font-color;
+
+  &.button {
+    margin: 1em;
+  }
+  :selected {
+    background-color: $accent;
+    color: $bg-h;
+  }
+
+  // &:indeterminate {
+  //   color: rgba($font-default, 0.9);
+  // }
+}
+
+progressbar {
+  margin: $spacing $spacing-small 0 $spacing-small;
+
+  trough {
+    background-color: $bg2;
+    border-radius: 50px;
+    min-height: $spacing;
+
+    progress {
+      background-color: $accent;
+      border-radius: 4em;
+    }
+  }
+}
 
 .button {
   min-width: 32px;

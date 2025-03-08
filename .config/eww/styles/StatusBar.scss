@@ -1,4 +1,4 @@
-@import "../colors.scss";
+@import "../styles/globals.scss";
 
 .bar-main,
 .bar-external {
@@ -6,12 +6,6 @@
   color: $font-color;
 
   border-radius: $border;
-}
-
-tooltip {
-  background-color: $bg;
-  border-radius: $border;
-  color: $font-color;
 }
 
 .window_title {
@@ -50,16 +44,11 @@ tooltip {
   .systemTray {
     padding: $spacing;
 
-    // margin-left: $spacing;
     background-color: $bg2;
-    // background-color: $accent;
     border-radius: 0 $border $border 0;
 
     widget {
       -gtk-icon-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
-      // image {
-      //   margin: 0 5px 0 5px;
-      // }
     }
 
     menu {
@@ -118,67 +107,6 @@ tooltip {
           padding: unset;
         }
       }
-    }
-  }
-}
-
-.workspaces {
-  :hover {
-    // background-color: $accent;
-    // color: $bg-h;
-
-    .workspace-entry {
-      &.current {
-        color: $bg-h;
-      }
-    }
-
-    &:first-child {
-      border-radius: $border 0 0 $border;
-    }
-  }
-
-  .workspace-entry {
-    min-width: 25px;
-    // margin: 0 2px;
-
-    &.current {
-      // background-image: -gtk-gradient(
-      //   linear,
-      //   left bottom,
-      //   left top,
-      //   from($accent),
-      //   to(mix($accent, $bg-h, 20%))
-      // );
-      background-color: $accent;
-      // color: $bg-h;
-      font-weight: bold;
-    }
-
-    &.occupied {
-      // font-weight: bold;
-    }
-
-    &.empty {
-      color: $font-disabled;
-      opacity: 0.3;
-    }
-  }
-
-  transition: background-color 0.3s;
-}
-
-progressbar {
-  margin: $spacing $spacing-small 0 $spacing-small;
-
-  trough {
-    background-color: $bg2;
-    border-radius: 50px;
-    min-height: $spacing;
-
-    progress {
-      background-color: $accent;
-      border-radius: 4em;
     }
   }
 }

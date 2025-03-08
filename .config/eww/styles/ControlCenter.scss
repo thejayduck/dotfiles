@@ -1,56 +1,24 @@
+@import "../styles/globals.scss";
+
 .control-center {
-  min-width: 200px;
-}
-
-calendar {
-  background-color: $bg;
-  border-radius: $border;
-  color: $font-color;
-
-  &.button {
-    margin: 1em;
-  }
-  :selected {
-    background-color: $accent;
-    color: $bg-h;
-  }
-
-  // &:indeterminate {
-  //   color: rgba($font-default, 0.9);
-  // }
+  margin: 20px;
+  padding-left: 20px;
 }
 
 .module {
   background-color: $bg;
   color: $font-color;
-  border-radius: 0.4em;
-  padding: 7px;
-}
-
-.mediaLayout {
-  .mediaButtons {
-    button {
-      background-color: $bg2;
-      border-radius: $border;
-      margin: $spacing-small;
-      padding: $spacing;
-      // min-width: 195px;
-
-      &.media {
-        min-width: 30px;
-      }
-    }
-  }
-}
-
-.controlCenter {
-  background-color: $bg;
-  color: $font-color;
   border-radius: $border;
-  padding: 0 7px 7px 7px;
-  box-shadow: 0 4px 10px #a6a0a726;
+  padding: 0 $spacing-medium $spacing $spacing-medium;
+  box-shadow: 0 4px 10px $bg;
+
+  &:not(:first-child) {
+    padding: $spacing $spacing-medium;
+  }
+
   .calendarButton {
-    margin: 5px;
+    margin: $spacing 0;
+    min-width: 32px;
     border-radius: $border;
 
     &:hover {
@@ -61,54 +29,22 @@ calendar {
     transition: background-color, color 0.3s;
   }
 
-  .quickSettingWrap {
-    background-color: $bg2;
-    border-radius: $border;
-
-    &:hover {
-      background-color: $accent;
-      color: $bg;
+  .mediaLayout {
+    label {
+      margin: 0 $spacing-small;
     }
+    .mediaButtons {
+      button {
+        background-color: $bg2;
+        border-radius: $border;
+        margin: $spacing-small;
+        padding: $spacing;
+        // min-width: 195px;
 
-    &.disabled {
-      opacity: 0.5;
-    }
-
-    .quickSetting {
-      margin-top: 4px;
-
-      min-width: 50px;
-
-      .icon {
-        font-size: $font-normal;
+        &.media {
+          min-width: 30px;
+        }
       }
     }
-
-    transition: background-color, color 0.3s;
-  }
-}
-
-.metric {
-  margin-top: $spacing;
-  margin-left: $spacing;
-  font-size: $font-normal;
-
-  .label {
-    min-width: 40px;
-    font-size: $font-small;
-    margin-left: $spacing-small;
-  }
-
-  scale trough highlight {
-    background-color: $accent;
-    border-radius: 4em;
-  }
-
-  scale trough {
-    background-color: $bg2;
-    border-radius: 50px;
-    min-height: 15px;
-    // min-width: 255px;
-    margin-left: $spacing-large;
   }
 }

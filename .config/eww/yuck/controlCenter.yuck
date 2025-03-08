@@ -11,9 +11,10 @@
       (box
           :orientation "v"
           :space-evenly false
-          :class "controlCenter"
+          :class "module"
           (button ;; Calendar
               :class "calendarButton"
+              :tooltip "Toggle Calendar"
               :onclick "bash ~/.config/eww/scripts/toggle-manager toggle_calendar" 
               (label :text " Calendar")
           )

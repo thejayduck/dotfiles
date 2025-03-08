@@ -21,44 +21,15 @@
   )
 )
 
-(defwidget window_w []
+(defwidget window_w [] ; Window Title
   (box
     (label :class "window_title" :text "${window}" :limit-width 50)
-  )
-)
-
-(defwidget clock []
-  (eventbox 
-    :class "clock hover"
-    :cursor "pointer" 
-    :onclick "bash ~/.config/eww/scripts/toggle-manager toggle_control_center control-center"
-    :tooltip "Click to open Control Center"
-    (label :class "time" :text time)
   )
 )
 
 ;;
 ; Control Panel
 ;;
-
-;! Optional ?active removes the entire class from the widget
-(defwidget quickSetting [icon ?tooltip ?value ?onScroll ?onClick active]
-  (eventbox 
-    :onscroll onScroll 
-    :onclick onClick 
-    :cursor "pointer" 
-    :height 50
-    :width 50
-    :vexpand false
-    :hexpand false
-    :tooltip tooltip
-    :class "quickSettingWrap ${active ? "" : "disabled"} hover"
-    (box :orientation "v" :space-evenly false :class "quickSetting"
-      (label :text icon :class "icon")
-      (label :text "${value}" :class "value")
-    )
-  )
-)
 
 (defwidget network [strength]
   (label :text {strength == "" ? "󰣼 Offline" :
@@ -70,13 +41,6 @@
 )
 
 (defwidget mediaController []
-; (image
-    ;   :class "art"
-    ;   :path "/home/thejayduck/.mozilla/firefox/firefox-mpris/335223_175.png"
-    ;   :image-height 64
-    ;   :image-width 128
-    ;   :preserve-aspect-ratio false
-    ; )
     (box
     :orientation "v"
     :space-evenly false
@@ -97,7 +61,28 @@
  
 )
 
-;; Quick Setting Derivatives
+;; Quick Setting Widget
+
+;! Optional ?active removes the entire class from the widget
+(defwidget quickSetting [icon ?tooltip ?value ?onScroll ?onClick active]
+  (eventbox 
+    :onscroll onScroll 
+    :onclick onClick 
+    :cursor "pointer" 
+    :height 50
+    :width 50
+    :vexpand false
+    :hexpand false
+    :tooltip tooltip
+    :class "quickSettingWrap ${active ? "" : "disabled"} hover"
+    (box :orientation "v" :space-evenly false :class "quickSetting"
+      (label :text icon :class "icon")
+      (label :text "${value}" :class "value")
+    )
+  )
+)
+
+; Quick Setting Derivatives
 
 (defwidget battery [bat]
   (quickSetting 
@@ -160,6 +145,23 @@
 )
 
 ;; Sliders
+
+(defwidget metric [icon value onchange] ; Base Slider Widget
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "icon" icon)
+    (scale :min 0
+      :max 101
+      :active {onchange != ""}
+      :hexpand true
+      :value value
+      :onchange onchange)
+    (label :class "label" :xalign 1 :text "${value}%")
+  )
+)
+
+; Metric Derivatives
 
 (defwidget speakerMetric []
   (metric 
