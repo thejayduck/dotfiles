@@ -71,6 +71,7 @@ If you prefer not to use this feature, you can disable the widget by editing the
 | Mod + Shift + T   | Terminal (Kitty)                           |
 | Mod + Control + L | Screensaver (Hyprlock)                     |
 | Mod + C           | Toggle Control Center (EWW)                |
+| Mod + Tab         | Toggle Hyprspace                           |
 
 #### Workspace Shortcuts
 
@@ -83,9 +84,8 @@ If you prefer not to use this feature, you can disable the widget by editing the
 | Mod + 3  | [5]  |
 | Mod + 4  | [6]  |
 | Mod + 5  | [7]  |
-| Mod + 5  | [8]  |
-| Mod + 5  | [9]  |
-| Mod + 5  | [10] |
+| ...      | ...  |
+| Mod + 8  | [10] |
 
 ## Additional Assets
 
