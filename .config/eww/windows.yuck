@@ -33,12 +33,12 @@
   :stacking "fg"
   :windowtype "dock"
   :exclusive true
+  :wm-ignore true
   :geometry (geometry 
     :y "5px"
     :x "10px"
     :height "15%"
     :width "320px" ; 20px used as box margin
     :anchor "top right")
-  :reserve (struts :side "top" :distance "4%")
   (control-center)
 )

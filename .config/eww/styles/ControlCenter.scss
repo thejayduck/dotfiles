@@ -9,24 +9,30 @@
   background-color: $bg;
   color: $font-color;
   border-radius: $border;
-  padding: 0 $spacing-medium $spacing $spacing-medium;
-  box-shadow: 0 4px 10px $bg;
+  // padding: 0 $spacing-medium $spacing $spacing-medium;
+  box-shadow: 0 4px 10px $bg-h;
+  padding: $spacing $spacing-medium;
 
-  &:not(:first-child) {
-    padding: $spacing $spacing-medium;
+  &.indicator {
+    background-color: $red;
+    color: $bg-h;
   }
 
-  .calendarButton {
-    margin: $spacing 0;
-    min-width: 32px;
+  .quickSettings {
+    padding-top: $spacing;
+  }
+
+  .button {
+    //* Previously called calendarButton
+    min-width: 30px;
+    min-height: 30px;
     border-radius: $border;
 
-    &:hover {
-      background-color: $accent;
-      color: $bg;
+    label {
+      &.center {
+        margin-left: $spacing-small;
+      }
     }
-
-    transition: background-color, color 0.3s;
   }
 
   .mediaLayout {
@@ -35,14 +41,13 @@
     }
     .mediaButtons {
       button {
-        background-color: $bg2;
         border-radius: $border;
         margin: $spacing-small;
         padding: $spacing;
-        // min-width: 195px;
 
         &.media {
-          min-width: 30px;
+          min-width: 24px;
+          min-height: 24px;
         }
       }
     }

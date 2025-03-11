@@ -7,6 +7,18 @@
 
 ; Polls
 
+(defpoll vpn_status
+  :interval "30s"
+  ; :run-while toggle_control_center
+  `nmcli connection show --active "Proton NL Free 103" | wc -l`
+)
+
+(defpoll pipewire_dump 
+  :interval "30s"
+  ; :run-while toggle_control_center
+  `pw-dump | jq '.[] | select(.info.props."port.alias" == "xdg-desktop-portal-hyprland:capture_1") | .info.props."port.alias"'`
+)
+
 (defpoll volume 
   :interval "0s"
   :run-while toggle_control_center
@@ -14,19 +26,19 @@
 )
 
 (defpoll player_status
-  :interval "0s"
+  :interval "5s"
   :run-while toggle_control_center
   "playerctl status"
 )
 
 (defpoll player_position
-  :interval "0s"
+  :interval "5s"
   :run-while toggle_control_center
   "playerctl position"
 )
 
 (defpoll player_duration
-  :interval "0s"
+  :interval "5s"
   :run-while toggle_control_center
   "playerctl metadata mpris:length"
 )
@@ -39,6 +51,7 @@
 
 (defpoll mic 
   :interval "1s"
+  :run-while toggle_control_center
   "bash ~/.config/eww/scripts/microphone false"
 )
 
@@ -49,8 +62,8 @@
 )
 
 (defpoll time 
-  :interval "1s"
-  "date '+%H:%M (%a %d %b %Y)'"
+  :interval "10s"
+  "date '+%H:%M %b %d, %Y'"
 )
 
 (defpoll wifi_strength 

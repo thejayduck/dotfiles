@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+declare -A actions=(
+  ["dry"]='notify-send Confirmed Dry-run'
+  ["lock"]="hyprlock --immediate -q"
+  ["shutdown"]="systemctl poweroff"
+  ["restart"]="systemctl reboot"
+  ["suspend"]="systemctl suspend"
+  ["hibernate"]="systemctl hibernate"
+)
+
+
+confirm() {
+  local action=$1
+  rofi \
+    -dmenu \
+    -i \
+    -no-fixed-num-lines \
+    -p " Confirm Action - ${1^^}" \
+    -theme-str "entry { placeholder: 'yes/no'; } entry { placeholder-color: #504945; } prompt { color: #fb4934; }"
+}
+
+execute_action() {
+  local action=$1
+  local command=$2
+  
+  if [[ $(confirm "$action") =~ ^[Yy][Ee][Ss]$ ]]; then
+    $command
+  fi
+}
+
+main() {
+  local action=$1
+
+  if [[ -z "${actions[$action]:-}" ]]; then
+    echo "Error: Invalid action '$action'" >&2
+    echo "Usage: $0 {${!actions[*]}}" >&2
+    notify-send -u low "Error: Invalid action '$action'" "Usage: $0 {${!actions[*]}}"
+    exit 1
+  fi
+
+  execute_action "$action" "${actions[$action]}"
+}
+
+main "$1"

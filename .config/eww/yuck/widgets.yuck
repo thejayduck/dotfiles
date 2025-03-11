@@ -36,7 +36,7 @@
     strength <= 25 ? "󰣴 Slow" :
     strength <= 50 ? "󰣶 Okay" :
     strength <= 75 ? "󰣸 Good" : "󰣺 Great"}
-    :tooltip "Network Strength"
+    :tooltip "Network Strength: ${strength}%"
   )
 )
 
@@ -49,9 +49,9 @@
     (box
       :space-evenly false
       :class "mediaButtons"
-      (button :hexpand true :class "hover" :onclick {player_status == 'Paused' ? 'playerctl play' : 'playerctl pause'} (label :text {player_status == 'Paused' ? '󰐊 Play' : '󰏤 Pause'}))
-      (button :tooltip "Previous Media" :class "media previous hover" :onclick "playerctl previous" (label :text "󰒮"))
-      (button :tooltip "Next Media" :class "media next hover" :onclick "playerctl next" (label :text "󰒭"))
+      (button :hexpand true :class "hover light" :onclick {player_status == 'Paused' ? 'playerctl play' : 'playerctl pause'} (label :text {player_status == 'Paused' ? '󰐊 Play' : '󰏤 Pause'}))
+      (button :tooltip "Previous Media" :class "media hover light" :onclick "playerctl previous" (label :text "󰒮"))
+      (button :tooltip "Next Media" :class "media hover light" :onclick "playerctl next" (label :text "󰒭"))
     )
     (progress 
       :orientation "h"
@@ -59,6 +59,12 @@
       :value {round((player_position / (player_duration / 1000000)) * 100, 0)})
   )
  
+)
+
+(defwidget screenRecordIndicator []
+  (box :class "recordIndicatorWrapper" :visible screen_record
+    (label :class "recordIndicator" :text "Recording ")
+  )
 )
 
 ;; Quick Setting Widget
@@ -102,7 +108,7 @@
       : bat.status == 'Charging'
         ? '󰂄'
       : '󰁹'}"
-    :tooltip "Battery at ${bat.capacity}%"
+    :tooltip "Status: ${bat.status}"
     :value "${bat.capacity}%" 
     :active true
   )
@@ -115,12 +121,6 @@
     :onClick "bash ~/.config/eww/scripts/microphone true" 
     :tooltip "Toggle Microphone"
     :active mic
-  )
-)
-
-(defwidget screenRecordIndicator []
-  (box :class "recordIndicatorWrapper" :visible screen_record
-    (label :class "recordIndicator" :text "Recording ")
   )
 )
 
@@ -144,7 +144,7 @@
   )
 )
 
-;; Sliders
+;; Metrics
 
 (defwidget metric [icon value onchange] ; Base Slider Widget
   (box :orientation "h"

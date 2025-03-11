@@ -42,10 +42,6 @@ calendar {
     background-color: $accent;
     color: $bg-h;
   }
-
-  // &:indeterminate {
-  //   color: rgba($font-default, 0.9);
-  // }
 }
 
 progressbar {
@@ -65,9 +61,41 @@ progressbar {
 
 .button {
   min-width: 32px;
+
+  &.lock {
+    color: $accent;
+  }
+  &.shutdown {
+    color: $red;
+  }
+  &.restart {
+    color: $gray;
+  }
+  &.suspend {
+    color: $blue;
+  }
+  &.hibernate {
+    color: $blue;
+  }
+
   label {
     font-size: $font-normal;
     margin-right: 4px;
+  }
+}
+
+.hover {
+  // border-radius: $border;
+  transition: background-color 255ms, color 255ms;
+
+  &.light {
+    background-color: $bg2;
+  }
+
+  &:hover {
+    background-color: $accent;
+    color: $bg-h;
+    // animation: button-hover 0.3s forwards;
   }
 }
 

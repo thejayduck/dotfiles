@@ -6,6 +6,8 @@
 
 (defwidget leftpanel []
   (box :class "leftpanel" :space-evenly false :halign "end"
+    (label :tooltip "Sharing Screen" :class "indicator screenshare" :text "" :visible "${pipewire_dump != ""}")
+    (label :tooltip "Connected to VPN" :class "indicator vpn" :text "" :visible "${vpn_status > 0}")
     (screenRecordIndicator)
     (label :class "time" :text time)
     (button ;; Control Center Toggle

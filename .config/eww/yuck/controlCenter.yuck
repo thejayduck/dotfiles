@@ -7,41 +7,72 @@
       :space-evenly false
       :spacing 5
       (box :orientation "v" :space-evenly false :spacing 5 :hexpand true
-
       (box
-          :orientation "v"
-          :space-evenly false
-          :class "module"
-          (button ;; Calendar
-              :class "calendarButton"
-              :tooltip "Toggle Calendar"
-              :onclick "bash ~/.config/eww/scripts/toggle-manager toggle_calendar" 
-              (label :text " Calendar")
-          )
-          (box ;; Quick Settings
-            :class "quickSettings"
-            :spacing 5
-            (wifi)
-            (bluetooth)
-            (microphone)
-            (battery :bat "${EWW_BATTERY["BAT0"]}")
-          )
-          (speakerMetric)
-          (brightnessMetric)
+        :orientation "v"
+        :space-evenly false
+        :class "module"
+        ; (button ;; Calendar
+        ;     :class "calendarButton"
+        ;     :tooltip "Toggle Calendar"
+        ;     :onclick "bash ~/.config/eww/scripts/toggle-manager toggle_calendar" 
+        ;     (label :text " Calendar")
+        ; )
+        (label :text "Control Panel")
+        (box ;; Quick Settings
+          :class "quickSettings"
+          :spacing 5
+          (wifi)
+          (bluetooth)
+          (microphone)
+          (battery :bat "${EWW_BATTERY["BAT0"]}")
         )
+        (speakerMetric)
+        (brightnessMetric)
+      )
+        (calendar :class "calendar")
         (box :class "module" :visible visibility_media (mediaController))
         (box :class "module" weather)
         (box :class "module" :spacing 10 
           (network :strength wifi_strength)
-          (label :text "󰍛 ${round(EWW_RAM.used_mem_perc, 0)}%" :tooltip "RAM Usage")
+          (label :text "󰍛 ${round(EWW_RAM.used_mem_perc, 0)}%" 
+            :tooltip "Free: ${round(EWW_RAM.free_mem / (1024 * 1024 * 1024), 0)} GiB (Total: ${round(EWW_RAM.total_mem / (1024 * 1024 * 1024), 0)} GiB)")
           (label :text " ${round(EWW_CPU.avg, 0)}%" :tooltip "CPU Usage")
-          (label :text " ${round(EWW_DISK["/home"].used_perc, 0)}%" :tooltip "Disk Usage")
+          (label :text " ${round(EWW_DISK["/home"].used_perc, 0)}%" 
+            :tooltip "Free: ${round(EWW_DISK["/home"].free / (1024 * 1024 * 1024), 0)} GiB (Total: ${round(EWW_DISK["/home"].total / (1024 * 1024 * 1024), 0)} GiB)")
         )
-        (revealer
-          :transition "crossfade"
-          :reveal {toggle_calendar}
-          :duration {ANIM_DURATION}
-          (calendar :class "calendar")
+        (box :class "module"
+          (box :space-evenly true :spacing 12
+            (button :class "button hover light lock" :width 20 :height 20 
+              :tooltip "Lockscreen"
+              :onclick "~/.config/eww/scripts/power-buttons lock"
+              :timeout "60s"
+              (label :text "󰌾")
+            )
+            (button :class "button hover light shutdown" :width 20 :height 20 
+              :tooltip "Shutdown"
+              :onclick "~/.config/eww/scripts/power-buttons shutdown"
+              :timeout "60s"
+              (label :text "󰐥" :class "center")
+            )
+            (button :class "button hover light restart" :width 20 :height 20 
+              :tooltip "Restart"
+              :onclick "~/.config/eww/scripts/power-buttons restart"
+              :timeout "60s"
+              (label :text "󰜉" :class "center")
+            )
+            (button :class "button hover light suspend" :width 20 :height 20 
+              :tooltip "Suspend"
+              :onclick "~/.config/eww/scripts/power-buttons suspend"
+              :timeout "60s"
+              (label :text "󰤄" :class "center")
+            )
+            (button :class "button hover light hibernate" :width 20 :height 20
+              :tooltip "Hibernate"
+              :onclick "~/.config/eww/scripts/power-buttons hibernate"
+              :timeout "60s"
+              (label :text "󰒲")
+            )
+          )
         )
       )
       

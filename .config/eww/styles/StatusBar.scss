@@ -12,20 +12,27 @@
   opacity: 0.5;
 }
 
-.hover {
-  // border-radius: $border;
-  &:hover {
-    animation: button-hover 0.3s forwards;
-  }
-}
-
 .leftpanel {
+  .indicator {
+    padding-right: $spacing;
+    &.vpn {
+      color: $blue;
+    }
+    &.screenshare {
+      color: $red;
+    }
+  }
+
   .time {
     margin: 0 $spacing 0 $spacing;
   }
   .controlCenterToggle {
+    transition: background-color 255ms, color 255ms;
+
     &.active {
-      animation: button-hover 0.3s forwards;
+      background-color: $accent;
+      color: $bg-h;
+      // animation: button-hover 0.3s forwards;
     }
   }
 
@@ -37,7 +44,7 @@
     // margin-right: $spacing;
     .recordIndicator {
       color: $bg;
-      animation: blink 2s infinite;
+      // animation: blink 2s infinite;
     }
   }
 
@@ -60,6 +67,7 @@
 
       > menuitem {
         padding: 0px $spacing;
+        transition: background-color 255ms, color 255ms;
 
         &:disabled label {
           color: $font-disabled;
@@ -68,7 +76,7 @@
         &:hover {
           background-color: $accent;
           color: $bg-h;
-          animation: button-hover 0.3s forwards;
+          // animation: button-hover 0.3s forwards;
         }
       }
 
