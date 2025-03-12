@@ -7,6 +7,8 @@ alias packages="expac -H M '%m\t%n' | sort -h"
 alias dotfilestui='/usr/bin/gitui -d="$HOME/.dotfiles/" -w="$HOME"'
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias ai="tgpt --provider pollinations --model openai-large"
+alias compressv="$HOME/.config/hypr/scripts/compress_video"
+alias compressi="$HOME/.config/hypr/scripts/compress_image"
 
 if uwsm check may-start
     exec uwsm start hyprland.desktop

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+filename="${1%.*}"
+ffmpeg -i "$1" -vcodec h264 -acodec mp2 "${filename}-compressed.mp4"
