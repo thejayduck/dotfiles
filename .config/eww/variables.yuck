@@ -66,6 +66,11 @@
   "date '+%H:%M %b %d, %Y'"
 )
 
+(defpoll day
+  :interval "1000s"
+  "date '+%A'"
+)
+
 (defpoll wifi_strength 
   :interval "60s"
   :initial "N/A"

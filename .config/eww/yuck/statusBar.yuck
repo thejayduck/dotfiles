@@ -9,7 +9,7 @@
     (label :tooltip "Sharing Screen" :class "indicator screenshare" :text "" :visible "${pipewire_dump != ""}")
     (label :tooltip "Connected to VPN" :class "indicator vpn" :text "" :visible "${vpn_status > 0}")
     (screenRecordIndicator)
-    (label :class "time" :text time)
+    (label :class "time" :text time :tooltip day)
     (button ;; Control Center Toggle
       :class "controlCenterToggle hover button ${toggle_control_center ? "active" : ""}"
       :tooltip "Click to toggle Control Center (Super + C)"
