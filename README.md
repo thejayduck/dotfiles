@@ -51,7 +51,7 @@ If you prefer not to use this feature, you can disable the widget by editing the
 
 ### Plugins
 
-- [Hyprspace](https://github.com/KZDKM/Hyprspace/)
+- None
 
 ### Keybinds
 
@@ -61,17 +61,17 @@ If you prefer not to use this feature, you can disable the widget by editing the
 
 | Shortcut          | Description                                |
 | ----------------- | ------------------------------------------ |
+| Print-Screen      | Capture Full Screen                        |
 | Mod + Shift + S   | Screenshot (grim with slurp)               |
 | Mod + Shift + R   | Start/Stop Screen Recording (wl-screenrec) |
-| Print-Screen      | Capture Full Screen                        |
 | Mod + F           | Toggle Floating Window                     |
 | Mod + E           | Open File Manager (PcManFM-Qt)             |
 | Mod + Space       | Rofi (drun, ssh)                           |
-| Mod + V           | Rofi (cliphist)                            |
+| Mod + V           | Rofi (cliphvist)                           |
 | Mod + Shift + T   | Terminal (Kitty)                           |
-| Mod + Control + L | Screensaver (Hyprlock)                     |
+| Mod + Control + L | Lock Screen (Hyprlock)                     |
 | Mod + C           | Toggle Control Center (EWW)                |
-| Mod + Tab         | Toggle Hyprspace                           |
+| F11               | Force FullScreen                           |
 
 #### Workspace Shortcuts
 

@@ -223,8 +223,8 @@
     # * context_all: Open context menu for all notifications.
     # These values can be strung together for each mouse event, and
     # will be executed in sequence.
-    mouse_left_click = do_action
-    mouse_middle_click = do_action, close_current
+    mouse_left_click = do_action, close_current
+    # mouse_middle_click = do_action, close_current
     mouse_right_click = close_current
 
 [play_sound] # Plays a notification sfx
@@ -247,7 +247,8 @@
 [urgency_normal]
     background = "#282828"
     foreground = "#ebdbb2"
-    frame_color = "#b8b892"
+    # frame_color = "#b8b892"
+    frame_color = "#826aaf"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     default_icon = notifications-new-symbolic

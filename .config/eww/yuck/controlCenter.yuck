@@ -29,7 +29,7 @@
         (speakerMetric)
         (brightnessMetric)
       )
-        (calendar :class "calendar")
+        ; (calendar :class "calendar")
         (box :class "module" :visible visibility_media (mediaController))
         (box :class "module" weather)
         (box :class "module" :spacing 10 
