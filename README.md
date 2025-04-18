@@ -101,6 +101,8 @@ If you prefer not to use this feature, you can disable the widget by editing the
 
 ## Screenshots
 
-![Hyprland Screenshot](https://i.imgur.com/3Dq3doI.png)
-![EWW Control Panel](https://i.imgur.com/WSUncj3.png)
-![Dunst Screenshot](https://i.imgur.com/NS4cWwX.png)
+![Hyprland Screenshot](https://i.imgur.com/pJFjyBa.png)
+![EWW Control Panel](https://i.imgur.com/aF4BK8m.png)
+![Dunst Screenshot](https://i.imgur.com/hUnNI5U.png)
+![Activity Indicators](https://i.imgur.com/k2ooLOU.png)
+![Popup Indicators](https://i.imgur.com/zZWIxCX.png)
