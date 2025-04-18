@@ -1,0 +1,35 @@
+(defwidget metric [icon value onchange] ; Base Slider Widget
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    ; (box :class "icon" icon)
+    (overlay :hexpand true
+      (scale :min 0
+        :max 101
+        :active {onchange != ""}
+        :hexpand true
+        :value value
+        :onchange onchange)
+      (label :class "icon" :text "${icon}" :halign "start")
+      (label :class "label" :text "${value}%" :halign "end")
+    )
+  )
+)
+
+; Metric Derivatives
+
+(defwidget speakerMetric []
+  (metric 
+    :icon "${volume.icon}"
+    :value {volume.value}
+    :onchange "amixer -D pulse sset Master {}%"
+  )
+)
+
+(defwidget brightnessMetric []
+  (metric 
+    :icon "${brightness.icon}"
+    :value {brightness.value}
+    :onchange "brightnessctl set {}%"
+  )
+)

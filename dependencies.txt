@@ -4,6 +4,7 @@ hyprlock
 hyprcursor
 hyprpaper
 hyprland-qtutils
+hyprpolkitagent
 xdg-desktop-portal-hyprland
 xdg-user-dirs
 xorg-xwayland
@@ -36,10 +37,9 @@ wireplumber
 alsa-utils
 network-manager-applet
 sway-audio-idle-inhibit-git
-gammastep
+wlsunset
 intel-media-driver
 wl-screenrec
-lxqt-policykit
 pcmanfm-qt
 qimgv-light
 macchina

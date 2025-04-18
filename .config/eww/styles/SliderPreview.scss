@@ -1,0 +1,44 @@
+.sliderPreview {
+  label {
+    color: $font-color;
+    margin-top: 5px;
+    font-weight: bold;
+    &.icon {
+      margin-left: 15px;
+    }
+    &.percentage {
+      margin-right: 15px;
+    }
+  }
+
+  progressbar {
+    background-color: $bg;
+    padding: $spacing;
+    border-radius: $border;
+
+    &.blue {
+      trough progress {
+        background: $blue-gradient;
+      }
+    }
+    &.purple {
+      trough progress {
+        background: $purple-gradient;
+      }
+    }
+
+    trough {
+      min-height: 24px;
+      background-color: $bg2;
+      border-radius: $border;
+      // min-height: $spacing;
+
+      progress {
+        min-height: 24px;
+
+        // background-color: $accent;
+        border-radius: $border;
+      }
+    }
+  }
+}

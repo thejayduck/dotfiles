@@ -1,0 +1,28 @@
+(defwidget bar []
+  (centerbox
+    (workspaces)
+    (window_w)
+    (leftpanel)))
+
+(defwidget leftpanel []
+  (box :class "leftpanel" :space-evenly false :halign "end"
+    (screenRecordActivityDot)
+    (screenshareActivityDot)
+    (vpnActivityDot)
+    (label :class "time" :text time :tooltip day)
+    (button ;; Control Center Toggle
+      :class "controlCenterToggle hover solid button ${control_center ? "active" : ""}"
+      :tooltip "Toggle Control Center (Super + C)"
+      :onclick "bash ~/.config/eww/scripts/toggle-manager control_center control-center" 
+      (label :text "${control_center ? "󰔡" : "󰔢"}")
+    )
+    ; (systray 
+    ;   :class "systemTray"
+    ;   :spacing 10
+    ;   :orientation "horizontal"
+    ;   :space-evenly "true"
+    ;   :icon-size 20
+    ;   :prepend-new "true"
+    ; ) 
+  )
+)

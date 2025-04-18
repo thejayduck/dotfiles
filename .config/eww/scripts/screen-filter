@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+function process {
+  if pgrep -x wlsunset  > /dev/null; then
+    echo "true"
+  else
+    echo "false"
+  fi
+}
+
+function toggle {
+  process_output=$(process)
+  if [[ "$process_output" == "true" ]]; then
+    eww update night_filter="{\"state\": false}"
+    pkill -9 wlsunset
+  else
+    eww update night_filter="{\"state\": true}"
+    wlsunset -t 2000 -S 7:00 -s 17:00
+  fi
+}
+
+function status {
+  echo "{\"state\": $(process)}"
+}
+
+if [[ $1 == 'toggle' ]]; then toggle; fi
+if [[ $1 == 'status' ]]; then status; fi

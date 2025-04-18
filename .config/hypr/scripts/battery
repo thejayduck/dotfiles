@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 BAT="/sys/class/power_supply/BAT0"
 CRITICAL_THRESHOLD=15

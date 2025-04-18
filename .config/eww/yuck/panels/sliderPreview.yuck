@@ -1,0 +1,14 @@
+(defvar tempSliderVar "{ \"icon\": \"\", \"value\": 100, \"text\": \"foo\"}")
+
+(defwidget sliderPreview []
+  (box :class "sliderPreview" :visible "${control_center == false}"
+    (overlay
+      (progress
+        :value {tempSliderVar.value}
+        :orientation "h" 
+      )
+      (label :class "icon" :text "${tempSliderVar.icon} ${tempSliderVar.text}" :valign "center" :halign "start")
+      (label :class "percentage" :text "${tempSliderVar.value}%" :valign "center" :halign "end")
+    )
+  )
+)

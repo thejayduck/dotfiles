@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Expected arguments: $1 ICON, $2 VALUE, $3 TEXT
+
+STATE=$(eww active-windows | grep slider-preview | wc -l)
+eww update tempSliderVar="{ \"icon\": \"$1\", \"value\": $2, \"text\": \"$3\"}"
+if [[ $STATE == 0 ]]; then
+  eww open slider-preview
+  sleep 3
+  eww close slider-preview
+fi

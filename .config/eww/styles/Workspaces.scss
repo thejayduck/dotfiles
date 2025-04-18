@@ -1,0 +1,42 @@
+.workspaces {
+  :first-child > .workspace-entry {
+    //? Having problems on hover...
+    border-radius: $border 0 0 $border;
+  }
+
+  :hover {
+    .workspace-entry {
+      &.current {
+        color: $bg-h;
+      }
+    }
+  }
+
+  .workspace-entry {
+    min-width: 25px;
+
+    label {
+      margin-right: 5px;
+    }
+
+    &.current {
+      background-color: $accent;
+      font-weight: bold;
+    }
+
+    &.occupied {
+      // font-weight: bold;
+    }
+
+    &.empty {
+      color: $font-disabled;
+      opacity: 0.3;
+    }
+  }
+
+  transition: background-color 0.3s;
+}
+
+.window_title {
+  opacity: 1;
+}

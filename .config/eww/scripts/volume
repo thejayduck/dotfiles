@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+TEXT="Volume"
+
+function icon {
+    if [[ $(value) -ge 70 ]]; then echo '󰕾'
+    elif [[ $(value) -ge 50 ]]; then echo '󰖀'
+    elif [[ $(value) -ge 1  ]]; then echo '󰕿'
+    else echo '󰝟'
+    fi
+}
+
+function value() {
+  amixer -D pipewire sget Master | awk -F '[^0-9]+' '/Left:/{print $3}'
+}
+
+function increase() {
+  amixer sset Master 5%+
+  aplay -q "$HOME/.config/hypr/audio/click_1.wav" &
+  sh $HOME/.config/eww/scripts/slider-controller $(icon) $(value) $TEXT
+}
+
+function decrease() {
+  amixer sset Master 5%-
+  aplay -q "$HOME/.config/hypr/audio/click_2.wav" &
+  sh $HOME/.config/eww/scripts/slider-controller $(icon) $(value) $TEXT
+}
+
+function toggle() {
+  state=$(amixer sset 'Master' toggle | grep -o '\[on\]' | head -n 1)
+  #? Find a better output result
+
+  if [ "$state" == "[on]" ]; then
+    sh $HOME/.config/eww/scripts/slider-controller $(icon) $(value) $TEXT
+  else 
+    sh $HOME/.config/eww/scripts/slider-controller '󰝟' 0 "MUTED"
+  fi
+}
+
+function format() {
+  output="{\"text\": \"$TEXT\", \"value\": \"$(value)\", \"icon\": \"$(icon)\" }"
+  echo $output
+}
+
+case "$1" in
+  --increase)
+    increase
+    ;;
+  --decrease)
+    decrease
+    ;;
+  --toggle)
+    toggle
+    ;;
+  *)
+    format
+    ;;
+esac

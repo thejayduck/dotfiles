@@ -1,0 +1,33 @@
+(defwidget activityDot [color visible ?tooltip]
+  (label 
+    :tooltip "${tooltip}" 
+    :class "indicator" 
+    :style "color: ${color}" 
+    :text "" 
+    :visible "${visible}"
+  )
+)
+
+(defwidget vpnActivityDot []
+  (activityDot
+    :color "#83a598"
+    :visible "${activity?.vpn > 0}"
+    :tooltip "Connected to VPN"
+  )
+)
+
+(defwidget screenshareActivityDot []
+  (activityDot
+    :color "#fb4934"
+    :visible "${activity?.screenshare}"
+    :tooltip "Sharing Screen"
+  )
+)
+
+(defwidget screenRecordActivityDot []
+  (activityDot
+    :color "#826aaf"
+    :visible screen_record
+    :tooltip "Recording Screen"
+  )
+)

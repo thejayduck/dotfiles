@@ -1,0 +1,77 @@
+;! Optional ?active removes the entire class from the widget
+(defwidget quickSetting [icon ?tooltip ?value ?onScroll ?onClick active]
+  (eventbox 
+    :onscroll onScroll 
+    :onclick onClick 
+    :cursor "pointer" 
+    :height 32
+    :width 24
+    :vexpand false
+    :hexpand false
+    :tooltip tooltip
+    :class "quickSettingWrap ${active ? "" : "disabled"} hover"
+    (label :text icon :class "icon")
+  )
+)
+
+; Quick Setting Derivatives
+
+(defwidget battery [bat]
+  (quickSetting 
+    :icon "${
+      bat.status == 'Discharging'
+        ? bat.capacity <= 5 ? '󰂃'
+        : bat.capacity <= 15 ? '󰁺'
+        : bat.capacity <= 25 ? '󰁻'
+        : bat.capacity <= 35 ? '󰁼'
+        : bat.capacity <= 45 ? '󰁽'
+        : bat.capacity <= 55 ? '󰁾'
+        : bat.capacity <= 65 ? '󰁿'
+        : bat.capacity <= 75 ? '󰂀'
+        : bat.capacity <= 85 ? '󰂁'
+        : bat.capacity <= 95 ? '󰂂'
+        : '󰁹'
+      : bat.status == 'Charging'
+        ? '󰂄'
+      : '󰁹'}"
+    :tooltip "Status: ${bat.status}"
+    :value "${bat.capacity}%" 
+    :active true
+  )
+)
+
+(defwidget screenFilter []
+  (quickSetting
+    :icon "${screen_filter.state ? '󰌵' : '󰌶'}"
+    :tooltip "Toggle Screen Filter"
+    :onClick "bash ~/.config/eww/scripts/screen-filter toggle"
+    :active "${screen_filter.state}"
+  )
+)
+
+(defwidget microphone []
+  (quickSetting 
+    :icon "${mic ? '󰍬' : '󰍭'}"
+    :onClick "bash ~/.config/eww/scripts/microphone true" 
+    :tooltip "Toggle Microphone"
+    :active mic
+  )
+)
+
+(defwidget bluetooth []
+  (quickSetting
+    :icon "${interface_status.rfkilldevices[0].soft == 'unblocked' ? '󰂯' : '󰂲'}"
+    :onClick "rfkill toggle bluetooth"
+    :tooltip "Toggle Bluetooth"
+    :active true
+  )
+)
+
+(defwidget wifi []
+  (quickSetting
+    :icon "${interface_status.rfkilldevices[1].soft == 'unblocked' ? '󰖩' : '󰖪'}"
+    :onClick "rfkill toggle wifi" 
+    :tooltip "Strength: ${wifi_strength}%"
+    :active true
+  )
+)

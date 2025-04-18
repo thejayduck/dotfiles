@@ -1,188 +1,32 @@
-;;
-; Status Bar
-;;
-
-(defwidget workspaces []
-  (eventbox 
-    :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" 
-    :class "workspaces-widget"
-    (box 
-      :class "workspaces" 
-      :halign "start"
-      (label :text "${workspaces}${current_workspace}" :visible false)
-      (for workspace in workspaces
-        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :class "hover"
-          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
-            (label :text "${workspace.id}")
-          )
-        )
-      )
-    )
-  )
-)
-
-(defwidget window_w [] ; Window Title
-  (box
-    (label :class "window_title" :text "${window}" :limit-width 50)
-  )
-)
+(include "./yuck/widgets/quickSetting.yuck")
+(include "./yuck/widgets/applet.yuck")
+(include "./yuck/widgets/metric.yuck")
+(include "./yuck/widgets/workspace.yuck")
+(include "./yuck/widgets/activityDot.yuck")
 
 ;;
 ; Control Panel
 ;;
 
-(defwidget network [strength]
-  (label :text {strength == "" ? "󰣼 Offline" :
-    strength <= 25 ? "󰣴 Slow" :
-    strength <= 50 ? "󰣶 Okay" :
-    strength <= 75 ? "󰣸 Good" : "󰣺 Great"}
-    :tooltip "Network Strength: ${strength}%"
-  )
-)
-
 (defwidget mediaController []
-    (box
-    :orientation "v"
+  (box 
+    :class "mediaLayout" 
+    :style "background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('${media.artUrl}');" 
+    :orientation "v" 
     :space-evenly false
-    :class "mediaLayout"
-    (label :text "${media}" :class "title" :truncate true)
+    
+    (label :text {media.title} :class "title" :truncate true :tooltip "${media.title} - ${media.artist}")
     (box
       :space-evenly false
       :class "mediaButtons"
-      (button :hexpand true :class "hover light" :onclick {player_status == 'Paused' ? 'playerctl play' : 'playerctl pause'} (label :text {player_status == 'Paused' ? '󰐊 Play' : '󰏤 Pause'}))
+      (button :hexpand true :class "hover light" :onclick "playerctl play-pause" (label :text {media.isPlaying == "Playing" ? '󰏤 Pause' : '󰐊 Play'}))
       (button :tooltip "Previous Media" :class "media hover light" :onclick "playerctl previous" (label :text "󰒮"))
       (button :tooltip "Next Media" :class "media hover light" :onclick "playerctl next" (label :text "󰒭"))
     )
     (progress 
       :orientation "h"
       :hexpand true
-      :value {round((player_position / (player_duration / 1000000)) * 100, 0)})
-  )
- 
-)
-
-(defwidget screenRecordIndicator []
-  (box :class "recordIndicatorWrapper" :visible screen_record
-    (label :class "recordIndicator" :text "Recording ")
-  )
-)
-
-;; Quick Setting Widget
-
-;! Optional ?active removes the entire class from the widget
-(defwidget quickSetting [icon ?tooltip ?value ?onScroll ?onClick active]
-  (eventbox 
-    :onscroll onScroll 
-    :onclick onClick 
-    :cursor "pointer" 
-    :height 50
-    :width 50
-    :vexpand false
-    :hexpand false
-    :tooltip tooltip
-    :class "quickSettingWrap ${active ? "" : "disabled"} hover"
-    (box :orientation "v" :space-evenly false :class "quickSetting"
-      (label :text icon :class "icon")
-      (label :text "${value}" :class "value")
+      :value "${media.progress}"
     )
-  )
-)
-
-; Quick Setting Derivatives
-
-(defwidget battery [bat]
-  (quickSetting 
-    :icon "${
-      bat.status == 'Discharging'
-        ? bat.capacity <= 5 ? '󰂃'
-        : bat.capacity <= 15 ? '󰁺'
-        : bat.capacity <= 25 ? '󰁻'
-        : bat.capacity <= 35 ? '󰁼'
-        : bat.capacity <= 45 ? '󰁽'
-        : bat.capacity <= 55 ? '󰁾'
-        : bat.capacity <= 65 ? '󰁿'
-        : bat.capacity <= 75 ? '󰂀'
-        : bat.capacity <= 85 ? '󰂁'
-        : bat.capacity <= 95 ? '󰂂'
-        : '󰁹'
-      : bat.status == 'Charging'
-        ? '󰂄'
-      : '󰁹'}"
-    :tooltip "Status: ${bat.status}"
-    :value "${bat.capacity}%" 
-    :active true
-  )
-)
-
-(defwidget microphone []
-  (quickSetting 
-    :icon "${mic ? '󰍬' : '󰍭'}"
-    :value "${mic ? "On" : "Off"}" 
-    :onClick "bash ~/.config/eww/scripts/microphone true" 
-    :tooltip "Toggle Microphone"
-    :active mic
-  )
-)
-
-(defwidget bluetooth []
-  (quickSetting
-    :icon "${interface_status.rfkilldevices[0].soft == 'unblocked' ? '󰂯' : '󰂲'}"
-    :value "${interface_status.rfkilldevices[0].soft == 'unblocked' ? 'On' : 'Off'}" 
-    :onClick "rfkill toggle bluetooth"
-    :tooltip "Toggle Bluetooth"
-    :active true
-  )
-)
-
-(defwidget wifi []
-  (quickSetting
-    :icon "${interface_status.rfkilldevices[1].soft == 'unblocked' ? '󰖩' : '󰖪'}"
-    :value "${interface_status.rfkilldevices[1].soft == 'unblocked' ? 'On' : 'Off'}" 
-    :onClick "rfkill toggle wifi" 
-    :tooltip "Toggle Wi-Fi"
-    :active true
-  )
-)
-
-;; Metrics
-
-(defwidget metric [icon value onchange] ; Base Slider Widget
-  (box :orientation "h"
-       :class "metric"
-       :space-evenly false
-    (box :class "icon" icon)
-    (scale :min 0
-      :max 101
-      :active {onchange != ""}
-      :hexpand true
-      :value value
-      :onchange onchange)
-    (label :class "label" :xalign 1 :text "${value}%")
-  )
-)
-
-; Metric Derivatives
-
-(defwidget speakerMetric []
-  (metric 
-    :icon "${volume <= 0 ? '󰝟'
-      : volume <= 25 ? '󰕿'
-      : volume <= 75 ? '󰖀'
-      : volume <= 100 ? '󰕾'
-      : '󰕾'}"
-    :value volume
-    :onchange "amixer -D pulse sset Master {}%"
-  )
-)
-
-(defwidget brightnessMetric []
-  (metric 
-    :icon "${
-      brightness <= 25 ? '󰃞'
-      : brightness <= 50 ? '󰃟'
-      : brightness <= 100 ? '󰃠'
-      : '󰃠'}"
-    :value brightness
-    :onchange "brightnessctl set {}%"
   )
 )

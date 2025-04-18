@@ -7,7 +7,7 @@
     :x "0%"
     :y "5px"
     :width "99%"
-    :height "25px"
+    :height "28px"
     :anchor "top center")
   :reserve (struts :side "top" :distance "4%")
   (bar)
@@ -41,4 +41,16 @@
     :width "320px" ; 20px used as box margin
     :anchor "top right")
   (control-center)
+)
+
+(defwindow slider-preview []
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry
+    :width "15%"
+    :height "1%"
+    :x "10px"
+    :anchor "top right"
+  )
+  (sliderPreview)
 )

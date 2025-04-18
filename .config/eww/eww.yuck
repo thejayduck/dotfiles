@@ -1,6 +1,8 @@
 (include "variables.yuck")
 (include "windows.yuck")
 
-(include "yuck/controlCenter.yuck")
-(include "yuck/statusBar.yuck")
 (include "yuck/widgets.yuck")
+
+(include "yuck/panels/statusBar.yuck")
+(include "yuck/panels/controlCenter.yuck")
+(include "yuck/panels/sliderPreview.yuck")

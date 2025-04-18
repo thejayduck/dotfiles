@@ -9,13 +9,13 @@
   background-color: $bg;
   color: $font-color;
   border-radius: $border;
+  border: 2px solid $bg2;
   // padding: 0 $spacing-medium $spacing $spacing-medium;
   box-shadow: 0 4px 10px $bg-h;
   padding: $spacing $spacing-medium;
 
-  &.indicator {
-    background-color: $red;
-    color: $bg-h;
+  &.noPadding {
+    padding: 0;
   }
 
   .quickSettings {
@@ -36,6 +36,9 @@
   }
 
   .mediaLayout {
+    border-radius: $border;
+    padding: $spacing $spacing-medium;
+
     label {
       margin: 0 $spacing-small;
     }

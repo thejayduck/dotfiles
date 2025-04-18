@@ -89,13 +89,15 @@ If you prefer not to use this feature, you can disable the widget by editing the
 
 ## Additional Assets
 
-| Type   | Theme                                                                                    |
-| ------ | ---------------------------------------------------------------------------------------- |
-| Qt     | [Gruvbox Dark Blue (github)](https://github.com/sachnr/gruvbox-kvantum-themes) (Kvantum) |
-| GTK    | [Gruvbox Material Dark (github)](https://github.com/TheGreatMcPain/gruvbox-material-gtk) |
-| Cursor | [Capitaine Cursors (github)](https://github.com/sainnhe/capitaine-cursors) (Gruvbox)     |
-| Icons  | [Win11-dark (github)](https://github.com/yeyushengfan258/Win11-icon-theme)               |
-| Audio  | [Notifications (github)](https://github.com/akx/Notifications)                           |
+| Type   | Source                                                                                             |
+| ------ | -------------------------------------------------------------------------------------------------- |
+| Qt     | [Gruvbox Dark Blue (github)](https://github.com/sachnr/gruvbox-kvantum-themes) (Kvantum)           |
+| GTK    | [Gruvbox Material Dark (github)](https://github.com/TheGreatMcPain/gruvbox-material-gtk)           |
+| Cursor | [Capitaine Cursors (github)](https://github.com/sainnhe/capitaine-cursors) (Gruvbox)               |
+| Icons  | [Win11-dark (github)](https://github.com/yeyushengfan258/Win11-icon-theme)                         |
+| Audio  | [Notifications (github)](https://github.com/akx/Notifications)                                     |
+| Audio  | [Click.wav (freesound)](https://freesound.org/people/kwahmah_02/sounds/256116/)                    |
+| Audio  | [Click Metronome atonal low (freesound)](https://freesound.org/people/lennartgreen/sounds/566887/) |
 
 ## Screenshots
 

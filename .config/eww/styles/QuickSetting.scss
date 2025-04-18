@@ -1,0 +1,19 @@
+.quickSettingWrap {
+  background-color: $bg2;
+  border-radius: $border;
+
+  &:hover {
+    background-color: $accent;
+    color: $bg;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  .icon {
+    font-size: $font-normal;
+  }
+
+  transition: background-color, color 0.3s;
+}

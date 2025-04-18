@@ -1,7 +1,12 @@
+@import "styles/globals.scss";
+
 @import "styles/StatusBar.scss";
 @import "styles/ControlCenter.scss";
-@import "styles/Widgets.scss";
-@import "styles/globals.scss";
+@import "styles/QuickSetting.scss";
+@import "styles/Metric.scss";
+@import "styles/Workspaces.scss";
+@import "styles/Indicator.scss";
+@import "styles/SliderPreview.scss";
 
 * {
   all: unset;

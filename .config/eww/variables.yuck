@@ -1,65 +1,8 @@
-; Variables
-(defvar ANIM_DURATION "500ms")
-(defvar toggle_control_center false)
-(defvar toggle_calendar false)
-(defvar visibility_media false)
+;;; Variables
+(defvar control_center false)
 (defvar screen_record false)
 
-; Polls
-
-(defpoll vpn_status
-  :interval "30s"
-  ; :run-while toggle_control_center
-  `nmcli connection show --active "Proton NL Free 103" | wc -l`
-)
-
-(defpoll pipewire_dump 
-  :interval "30s"
-  ; :run-while toggle_control_center
-  `pw-dump | jq '.[] | select(.info.props."port.alias" == "xdg-desktop-portal-hyprland:capture_1") | .info.props."port.alias"'`
-)
-
-(defpoll volume 
-  :interval "0s"
-  :run-while toggle_control_center
-  "amixer -D pipewire sget Master | awk -F '[^0-9]+' '/Left:/{print $3}'"
-)
-
-(defpoll player_status
-  :interval "5s"
-  :run-while toggle_control_center
-  "playerctl status"
-)
-
-(defpoll player_position
-  :interval "5s"
-  :run-while toggle_control_center
-  "playerctl position"
-)
-
-(defpoll player_duration
-  :interval "5s"
-  :run-while toggle_control_center
-  "playerctl metadata mpris:length"
-)
-
-(defpoll interface_status
-  :interval "1s"
-  :run-while toggle_control_center
-  "rfkill -J"
-)
-
-(defpoll mic 
-  :interval "1s"
-  :run-while toggle_control_center
-  "bash ~/.config/eww/scripts/microphone false"
-)
-
-(defpoll brightness 
-  :interval "0s"
-  :run-while toggle_control_center
-  "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}'"
-)
+;;; Polls
 
 (defpoll time 
   :interval "10s"
@@ -71,10 +14,44 @@
   "date '+%A'"
 )
 
+(defpoll activity
+  :interval "3s"
+  :initial "{}"
+  "sh ~/.config/eww/scripts/activity"
+)
+
+;; Control Center Polls
+
+(defpoll volume 
+  :interval "0s"
+  :initial "{}"
+  :run-while control_center
+  "bash ~/.config/eww/scripts/volume"
+)
+
+(defpoll brightness 
+  :interval "0s"
+  :initial "{}"
+  :run-while control_center
+  "bash ~/.config/eww/scripts/brightness"
+)
+
+(defpoll interface_status
+  :interval "1s"
+  :run-while control_center
+  "rfkill -J"
+)
+
+(defpoll mic 
+  :interval "1s"
+  :run-while control_center
+  "bash ~/.config/eww/scripts/microphone false"
+)
+
 (defpoll wifi_strength 
   :interval "60s"
   :initial "N/A"
-  :run-while toggle_control_center
+  :run-while control_center
   `nmcli -t -f SIGNAL,ACTIVE device wifi \
     | awk -F':' '{if($2=="yes")print$1}'`
 )
@@ -82,15 +59,22 @@
 (defpoll weather 
   :interval "120s"
   :initial "N/A"
-  :run-while toggle_control_center
+  :run-while control_center
   "sh ~/.config/eww/scripts/weather"
 )
 
 (defpoll media 
   :interval "1s"
-  :initial "N/A"
-  :run-while toggle_control_center
+  :initial "{}"
+  :run-while control_center
   "sh ~/.config/eww/scripts/media"
+)
+
+(defpoll screen_filter
+  :interval "1s"
+  :initial "{}"
+  :run-while control_center
+  "sh ~/.config/eww/scripts/screen-filter status"
 )
 
 ; Listeners

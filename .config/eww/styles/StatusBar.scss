@@ -1,5 +1,3 @@
-@import "../styles/globals.scss";
-
 .bar-main,
 .bar-external {
   background-color: $bg;
@@ -8,113 +6,17 @@
   border-radius: $border;
 }
 
-.window_title {
-  opacity: 0.5;
-}
-
 .leftpanel {
-  .indicator {
-    padding-right: $spacing;
-    &.vpn {
-      color: $blue;
-    }
-    &.screenshare {
-      color: $red;
-    }
-  }
-
   .time {
     margin: 0 $spacing 0 $spacing;
   }
   .controlCenterToggle {
     transition: background-color 255ms, color 255ms;
+    border-radius: 0 $border $border 0;
 
     &.active {
       background-color: $accent;
       color: $bg-h;
-      // animation: button-hover 0.3s forwards;
-    }
-  }
-
-  .recordIndicatorWrapper {
-    // border-radius: $border;
-    background-color: $red;
-    padding-right: $spacing + 5px;
-    padding-left: $spacing;
-    // margin-right: $spacing;
-    .recordIndicator {
-      color: $bg;
-      // animation: blink 2s infinite;
-    }
-  }
-
-  .systemTray {
-    padding: $spacing;
-
-    background-color: $bg2;
-    border-radius: 0 $border $border 0;
-
-    widget {
-      -gtk-icon-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
-    }
-
-    menu {
-      border-radius: $border;
-      padding: $spacing 0;
-      color: $font-color;
-
-      background-color: $bg;
-
-      > menuitem {
-        padding: 0px $spacing;
-        transition: background-color 255ms, color 255ms;
-
-        &:disabled label {
-          color: $font-disabled;
-        }
-
-        &:hover {
-          background-color: $accent;
-          color: $bg-h;
-          // animation: button-hover 0.3s forwards;
-        }
-      }
-
-      // Dropdown Arrow
-      menuitem arrow {
-        min-width: 16px;
-        min-height: 16px;
-
-        &:dir(ltr) {
-          -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
-          margin-left: 10px;
-          margin-right: 0;
-        }
-      }
-
-      // Checkbox
-      menuitem check {
-        border: 1px solid;
-        border-radius: 0.2em;
-        color: $font-color;
-        min-width: 14px;
-        min-height: 14px;
-        margin-right: 4px;
-
-        &:checked {
-          color: $font-color;
-          -gtk-icon-source: -gtk-icontheme("checkmark");
-        }
-      }
-
-      separator {
-        background-color: $bg2;
-        padding-top: 1px;
-
-        &:last-child {
-          padding: unset;
-        }
-      }
     }
   }
 }

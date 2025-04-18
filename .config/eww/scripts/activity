@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+screenshare=$(pw-dump | jq '.[] | select(.info.props."port.alias" == "xdg-desktop-portal-hyprland:capture_1") | .info.props."port.alias"')
+vpn=$(nmcli -t -f TYPE,DEVICE connection show --active | grep '^vpn:' | wc -l)
+
+if [[ -n "$screenshare" ]]; then
+    screenshare_active="true"
+else
+    screenshare_active="false"
+fi
+
+echo "{\"vpn\": ${vpn}, \"screenshare\": ${screenshare_active}}"

@@ -1,0 +1,44 @@
+(defwidget control-center []
+  (revealer
+    :transition "crossfade"
+    :reveal {control_center}
+    :duration {"500ms"}
+    (box 
+      :space-evenly false
+      :spacing 5
+      (box :orientation "v" :space-evenly false :spacing 5 :hexpand true
+        (box
+          :orientation "v"
+          :space-evenly false
+          :class "module"
+          (box ;; Quick Settings
+            :class "quickSettings"
+            :spacing 5
+            (wifi)
+            (bluetooth)
+            (microphone)
+            (screenFilter)
+          )
+          (speakerMetric)
+          (brightnessMetric)
+          (box :spacing 10 :style "margin-top: 5px" :space-evenly false
+            (systray 
+              :class "systemTray"
+              :spacing 8
+              :orientation "horizontal"
+              :icon-size 14
+              :prepend-new "true"
+            ) 
+            (box :spacing 10 :hexpand true :space-evenly false :halign "end"
+              (storage)
+              (batteryApplet :bat "${EWW_BATTERY["BAT0"]}")
+            )
+          )
+        )
+        ; (calendar :class "calendar")
+        (box :class "module noPadding" :visible "${media.state == 'on'}" (mediaController))
+        (box :class "module" weather)
+      )
+    )
+  )
+)

@@ -1,0 +1,29 @@
+.metric {
+  margin-top: $spacing;
+  // margin-left: $spacing;
+  font-size: $font-normal;
+  margin-top: $spacing-medium;
+
+  .label {
+    font-weight: bold;
+    font-size: $font-small;
+    margin-right: $spacing-medium;
+  }
+
+  .icon {
+    margin-left: $spacing-medium;
+  }
+
+  scale {
+    trough {
+      background-color: $bg2;
+      border-radius: $border;
+      min-height: 24px;
+      // margin-left: $spacing-large;
+      highlight {
+        background: $purple-gradient;
+        border-radius: $border;
+      }
+    }
+  }
+}

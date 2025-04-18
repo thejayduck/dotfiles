@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+TEXT="Brightness"
+
+function icon {
+    if [[ $(value) -ge 70 ]]; then echo '󰃠'
+    elif [[ $(value) -ge 50 ]]; then echo '󰃟'
+    elif [[ $(value) -ge 1  ]]; then echo '󰃞'
+    else echo '󰃞'
+    fi
+}
+
+function value() {
+  brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}'
+}
+
+function increase() {
+  brightnessctl -s set +5%
+  aplay -q "$HOME/.config/hypr/audio/click_1.wav" &
+  sh $HOME/.config/eww/scripts/slider-controller $(icon) $(value) $TEXT
+}
+
+function decrease() {
+  brightnessctl -s set 5%-
+  aplay -q "$HOME/.config/hypr/audio/click_2.wav" &
+  sh $HOME/.config/eww/scripts/slider-controller $(icon) $(value) $TEXT
+}
+
+function format() {
+  output="{\"text\": \"$TEXT\", \"value\": \"$(value)\", \"icon\": \"$(icon)\"}"
+  echo $output
+}
+
+case "$1" in
+  --increase)
+    increase
+    ;;
+  --decrease)
+    decrease
+    ;;
+  *)
+    format
+    ;;
+esac

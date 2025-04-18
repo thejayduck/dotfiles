@@ -1,0 +1,39 @@
+(defwidget applet [icon ?tooltip ?text]
+  (box :orientation "h" :space-evenly false :spacing 5 :class "applet" :tooltip tooltip
+      (label :text icon :class "icon")
+      (label :text "${text}" :class "text")
+  )
+)
+
+;; Applets
+
+(defwidget batteryApplet [bat]
+  (applet
+    :icon "${
+      bat.status == 'Discharging'
+        ? bat.capacity <= 5 ? '󰂃'
+        : bat.capacity <= 15 ? '󰁺'
+        : bat.capacity <= 25 ? '󰁻'
+        : bat.capacity <= 35 ? '󰁼'
+        : bat.capacity <= 45 ? '󰁽'
+        : bat.capacity <= 55 ? '󰁾'
+        : bat.capacity <= 65 ? '󰁿'
+        : bat.capacity <= 75 ? '󰂀'
+        : bat.capacity <= 85 ? '󰂁'
+        : bat.capacity <= 95 ? '󰂂'
+        : '󰁹'
+      : bat.status == 'Charging'
+        ? '󰂄'
+      : '󰁹'}"
+    :tooltip "Status: ${bat.status}"
+    :text "${bat.capacity}%"
+  )
+)
+
+(defwidget storage []
+  (applet
+    :icon "󰋊"
+    :tooltip "Free: ${round(EWW_DISK["/home"].free / (1024 * 1024 * 1024), 0)} GiB (Total: ${round(EWW_DISK["/home"].total / (1024 * 1024 * 1024), 0)} GiB)"
+    :text "${round(EWW_DISK["/home"].used_perc, 0)}%"
+  )
+)

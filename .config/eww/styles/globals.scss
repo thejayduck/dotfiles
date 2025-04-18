@@ -8,11 +8,13 @@ $red: #fb4934;
 $blue: #83a598;
 // $purple: #8064b4;
 $purple: #826aaf;
+$purple-gradient: linear-gradient(to right, $purple 10%, #bca4e8 100%);
 
 $accent: $purple;
 $font-color: $fg1;
-$workspace-active: lighten($accent, 15%);
+// $workspace-active: lighten($purple, 15%);
 $font-disabled: $gray;
+$font-large: 2em;
 $font-normal: 1.4em;
 $font-small: 0.8em;
 
@@ -27,6 +29,7 @@ $spacing-large: 15px;
 tooltip {
   background-color: $bg;
   border-radius: $border;
+  border: 2px solid $gray;
   color: $font-color;
 }
 
@@ -49,12 +52,13 @@ progressbar {
 
   trough {
     background-color: $bg2;
-    border-radius: 50px;
-    min-height: $spacing;
+    border-radius: $border;
+    // min-height: $spacing;
 
     progress {
-      background-color: $accent;
-      border-radius: 4em;
+      // background-color: $accent;
+      background: $purple-gradient;
+      border-radius: $border;
     }
   }
 }
@@ -93,9 +97,89 @@ progressbar {
   }
 
   &:hover {
+    background: $purple-gradient;
+
+    &.solid {
+      background: $accent;
+    }
+
     background-color: $accent;
     color: $bg-h;
-    // animation: button-hover 0.3s forwards;
+  }
+}
+
+//
+// System Tray
+//
+
+.systemTray {
+  padding: $spacing;
+
+  // background-color: $bg2;
+  // border-radius: 0 $border $border 0;
+  border-radius: $border;
+
+  widget {
+    -gtk-icon-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  menu {
+    border-radius: $border;
+    padding: $spacing 0;
+    color: $font-color;
+
+    background-color: $bg;
+    border: 2px solid $gray;
+
+    > menuitem {
+      padding: 0px $spacing;
+      transition: background 255ms, color 255ms;
+
+      &:disabled label {
+        color: $font-disabled;
+      }
+
+      &:hover {
+        background: $purple-gradient;
+        color: $bg-h;
+      }
+    }
+
+    // Dropdown Arrow
+    menuitem arrow {
+      min-width: 16px;
+      min-height: 16px;
+
+      &:dir(ltr) {
+        -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+        margin-left: 10px;
+        margin-right: 0;
+      }
+    }
+
+    // Checkbox
+    menuitem check {
+      border: 1px solid;
+      border-radius: 0.2em;
+      color: $font-color;
+      min-width: 14px;
+      min-height: 14px;
+      margin-right: 4px;
+
+      &:checked {
+        color: $font-color;
+        -gtk-icon-source: -gtk-icontheme("checkmark");
+      }
+    }
+
+    separator {
+      background-color: $bg2;
+      padding-top: 1px;
+
+      &:last-child {
+        padding: unset;
+      }
+    }
   }
 }
 
@@ -110,17 +194,5 @@ progressbar {
   }
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes button-hover {
-  0% {
-    background-color: transparent;
-    color: $font-color;
-  }
-  100% {
-    // background-color: rgba($accent, 0.5);
-    background-color: $accent;
-    color: $bg-h;
   }
 }

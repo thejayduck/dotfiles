@@ -2,10 +2,15 @@
 
 output=$(playerctl metadata --format "{{ title }} - {{ artist }}")
 status=$(playerctl status)
+title=$(playerctl metadata title)
+artist=$(playerctl metadata artist)
+artUrl=$(playerctl metadata mpris:artUrl)
 
 if [[ "$status" == "Playing" || "$status" == "Paused" ]]; then
-  eww update visibility_media=true
-  echo $(playerctl metadata --format "{{ title }} - {{ artist }}")
+  position=$(playerctl position 2>/dev/null)
+  duration=$(playerctl metadata mpris:length 2>/dev/null)
+  progress=$(( (${position%.*} * 100) / (${duration} / 1000000) ))
+  echo "{\"state\": \"on\", \"isPlaying\": \"${status}\", \"title\": \"${title}\", \"artist\": \"${artist}\", \"artUrl\": \"${artUrl}\", \"progress\": \"${progress}\"}"
 else
-  eww update visibility_media=false
+  echo "{\"state\": \"off\"}"
 fi
