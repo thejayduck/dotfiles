@@ -1,0 +1,32 @@
+(defpoll weather_data
+  :interval "10m"
+  :initial "{}"
+  :run-while control_center
+  "sh ~/.config/eww/scripts/weather"
+)
+
+;; Development Use Template
+; (defvar weather_data "{ \"current\": { \"icon\": \"\", \"weather\": \"Clouds\", \"temperature\": 11.89, \"min\": 5.89, \"max\": 13.54, \"humidity\": 67, \"description\": \"few clouds\", \"summary\": \"There will be partly cloudy today\" }, \"forecast\": [{ \"icon\": \"\", \"weather\": \"Clear\", \"temperature\": 15.33, \"min\": 2.79, \"max\": 16.99, \"humidity\": 60, \"description\": \"clear sky\", \"summary\": \"Expect a day of partly cloudy with clear spells\" },{ \"icon\": \"\", \"weather\": \"Rain\", \"temperature\": 15.31, \"min\": 6.83, \"max\": 17.52, \"humidity\": 65, \"description\": \"light rain\", \"summary\": \"Expect a day of partly cloudy with rain\" },{ \"icon\": \"\", \"weather\": \"Rain\", \"temperature\": 14.06, \"min\": 9.32, \"max\": 14.58, \"humidity\": 79, \"description\": \"light rain\", \"summary\": \"Expect a day of partly cloudy with rain\" }] }")
+
+(defwidget weather [data current]
+  (eventbox
+    :class "weatherWrapper" 
+    :tooltip "${data.description} | ${round(data.min, 0)}° - ${round(data.max, 0)}°"
+    :width 60 :height 24 
+    (label :text "${data.icon} ${current ? data.temperature : round(data.temperature, 0)}°")
+  )
+)
+
+(defwidget weatherModule []
+  (box :class "module" :orientation "v"
+    (box :halign "center" :space-evenly false :spacing 10
+      (weather :data {weather_data.current} :current true)
+      (label :class "separator" :text "•")
+      (box :space-evenly false :xalign 1 :spacing 5
+        (for data in {weather_data.forecast}
+          (weather :data {data} :current false)
+        )
+      )
+    )
+  )
+)

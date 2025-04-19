@@ -1,4 +1,4 @@
-.sliderPreview {
+.popupIndicator {
   label {
     color: $font-color;
     margin-top: 5px;
@@ -15,17 +15,6 @@
     background-color: $bg;
     padding: $spacing;
     border-radius: $border;
-
-    &.blue {
-      trough progress {
-        background: $blue-gradient;
-      }
-    }
-    &.purple {
-      trough progress {
-        background: $purple-gradient;
-      }
-    }
 
     trough {
       min-height: 24px;

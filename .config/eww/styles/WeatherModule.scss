@@ -1,0 +1,11 @@
+.weatherWrapper {
+  border-radius: $border;
+  min-width: 48px;
+  min-height: 48px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $purple-gradient;
+    color: $bg-h;
+  }
+}

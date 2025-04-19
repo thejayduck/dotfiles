@@ -11,18 +11,17 @@
     (vpnActivityDot)
     (label :class "time" :text time :tooltip day)
     (button ;; Control Center Toggle
+      :class "hover solid button"
+      :tooltip "Toggle Background Widgets"
+      :onclick "${EWW_CMD} update background_widgets=${!background_widgets}" 
+      (label :text "${background_widgets ? "󰜬" : "󱍕"}")
+    )
+    (button ;; Control Center Toggle
       :class "controlCenterToggle hover solid button ${control_center ? "active" : ""}"
       :tooltip "Toggle Control Center (Super + C)"
       :onclick "bash ~/.config/eww/scripts/toggle-manager control_center control-center" 
       (label :text "${control_center ? "󰔡" : "󰔢"}")
     )
-    ; (systray 
-    ;   :class "systemTray"
-    ;   :spacing 10
-    ;   :orientation "horizontal"
-    ;   :space-evenly "true"
-    ;   :icon-size 20
-    ;   :prepend-new "true"
-    ; ) 
+    
   )
 )

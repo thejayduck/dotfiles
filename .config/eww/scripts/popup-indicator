@@ -2,10 +2,10 @@
 
 # Expected arguments: $1 ICON, $2 VALUE, $3 TEXT
 
-STATE=$(eww active-windows | grep slider-preview | wc -l)
+STATE=$(eww active-windows | grep popup-indicator | wc -l)
 eww update tempSliderVar="{ \"icon\": \"$1\", \"value\": $2, \"text\": \"$3\"}"
 if [[ $STATE == 0 ]]; then
-  eww open slider-preview
+  eww open popup-indicator
   sleep 3
-  eww close slider-preview
+  eww close popup-indicator
 fi

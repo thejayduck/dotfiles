@@ -5,4 +5,4 @@
 
 (include "yuck/panels/statusBar.yuck")
 (include "yuck/panels/controlCenter.yuck")
-(include "yuck/panels/sliderPreview.yuck")
+(include "yuck/panels/popupIndicator.yuck")

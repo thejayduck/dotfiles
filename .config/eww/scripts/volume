@@ -17,13 +17,13 @@ function value() {
 function increase() {
   amixer sset Master 5%+
   aplay -q "$HOME/.config/hypr/audio/click_1.wav" &
-  sh $HOME/.config/eww/scripts/slider-controller $(icon) $(value) $TEXT
+  sh $HOME/.config/eww/scripts/popup-indicator $(icon) $(value) $TEXT
 }
 
 function decrease() {
   amixer sset Master 5%-
   aplay -q "$HOME/.config/hypr/audio/click_2.wav" &
-  sh $HOME/.config/eww/scripts/slider-controller $(icon) $(value) $TEXT
+  sh $HOME/.config/eww/scripts/popup-indicator $(icon) $(value) $TEXT
 }
 
 function toggle() {
@@ -31,9 +31,9 @@ function toggle() {
   #? Find a better output result
 
   if [ "$state" == "[on]" ]; then
-    sh $HOME/.config/eww/scripts/slider-controller $(icon) $(value) $TEXT
+    sh $HOME/.config/eww/scripts/popup-indicator $(icon) $(value) $TEXT
   else 
-    sh $HOME/.config/eww/scripts/slider-controller '󰝟' 0 "MUTED"
+    sh $HOME/.config/eww/scripts/popup-indicator '󰝟' 0 "MUTED"
   fi
 }
 

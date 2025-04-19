@@ -1,0 +1,46 @@
+(defwidget weatherWidget []
+  (box 
+    :class "weatherWidget ${weather_data.current.weather}" 
+    :orientation "v" 
+    :space-evenly false
+    :visible {background_widgets}
+    ;; Header
+    (box :class "header" :orientation "v" :space-evenly false
+      (label :class "description" :text {weather_data.current.description})
+    )
+    
+    ;; Current Weather
+    (box :class "currentWeatherWrapper" :tooltip {weather_data.current.summary}
+      (label :class "icon" :text {weather_data.current.icon})
+      (label :class "temperature" :text "${round(weather_data.current.temperature, 0)}°")
+    )
+    
+    (box :class "detailsWrapper" :orientation "h" :space-evenly true
+      (box :class "details" :orientation "h" :space-evenly true
+        (box :class "min" :orientation "v" :space-evenly false
+          (label :class "label" :text "Min")
+          (label :class "value" :text "${round(weather_data.current.min, 0)}°")
+        )
+        (box :class "max" :orientation "v" :space-evenly false
+          (label :class "label" :text "Max")
+          (label :class "value" :text "${round(weather_data.current.max, 0)}°")
+        )
+      )
+      
+      (box :class "details" :orientation "v" :space-evenly false
+        (label :class "label" :text "Humidity")
+        (label :class "value" :text "${weather_data.current.humidity}%")
+      )
+    )
+    
+    ;; Forecast
+    (box :class "forecast" :orientation "h" :space-evenly true
+      (for day in {weather_data.forecast}
+        (box :class "day" :orientation "v" :space-evenly false :tooltip {day.description}
+          (label :class "icon" :text {day.icon})
+          (label :class "temperature" :text "${round(day.temperature, 0)}°")
+        )
+      )
+    )
+  )
+)

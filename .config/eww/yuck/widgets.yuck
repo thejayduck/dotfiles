@@ -1,8 +1,16 @@
+;; Top Bar
+(include "./yuck/widgets/workspace.yuck")
+(include "./yuck/widgets/activityDot.yuck")
+
+;; Control Panel
 (include "./yuck/widgets/quickSetting.yuck")
 (include "./yuck/widgets/applet.yuck")
 (include "./yuck/widgets/metric.yuck")
-(include "./yuck/widgets/workspace.yuck")
-(include "./yuck/widgets/activityDot.yuck")
+(include "./yuck/widgets/weatherModule.yuck")
+
+;; Background Widgets
+(include "./yuck/widgets/backgroundWidgets/weatherWidget.yuck")
+
 
 ;;
 ; Control Panel

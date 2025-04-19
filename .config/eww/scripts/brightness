@@ -17,13 +17,13 @@ function value() {
 function increase() {
   brightnessctl -s set +5%
   aplay -q "$HOME/.config/hypr/audio/click_1.wav" &
-  sh $HOME/.config/eww/scripts/slider-controller $(icon) $(value) $TEXT
+  sh $HOME/.config/eww/scripts/popup-indicator $(icon) $(value) $TEXT
 }
 
 function decrease() {
   brightnessctl -s set 5%-
   aplay -q "$HOME/.config/hypr/audio/click_2.wav" &
-  sh $HOME/.config/eww/scripts/slider-controller $(icon) $(value) $TEXT
+  sh $HOME/.config/eww/scripts/popup-indicator $(icon) $(value) $TEXT
 }
 
 function format() {

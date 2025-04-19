@@ -1,7 +1,7 @@
 (defvar tempSliderVar "{ \"icon\": \"\", \"value\": 100, \"text\": \"foo\"}")
 
-(defwidget sliderPreview []
-  (box :class "sliderPreview" :visible "${control_center == false}"
+(defwidget popupIndicator []
+  (box :class "popupIndicator" :visible "${control_center == false}"
     (overlay
       (progress
         :value {tempSliderVar.value}

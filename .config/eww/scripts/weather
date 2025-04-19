@@ -28,25 +28,56 @@ icons=(
 
 if [ $? -eq 0 ] && [ ! -z "$response" ]; then
     # Current weather
-    current_temp=$(printf "%.0f" $(echo "$response" | jq '.current.temp'))
+    current_temp=$(echo "$response" | jq '.current.temp')
     current_weather=$(echo "$response" | jq -r '.current.weather[0].main')
+    current_description=$(echo "$response" | jq -r '.current.weather[0].description')
     current_icon=${icons[$current_weather]}
+    current_min=$(echo "$response" | jq '.daily[0].temp.min')
+    current_max=$(echo "$response" | jq '.daily[0].temp.max')
+    current_humidity=$(echo "$response" | jq '.daily[0].humidity')
+    current_summary=$(echo "$response" | jq -r '.daily[0].summary')
 
     # 3 day forecast
     forecast=""
     for i in {1..3}; do
-        temp=$(printf "%.0f" $(echo "$response" | jq ".daily[$i].temp.day"))
+        temp=$(echo "$response" | jq ".daily[$i].temp.day")
         weather=$(echo "$response" | jq -r ".daily[$i].weather[0].main")
+        description=$(echo "$response" | jq -r ".daily[$i].weather[0].description")
         icon=${icons[$weather]}
-        if [ $i -eq 3 ]; then
-            forecast="${forecast}${icon} ${temp}°"
-        else
-            forecast="${forecast}${icon} ${temp}° "
-        fi
+        min=$(echo "$response" | jq ".daily[$i].temp.min")
+        max=$(echo "$response" | jq ".daily[$i].temp.max")
+        humidity=$(echo "$response" | jq ".daily[$i].humidity")
+        summary=$(echo "$response" | jq -r ".daily[$i].summary")
+        
+        forecast="${forecast}{
+            \"icon\": \"${icon}\",
+            \"weather\": \"${weather}\", 
+            \"temperature\": ${temp}, 
+            \"min\": ${min}, 
+            \"max\": ${max}, 
+            \"humidity\": ${humidity}, 
+            \"description\": \"${description}\", 
+            \"summary\": \"${summary}\"
+        },"
     done
+
+    forecast="${forecast%,}"
     
     # Output for EWW bar
-    echo "${current_icon} ${current_temp}° ${current_weather} | ${forecast}"
+    json_output="{
+        \"current\": {
+            \"icon\": \"${current_icon}\",
+            \"weather\": \"${current_weather}\",
+            \"temperature\": ${current_temp},
+            \"min\": ${current_min},
+            \"max\": ${current_max},
+            \"humidity\": ${current_humidity},
+            \"description\": \"${current_description}\",
+            \"summary\": \"${current_summary}\"
+        },
+        \"forecast\": [${forecast}]
+    }"
+    echo $json_output
 else
     echo "Error: Weather data unavailable"
     exit 1

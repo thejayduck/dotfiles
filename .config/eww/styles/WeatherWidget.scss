@@ -1,0 +1,70 @@
+.weatherWidget {
+  border: 2px solid $bg2;
+
+  background: linear-gradient(to bottom, $bg, $bg2);
+  border-radius: $border;
+  padding: 15px;
+  color: $font-color;
+  min-width: 200px;
+  min-height: 200px;
+
+  .header {
+    .description {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+  }
+
+  .currentWeatherWrapper {
+    margin: 15px 0;
+
+    .icon {
+      font-size: 68px;
+      margin-right: 10px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .temperature {
+      font-size: 48px;
+      font-weight: 300;
+    }
+  }
+
+  .detailsWrapper {
+    .details {
+      .min,
+      .max {
+        margin-right: 10px;
+      }
+
+      .label {
+        opacity: 0.8;
+        font-size: 12px;
+      }
+
+      .value {
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .forecast {
+    margin-top: 15px;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    padding-top: 10px;
+
+    .day {
+      margin: 0 5px;
+
+      .icon {
+        font-size: 24px;
+        margin: 5px 0;
+      }
+
+      .temperature {
+        font-weight: bold;
+      }
+    }
+  }
+}

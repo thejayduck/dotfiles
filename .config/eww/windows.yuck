@@ -43,7 +43,7 @@
   (control-center)
 )
 
-(defwindow slider-preview []
+(defwindow popup-indicator []
   :monitor 0
   :stacking "fg"
   :geometry (geometry
@@ -52,5 +52,18 @@
     :x "10px"
     :anchor "top right"
   )
-  (sliderPreview)
+  (popupIndicator)
+)
+
+(defwindow weather-widget []
+  :monitor 0
+  :stacking "bg"
+  :geometry (geometry 
+    :width "200px"
+    :height "200px"
+    :anchor "top left"
+    :x "20px"
+    :y "20px"
+  )
+  (weatherWidget)
 )
