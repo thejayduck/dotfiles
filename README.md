@@ -39,12 +39,20 @@ Pacman:
 
 The weather widget in Eww requires an OpenWeather API key to function. To enable it, place your API key in the file located at: `$HOME/.config/eww/.weather_api.env`
 
-If you prefer not to use this feature, you can disable the widget by editing the `$HOME/.config/eww/yuck/controlCenter.yuck` file. Simply comment out the following line:
+If you prefer not to use this feature, you can disable the widget by editing the `$HOME/.config/eww/yuck/panels/controlCenter.yuck` file.
 
 ```
-(box :class "module" weather) ; Uncommented
+(weatherModule) ; Uncommented
 
-;(box :class "module" weather) ; Commented
+(weatherModule) ; Commented
+```
+
+You also need to disable the imported files `weatherModule.yuck` and `weatherWidget.yuck` found in `$HOME/.config/eww/yuck/widgets.yuck` and comment the following two lines:
+
+```
+(include "./yuck/widgets/weatherModule.yuck")
+
+(include "./yuck/widgets/backgroundWidgets/weatherWidget.yuck")
 ```
 
 ## Hyprland
@@ -101,8 +109,15 @@ If you prefer not to use this feature, you can disable the widget by editing the
 
 ## Screenshots
 
-![Hyprland Screenshot](https://i.imgur.com/pJFjyBa.png)
-![EWW Control Panel](https://i.imgur.com/aF4BK8m.png)
+![Hyprland Screenshot](https://i.imgur.com/LKaZDUJ.png)
+![EWW Control Panel](https://i.imgur.com/gY0FUeK.png)
 ![Dunst Screenshot](https://i.imgur.com/hUnNI5U.png)
 ![Activity Indicators](https://i.imgur.com/k2ooLOU.png)
-![Popup Indicators](https://i.imgur.com/zZWIxCX.png)
+
+### Popup Indicators
+
+![Volume Popup On](https://i.imgur.com/sDa2OTM.png)
+![Volume Popup Muted](https://i.imgur.com/EAR6Bzc.png)
+![Microphone Popup On](https://i.imgur.com/hVyAMDM.png)
+![Microphone Popup Muted](https://i.imgur.com/v5PajzD.png)
+![Brightness Popup](https://i.imgur.com/L9LBFbR.png)
