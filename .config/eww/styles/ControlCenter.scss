@@ -39,6 +39,21 @@
     border-radius: $border;
     padding: $spacing $spacing-medium;
 
+    scale {
+      margin: $spacing $spacing-small 0 $spacing-small;
+
+      trough {
+        background-color: $bg2;
+        border-radius: $border;
+        min-height: 8px;
+
+        highlight {
+          background: $purple-gradient;
+          border-radius: $border;
+        }
+      }
+    }
+
     label {
       margin: 0 $spacing-small;
     }

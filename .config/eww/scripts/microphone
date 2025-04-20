@@ -1,15 +1,45 @@
 #!/usr/bin/env bash
 
-mic_state=$(amixer get Capture | grep -o '\[on\]' | head -n 1)
+TEXT="Microphone"
 
-if [ "$mic_state" == "[on]" ]; then
-  if [ "$1" == "true" ]; then
-    amixer set Capture nocap
+function icon() {
+  if [ $(state) == true ]; then
+    echo "󰍬" 
+  else
+    echo "󰍭"
   fi
-  echo true
-else
-  if [ "$1" == "true" ]; then
-    amixer set Capture cap
+}
+
+
+function state() {
+  mic_state=$(amixer get Capture | grep -o '\[on\]' | head -n 1)
+  if [ "$mic_state" == "[on]" ]; then
+    echo true
+  else
+    echo false
   fi
-  echo false
-fi
+}
+
+function toggle() {
+  if [ $(state) == true ]; then
+    amixer set Capture nocap -q
+    sh $HOME/.config/eww/scripts/popup-indicator $(icon) 0 $TEXT
+  else
+    amixer set Capture cap -q
+    sh $HOME/.config/eww/scripts/popup-indicator $(icon) 100 $TEXT
+  fi
+}
+
+function format() {
+  output="{\"text\": \"$TEXT\", \"state\": $(state), \"icon\": \"$(icon)\" }"
+  echo $output
+}
+
+case "$1" in
+  --toggle)
+    toggle
+    ;;
+  *)
+    format
+    ;;
+esac

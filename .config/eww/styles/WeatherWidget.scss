@@ -3,10 +3,10 @@
 
   background: linear-gradient(to bottom, $bg, $bg2);
   border-radius: $border;
-  padding: 15px;
+  padding: $spacing-medium;
   color: $font-color;
-  min-width: 200px;
-  min-height: 200px;
+  // min-width: 200px;
+  // min-height: 200px;
 
   .header {
     .description {
@@ -16,17 +16,17 @@
   }
 
   .currentWeatherWrapper {
-    margin: 15px 0;
+    // margin: 15px 0;
 
     .icon {
-      font-size: 68px;
-      margin-right: 10px;
+      font-size: 32px;
+      margin-right: 20px;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
 
     .temperature {
-      font-size: 48px;
-      font-weight: 300;
+      font-size: 32px;
+      font-weight: bold;
     }
   }
 
@@ -50,9 +50,9 @@
   }
 
   .forecast {
-    margin-top: 15px;
+    margin-top: $spacing-medium;
     border-top: 2px solid rgba(255, 255, 255, 0.3);
-    padding-top: 10px;
+    padding-top: $spacing-small;
 
     .day {
       margin: 0 5px;

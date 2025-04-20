@@ -9,8 +9,16 @@ artUrl=$(playerctl metadata mpris:artUrl)
 if [[ "$status" == "Playing" || "$status" == "Paused" ]]; then
   position=$(playerctl position 2>/dev/null)
   duration=$(playerctl metadata mpris:length 2>/dev/null)
-  progress=$(( (${position%.*} * 100) / (${duration} / 1000000) ))
-  echo "{\"state\": \"on\", \"isPlaying\": \"${status}\", \"title\": \"${title}\", \"artist\": \"${artist}\", \"artUrl\": \"${artUrl}\", \"progress\": \"${progress}\"}"
+  # progress=$(( (${position%.*} * 100) / (${duration} / 1000000) ))
+  echo "{
+    \"state\": \"on\", 
+    \"isPlaying\": \"${status}\", 
+    \"title\": \"${title}\", 
+    \"artist\": \"${artist}\", 
+    \"artUrl\": \"${artUrl}\", 
+    \"position\": ${position},
+    \"duration\": ${duration}
+  }"
 else
   echo "{\"state\": \"off\"}"
 fi

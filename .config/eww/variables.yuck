@@ -46,7 +46,7 @@
 (defpoll mic 
   :interval "1s"
   :run-while control_center
-  "bash ~/.config/eww/scripts/microphone false"
+  "bash ~/.config/eww/scripts/microphone"
 )
 
 (defpoll wifi_strength 

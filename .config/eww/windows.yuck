@@ -55,6 +55,8 @@
   (popupIndicator)
 )
 
+;; Background Widgets
+
 (defwindow weather-widget []
   :monitor 0
   :stacking "bg"

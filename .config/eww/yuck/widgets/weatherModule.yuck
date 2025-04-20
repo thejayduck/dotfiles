@@ -13,7 +13,7 @@
     :class "weatherWrapper" 
     :tooltip "${data.description} | ${round(data.min, 0)}° - ${round(data.max, 0)}°"
     :width 60 :height 24 
-    (label :text "${data.icon} ${current ? data.temperature : round(data.temperature, 0)}°")
+    (label :text "${data.icon} ${round(data.temperature, 0)}°")
   )
 )
 

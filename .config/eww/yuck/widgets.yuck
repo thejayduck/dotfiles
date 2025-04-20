@@ -31,10 +31,12 @@
       (button :tooltip "Previous Media" :class "media hover light" :onclick "playerctl previous" (label :text "󰒮"))
       (button :tooltip "Next Media" :class "media hover light" :onclick "playerctl next" (label :text "󰒭"))
     )
-    (progress 
-      :orientation "h"
-      :hexpand true
-      :value "${media.progress}"
+    (scale 
+        :min 0
+        :max {media.duration / 1000000}
+        :value {media.position}
+        :hexpand true
+        :onchange "playerctl position {}"
     )
   )
 )

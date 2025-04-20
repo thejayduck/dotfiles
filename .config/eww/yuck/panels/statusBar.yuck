@@ -10,12 +10,12 @@
     (screenshareActivityDot)
     (vpnActivityDot)
     (label :class "time" :text time :tooltip day)
-    (button ;; Control Center Toggle
-      :class "hover solid button"
-      :tooltip "Toggle Background Widgets"
-      :onclick "${EWW_CMD} update background_widgets=${!background_widgets}" 
-      (label :text "${background_widgets ? "󰜬" : "󱍕"}")
-    )
+    ; (button ;; Control Center Toggle
+    ;   :class "hover solid button"
+    ;   :tooltip "Toggle Background Widgets"
+    ;   :onclick "${EWW_CMD} update background_widgets=${!background_widgets}" 
+    ;   (label :text "${background_widgets ? "󰜬" : "󱍕"}")
+    ; )
     (button ;; Control Center Toggle
       :class "controlCenterToggle hover solid button ${control_center ? "active" : ""}"
       :tooltip "Toggle Control Center (Super + C)"

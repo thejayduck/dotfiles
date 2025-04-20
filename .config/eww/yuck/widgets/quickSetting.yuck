@@ -51,10 +51,10 @@
 
 (defwidget microphone []
   (quickSetting 
-    :icon "${mic ? '󰍬' : '󰍭'}"
-    :onClick "bash ~/.config/eww/scripts/microphone true" 
+    :icon {mic.icon}
+    :onClick "bash ~/.config/eww/scripts/microphone --toggle" 
     :tooltip "Toggle Microphone"
-    :active mic
+    :active {mic.state}
   )
 )
 

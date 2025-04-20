@@ -10,7 +10,7 @@
     )
     
     ;; Current Weather
-    (box :class "currentWeatherWrapper" :tooltip {weather_data.current.summary}
+    (box :class "currentWeatherWrapper" :tooltip {weather_data.current.summary} :space-evenly false :halign "center"
       (label :class "icon" :text {weather_data.current.icon})
       (label :class "temperature" :text "${round(weather_data.current.temperature, 0)}°")
     )
