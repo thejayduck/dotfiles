@@ -4,9 +4,9 @@ screenshare=$(pw-dump | jq '.[] | select(.info.props."port.alias" == "xdg-deskto
 vpn=$(nmcli -t -f TYPE,DEVICE connection show --active | grep '^vpn:' | wc -l)
 
 if [[ -n "$screenshare" ]]; then
-    screenshare_active="true"
+    screenshare_active=true
 else
-    screenshare_active="false"
+    screenshare_active=false
 fi
 
 echo "{\"vpn\": ${vpn}, \"screenshare\": ${screenshare_active}}"

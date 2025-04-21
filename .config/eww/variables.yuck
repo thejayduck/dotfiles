@@ -57,13 +57,6 @@
     | awk -F':' '{if($2=="yes")print$1}'`
 )
 
-; (defpoll weather 
-;   :interval "120s"
-;   :initial "N/A"
-;   :run-while control_center
-;   "sh ~/.config/eww/scripts/weather"
-; )
-
 (defpoll media 
   :interval "1s"
   :initial "{}"

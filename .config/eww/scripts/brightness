@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 TEXT="Brightness"
+STEP=5
 
 function icon {
     if [[ $(value) -ge 70 ]]; then echo '󰃠'
@@ -15,13 +16,13 @@ function value() {
 }
 
 function increase() {
-  brightnessctl -s set +5%
+  brightnessctl -s set +$STEP%
   aplay -q "$HOME/.config/hypr/audio/click_1.wav" &
   sh $HOME/.config/eww/scripts/popup-indicator $(icon) $(value) $TEXT
 }
 
 function decrease() {
-  brightnessctl -s set 5%-
+  brightnessctl -s set $STEP%-
   aplay -q "$HOME/.config/hypr/audio/click_2.wav" &
   sh $HOME/.config/eww/scripts/popup-indicator $(icon) $(value) $TEXT
 }

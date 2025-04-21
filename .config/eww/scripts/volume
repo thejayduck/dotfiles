@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 TEXT="Volume"
+STEP=5
 
 function icon {
     if [[ $(value) -ge 70 ]]; then echo '󰕾'
@@ -15,13 +16,13 @@ function value() {
 }
 
 function increase() {
-  amixer sset Master 5%+
+  amixer sset Master $STEP%+
   aplay -q "$HOME/.config/hypr/audio/click_1.wav" &
   sh $HOME/.config/eww/scripts/popup-indicator $(icon) $(value) $TEXT
 }
 
 function decrease() {
-  amixer sset Master 5%-
+  amixer sset Master $STEP%-
   aplay -q "$HOME/.config/hypr/audio/click_2.wav" &
   sh $HOME/.config/eww/scripts/popup-indicator $(icon) $(value) $TEXT
 }
@@ -33,7 +34,7 @@ function toggle() {
   if [ "$state" == "[on]" ]; then
     sh $HOME/.config/eww/scripts/popup-indicator $(icon) $(value) $TEXT
   else 
-    sh $HOME/.config/eww/scripts/popup-indicator '󰝟' 0 "MUTED"
+    sh $HOME/.config/eww/scripts/popup-indicator '󰝟' 0 "$TEXT - MUTED"
   fi
 }
 

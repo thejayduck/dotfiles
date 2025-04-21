@@ -23,7 +23,7 @@ function state() {
 function toggle() {
   if [ $(state) == true ]; then
     amixer set Capture nocap -q
-    sh $HOME/.config/eww/scripts/popup-indicator $(icon) 0 $TEXT
+    sh $HOME/.config/eww/scripts/popup-indicator $(icon) 0 "$TEXT - MUTED"
   else
     amixer set Capture cap -q
     sh $HOME/.config/eww/scripts/popup-indicator $(icon) 100 $TEXT
