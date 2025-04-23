@@ -43,3 +43,4 @@ wl-screenrec
 pcmanfm-qt
 qimgv-light
 macchina
+mpv-mpris
