@@ -2,6 +2,7 @@
 (defvar control_center false)
 (defvar screen_record false)
 (defvar background_widgets true)
+(defvar media_index 0)
 
 ;;; Polls
 
@@ -11,7 +12,7 @@
 )
 
 (defpoll day
-  :interval "1000s"
+  :interval "10m"
   "date '+%A'"
 )
 
@@ -24,33 +25,33 @@
 ;; Control Center Polls
 
 (defpoll volume 
-  :interval "0s"
+  :interval "1s"
   :initial "{}"
   :run-while control_center
   "bash ~/.config/eww/scripts/volume"
 )
 
 (defpoll brightness 
-  :interval "0s"
+  :interval "1s"
   :initial "{}"
   :run-while control_center
   "bash ~/.config/eww/scripts/brightness"
 )
 
 (defpoll interface_status
-  :interval "1s"
+  :interval "3s"
   :run-while control_center
   "rfkill -J"
 )
 
 (defpoll mic 
-  :interval "1s"
+  :interval "3s"
   :run-while control_center
   "bash ~/.config/eww/scripts/microphone"
 )
 
 (defpoll wifi_strength 
-  :interval "60s"
+  :interval "1m"
   :initial "N/A"
   :run-while control_center
   `nmcli -t -f SIGNAL,ACTIVE device wifi \
@@ -61,11 +62,11 @@
   :interval "1s"
   :initial "{}"
   :run-while control_center
-  "sh ~/.config/eww/scripts/media"
+  "sh ~/.config/eww/scripts/media --eww"
 )
 
 (defpoll screen_filter
-  :interval "1s"
+  :interval "3s"
   :initial "{}"
   :run-while control_center
   "sh ~/.config/eww/scripts/screen-filter status"

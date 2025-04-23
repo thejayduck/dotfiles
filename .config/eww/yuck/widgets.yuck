@@ -11,7 +11,6 @@
 ;; Background Widgets
 (include "./yuck/widgets/backgroundWidgets/weatherWidget.yuck")
 
-
 ;;
 ; Control Panel
 ;;
@@ -19,24 +18,64 @@
 (defwidget mediaController []
   (box 
     :class "mediaLayout" 
-    :style "background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('${media.artUrl}');" 
+    :style {
+      media.artUrl != "" ? 
+      "background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('${media.artUrl}');" 
+      : "background: $bg;"
+    }
     :orientation "v" 
     :space-evenly false
     
-    (label :text {media.title} :class "title" :truncate true :tooltip "${media.title} - ${media.artist}")
+    (box :space-evenly false :spacing 8 :class "titleWrapper"
+      (label :text {media.icon} :class "icon ${media.player}")
+      (label 
+        :text {media.title} 
+        :class "title" 
+        :truncate true 
+        :tooltip "${media.title} - ${media.artist}"
+      ) 
+    )
     (box
       :space-evenly false
       :class "mediaButtons"
-      (button :hexpand true :class "hover light" :onclick "playerctl play-pause" (label :text {media.isPlaying == "Playing" ? '󰏤 Pause' : '󰐊 Play'}))
-      (button :tooltip "Previous Media" :class "media hover light" :onclick "playerctl previous" (label :text "󰒮"))
-      (button :tooltip "Next Media" :class "media hover light" :onclick "playerctl next" (label :text "󰒭"))
+      (button 
+        :hexpand true 
+        :class "hover light" 
+        :onclick "sh ~/.config/eww/scripts/media --play-pause" 
+        (label 
+          :text {media.isPlaying == "Playing" ? '󰏤 Pause' : '󰐊 Play'}
+        )
+      )
+      (button 
+        :tooltip "Previous Media" 
+        :class "media hover light" 
+        :onclick "sh ~/.config/eww/scripts/media --previous-track" 
+        (label :text "󰒮")
+      )
+      (button 
+        :tooltip "Next Media" 
+        :class "media hover light" 
+        :onclick "sh ~/.config/eww/scripts/media --next-track" 
+        (label :text "󰒭")
+      )
+      (button 
+        :active {media.playerCount > 1}
+        :tooltip {media.playerCount > 1 ? "Switch to Next Active Player" : "No Other Media"}
+        :class "media hover light ${media.playerCount > 1 ? "" : "disabled"}" 
+        :onclick "sh ~/.config/eww/scripts/media --cycle" 
+        (label :text "󰑐")
+      )
     )
-    (scale 
-        :min 0
-        :max {media.duration / 1000000}
-        :value {media.position}
-        :hexpand true
-        :onchange "playerctl position {}"
+    (progress
+      :value {round((media.position / (media.duration / 1000000)) * 100, 0)}
+      :orientation "h" 
     )
+    ; (scale ;;! Disabled due to progress reset on refresh and control center toggle
+    ;     :min 0
+    ;     :max {media.duration / 1000000}
+    ;     :value {media.position}
+    ;     :hexpand true
+    ;     :onchange "sh ~/.config/eww/scripts/media --position {}"
+    ; )
   )
 )

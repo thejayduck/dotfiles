@@ -1,24 +1,125 @@
 #!/usr/bin/env bash
 
-output=$(playerctl metadata --format "{{ title }} - {{ artist }}")
-status=$(playerctl status)
-title=$(playerctl metadata title)
-artist=$(playerctl metadata artist)
-artUrl=$(playerctl metadata mpris:artUrl)
+declare -A icons=(
+  ["firefox"]='󰈹'
+  ["spotify"]=""
+  ["mpv"]=""
+  ["vlc"]="󰕼"
+)
 
-if [[ "$status" == "Playing" || "$status" == "Paused" ]]; then
-  position=$(playerctl position 2>/dev/null)
-  duration=$(playerctl metadata mpris:length 2>/dev/null)
-  # progress=$(( (${position%.*} * 100) / (${duration} / 1000000) ))
-  echo "{
-    \"state\": \"on\", 
-    \"isPlaying\": \"${status}\", 
-    \"title\": \"${title}\", 
-    \"artist\": \"${artist}\", 
-    \"artUrl\": \"${artUrl}\", 
-    \"position\": ${position},
-    \"duration\": ${duration}
-  }"
-else
-  echo "{\"state\": \"off\"}"
-fi
+player_count=$(playerctl -l | wc -l)
+
+# Expected arguments $1 Player (e.g vlc, firefox, mpv...)
+function get_media_info() {
+  local player=$1;
+  
+  metadata=$(playerctl -p $player metadata --format \
+  '{"status":"{{status}}","title":"{{title}}","artist":"{{artist}}","artUrl":"{{mpris:artUrl}}","player":"{{playerName}}"}' 2>/dev/null)
+
+  if [[ $? -eq 0 && -n "$metadata" ]]; then
+    # Metadata Parsing
+    status=$(echo "$metadata" | jq -r '.status')
+    title=$(echo "$metadata" | jq -r '.title')
+    artist=$(echo "$metadata" | jq -r '.artist')
+    artUrl=$(echo "$metadata" | jq -r '.artUrl')
+    player=$(echo "$metadata" | jq -r '.player')
+    
+    if [[ "$status" == "Playing" || "$status" == "Paused" ]]; then
+      position=$(playerctl -p $player position 2>/dev/null || echo "0")
+      duration=$(playerctl -p $player metadata mpris:length 2>/dev/null || echo "0")
+      
+      player_icon=${icons[$player]:-""}
+      
+      echo "{
+        \"state\": \"on\",
+        \"playerCount\": ${player_count}, 
+        \"isPlaying\": \"${status}\",
+        \"title\": \"${title:-"${player^^} Media"}\",
+        \"artist\": \"${artist:-"No Artist"}\",
+        \"artUrl\": \"${artUrl}\",
+        \"player\": \"${player}\",
+        \"icon\": \"${player_icon}\",
+        \"position\": ${position},
+        \"duration\": ${duration}
+      }"
+    else
+      echo "{\"state\": \"off\", \"playerCount\": ${player_count}}"
+    fi
+  else
+    echo "{\"state\": \"off\"}"
+  fi
+}
+
+# EWW Functions
+
+function get_media_by_index() {
+  local index=$1
+  local players=($(playerctl -l))
+  
+  # To avoid error when a player is closed
+  local current_index=$(eww get media_index)
+
+  # Reset index if eww index variable is greater than amount of media players.
+  if [[ $current_index -gt $(($player_count - 1)) ]]; then
+    eww update media_index=0
+  fi
+
+  if [[ $index -ge 0 && $index -lt ${#players[@]} ]]; then
+    local player=${players[$index]}
+    get_media_info "$player"
+  else
+    echo "{\"state\": \"off\"}"
+  fi
+}
+
+function get_current_player() {
+  local index=$(eww get media_index)
+  local players=($(playerctl -l))
+
+  if [[ $index -ge 0 && $index -lt ${#players[@]} ]]; then
+    echo "${players[$index]}"
+  else
+    echo ""
+  fi
+}
+
+function cycle_index() {
+  current=$(eww get media_index)
+
+  # if [ "$player_count" -eq 0 ]; then
+  #   eww update media_index=0
+  #   exit 0
+  # fi
+
+  next=$(( (current + 1) % player_count ))
+  eww update media_index=$next
+}
+
+case "$1" in
+  --eww)
+    index=$(eww get media_index)
+    get_media_by_index $index
+    ;;
+  --cycle)
+    cycle_index
+    ;;
+  --play-pause)
+    player=$(get_current_player)
+    [[ -n "$player" ]] && playerctl -p "$player" play-pause
+    ;;
+  --position)
+    player=$(get_current_player)
+    [[ -n "$player" ]] && playerctl -p "$player" position $2
+    ;;
+  --next-track)
+    player=$(get_current_player)
+    [[ -n "$player" ]] && playerctl -p "$player" next
+    ;;
+  --previous-track)
+    player=$(get_current_player)
+    [[ -n "$player" ]] && playerctl -p "$player" previous
+    ;;
+  *)
+    get_media_info "$1"
+    ;;
+esac

@@ -37,7 +37,7 @@
 
   .mediaLayout {
     border-radius: $border;
-    padding: $spacing $spacing-medium;
+    padding: $spacing-medium;
 
     scale {
       margin: $spacing $spacing-small 0 $spacing-small;
@@ -54,6 +54,27 @@
       }
     }
 
+    .titleWrapper {
+      .icon {
+        &.firefox {
+          color: #ffbd4f;
+          text-shadow: 0 0 10px #ffbd4f;
+        }
+        &.spotify {
+          color: #1db954;
+          text-shadow: 0 0 10px #1db954;
+        }
+        &.vlc {
+          color: #e85e00;
+          text-shadow: 0 0 10px #e85e00;
+        }
+        &.mpv {
+          color: #6d246d;
+          text-shadow: 0 0 10px #6d246d;
+        }
+      }
+    }
+
     label {
       margin: 0 $spacing-small;
     }
@@ -66,6 +87,9 @@
         &.media {
           min-width: 24px;
           min-height: 24px;
+        }
+        &.disabled {
+          opacity: 0.5;
         }
       }
     }
