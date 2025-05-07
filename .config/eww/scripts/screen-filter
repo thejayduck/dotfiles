@@ -15,7 +15,7 @@ function toggle {
     pkill -9 wlsunset
   else
     eww update night_filter="{\"state\": true}"
-    wlsunset -t 2000 -S 7:00 -s 17:00
+    wlsunset -t 2000 -S 7:00 -s 20:00
   fi
 }
 

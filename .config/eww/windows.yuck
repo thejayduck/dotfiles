@@ -69,3 +69,18 @@
   )
   (weatherWidget)
 )
+
+;; Power Menu
+
+(defwindow power-menu []
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry 
+    :width "400px"
+    :height "120px"
+    :anchor "center center"
+    :x "50%"
+    :y "50%"
+  )
+  (powerMenu)
+)

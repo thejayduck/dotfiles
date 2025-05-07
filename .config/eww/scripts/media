@@ -9,6 +9,7 @@ declare -A icons=(
 
 player_count=$(playerctl -l | wc -l)
 
+
 # Expected arguments $1 Player (e.g vlc, firefox, mpv...)
 function get_media_info() {
   local player=$1;

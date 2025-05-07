@@ -75,3 +75,13 @@
     :active true
   )
 )
+
+(defwidget idleStatus []
+  (quickSetting
+    :icon "󰞌"
+    :onClick "notify-send Test"
+    :tooltip "Toggle Hypridle"
+    :active true
+  )
+
+)

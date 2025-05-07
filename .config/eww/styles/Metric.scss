@@ -15,14 +15,20 @@
   }
 
   scale {
+    &:hover highlight {
+      background: $purple-gradient;
+    }
+
     trough {
-      background-color: $bg2;
+      background-color: $bg-h;
       border-radius: $border;
       min-height: 24px;
       // margin-left: $spacing-large;
       highlight {
-        background: $purple-gradient;
         border-radius: $border;
+        background-color: $bg2;
+
+        transition: all 255ms;
       }
     }
   }

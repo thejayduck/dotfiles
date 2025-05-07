@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+function toggle {
+  if pgrep -x "hypridle" > /dev/null; then
+    killall hypridle
+  else 
+    hypridle
+  fi
+}
+
+function output {
+  local state
+
+  if pgrep -x "hypridle" > /dev/null; then
+    state="true"
+  else 
+    state="false"
+  fi
+
+  echo "{\"state\": $state}"
+}
+
+if [[ $1 == 'toggle' ]]; then toggle; fi
+if [[ $1 == 'output' ]]; then output; fi

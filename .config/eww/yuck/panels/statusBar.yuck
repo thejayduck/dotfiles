@@ -19,7 +19,8 @@
     (button ;; Control Center Toggle
       :class "controlCenterToggle hover solid button ${control_center ? "active" : ""}"
       :tooltip "Toggle Control Center (Super + C)"
-      :onclick "bash ~/.config/eww/scripts/toggle-manager control_center control-center" 
+      ; :onclick "eww open control-center --toggle" 
+      :onclick "sh ~/.config/eww/scripts/toggle-manager control_center control-center" 
       (label :text "${control_center ? "󰔡" : "󰔢"}")
     )
     

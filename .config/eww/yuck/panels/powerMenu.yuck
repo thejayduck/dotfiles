@@ -1,0 +1,39 @@
+(defwidget powerMenu []
+  (eventbox :onhoverlost "${EWW_CMD} open power-menu --toggle"
+    (box :class "powerMenuWrapper" :orientation "v" :space-evenly false
+      (label :class "title" :text "Power Menu")
+      (box :spacing 8 :vexpand true
+        (button :class "button hover light lock" :width 20 :height 20 
+          :tooltip "Lockscreen"
+          :onclick "~/.config/eww/scripts/power-buttons lock"
+          :timeout "60s"
+          (label :text "󰌾")
+        )
+        (button :class "button hover light shutdown" :width 20 :height 20 
+          :tooltip "Shutdown"
+          :onclick "~/.config/eww/scripts/power-buttons shutdown"
+          :timeout "60s"
+          (label :text "󰐥" :class "center")
+        )
+        (button :class "button hover light restart" :width 20 :height 20 
+          :tooltip "Restart"
+          :onclick "~/.config/eww/scripts/power-buttons restart"
+          :timeout "60s"
+          (label :text "󰜉" :class "center")
+        )
+        (button :class "button hover light suspend" :width 20 :height 20 
+          :tooltip "Suspend"
+          :onclick "~/.config/eww/scripts/power-buttons suspend"
+          :timeout "60s"
+          (label :text "󰤄" :class "center")
+        )
+        (button :class "button hover light hibernate" :width 20 :height 20
+          :tooltip "Hibernate"
+          :onclick "~/.config/eww/scripts/power-buttons hibernate"
+          :timeout "60s"
+          (label :text "󰒲")
+        )
+      )
+    )
+  )
+)

@@ -1,7 +1,10 @@
-(defwidget applet [icon ?tooltip ?text]
-  (box :orientation "h" :space-evenly false :spacing 5 :class "applet" :tooltip tooltip
+(defwidget applet [icon ?tooltip ?text ?onClick]
+  (button
+    :onclick onClick
+    (box :orientation "h" :space-evenly false :spacing 5 :class "applet" :tooltip tooltip
       (label :text icon :class "icon")
       (label :text "${text}" :class "text")
+    )
   )
 )
 
@@ -30,10 +33,18 @@
   )
 )
 
-(defwidget storage []
+(defwidget storageApplet []
   (applet
     :icon "󰋊"
     :tooltip "Free: ${round(EWW_DISK["/home"].free / (1024 * 1024 * 1024), 0)} GiB (Total: ${round(EWW_DISK["/home"].total / (1024 * 1024 * 1024), 0)} GiB)"
     :text "${round(EWW_DISK["/home"].used_perc, 0)}%"
+  )
+)
+
+(defwidget powerApplet []
+  (applet
+    :icon ""
+    :onClick "${EWW_CMD} open power-menu --toggle"
+    :tooltip "Power Menu"
   )
 )

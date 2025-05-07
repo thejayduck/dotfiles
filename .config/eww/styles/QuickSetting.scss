@@ -1,6 +1,7 @@
 .quickSettingWrap {
   background-color: $bg2;
   border-radius: $border;
+  // background: $purple-gradient;
 
   &:hover {
     background-color: $accent;
@@ -8,12 +9,18 @@
   }
 
   &.disabled {
+    background: $bg2;
     opacity: 0.5;
+
+    &:hover {
+      background-color: $accent;
+      color: $font-color;
+    }
   }
 
   .icon {
     font-size: $font-normal;
   }
 
-  transition: background-color, color 0.3s;
+  transition: all 0.3s;
 }

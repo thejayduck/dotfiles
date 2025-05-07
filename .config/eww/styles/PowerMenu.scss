@@ -1,0 +1,19 @@
+.powerMenuWrapper {
+  border: 2px solid $bg2;
+  border-radius: $border;
+  padding: $spacing-large;
+  background-color: $bg;
+
+  .title {
+    color: $font-color;
+    padding-bottom: $spacing-medium;
+  }
+
+  .button {
+    border-radius: $border;
+
+    label {
+      font-size: $font-large;
+    }
+  }
+}

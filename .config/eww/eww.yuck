@@ -6,3 +6,4 @@
 (include "yuck/panels/statusBar.yuck")
 (include "yuck/panels/controlCenter.yuck")
 (include "yuck/panels/popupIndicator.yuck")
+(include "./yuck/panels/powerMenu.yuck")
