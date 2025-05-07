@@ -6,7 +6,7 @@
 
 * {
     background-color: #282828;
-    border-color: White;
+    border-color: white;
     text-color: #ebdbb2;
     font: "JetBrainsMono Nerd Font 12";
     highlight: bold italic;
@@ -44,13 +44,13 @@ element {
 }
 
 element selected {
-    background-color: var(accent);
+    background-image: linear-gradient(0, #826aaf, #bca4e8);
     text-color: #282828;
     border-radius: 2px;
 }
 
 element-text, element-icon {
-    background-color: inherit;
+    background-image: inherit;
     text-color: inherit;
 }
 

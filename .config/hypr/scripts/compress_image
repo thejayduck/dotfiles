@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 filename="${1%.*}"
-ffmpeg -i "$1" -vf scale=iw/2:ih/2 -frames:v 1 -q:v 2 "${filename}-compressed.jpg"
+ffmpeg -i "$1" -vf scale=iw/2:ih/2 -frames:v 1 -q:v 2 "${filename}-compressed.png"
